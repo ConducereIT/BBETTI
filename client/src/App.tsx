@@ -5,6 +5,15 @@ import "./App.css";
 
 // Views
 import Home from "./views/Home.view";
+import Concurenti from "./views/ Concurenti.view";
+import Contact from "./views/Contact.view";
+import Login from "./views/Login.view";
+import Register from "./views/Register.view";
+import Otp from "./views/Otp.view";
+
+//Console
+import Admin from "./views/Console/Admin.view";
+import Developer from "./views/Console/Developer.view";
 
 // Import
 import {
@@ -21,13 +30,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
 
-          <Route path="/concurenti" element={<Home />} />
-          <Route path="/contact" element={<Home />} />
-          <Route path="/login" element={<Home />} />
-          <Route path="/register" element={<Home />} />
-          <Route path="/otp" element={<Home />} />
-          <Route path="/admin-console" element={<Home />} />
-          <Route path="/developer-console" element={<Home />} />
+          <Route path="/concurenti" element={<Concurenti />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/otp" element={<Otp />} />
+          <Route path="/admin-console" element={<Admin />} />
+          <Route path="/developer-console" element={<Developer />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
