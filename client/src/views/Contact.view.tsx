@@ -2,10 +2,12 @@ import React from "react";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { ReactNebula } from "@flodlc/nebula";
+import Header from "./components/General/Header";
 
 const Contact = () => {
   return (
     <>
+      <Header />
       <Parallax
         pages={3}
         style={{

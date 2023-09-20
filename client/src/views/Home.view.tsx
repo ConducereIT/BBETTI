@@ -2,12 +2,14 @@ import React, { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import { ReactNebula } from "@flodlc/nebula";
 import Carousel from "./components/General/Carousel.component";
+import Header from "./components/General/Header";
 
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
 
   return (
     <>
+      <Header />
       <Parallax
         ref={parallax}
         pages={2}
