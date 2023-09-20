@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <>
       <div className=" fixed top-0 z-10 rounded-div flex items-center justify-between h-20 font-bold w-full bg-black text-white md:px-8">
-        <h1 className="text-2xl uppercase pl-2">Balul Bobocilor</h1>
+        <h1 className="text-2xl uppercase pl-2 select-none">Balul Bobocilor</h1>
         <div className=" hidden md:block">
           <a
             href="/concurenti"
