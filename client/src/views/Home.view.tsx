@@ -25,22 +25,7 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full object-cover object-left scale-x-[1] mx-auto">
-              <ReactNebula
-                config={{
-                  starsCount: 1000,
-                  starsColor: "#FFFFFF",
-                  starsRotationSpeed: 5,
-                  cometFrequence: 100,
-                  nebulasIntensity: 0,
-                  bgColor: "rgb(8,8,8)",
-                  sunScale: 0,
-                  planetsScale: 0,
-                  solarSystemOrbite: 70,
-                  solarSystemSpeedOrbit: 100,
-                }}
-              />
-            </div>
+            <div className="w-full h-full object-cover object-left scale-x-[1] mx-auto"></div>
             <div className="w-full h-screen absolute top-0 left-0">
               <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
                 <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
