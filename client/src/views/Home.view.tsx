@@ -1,13 +1,14 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
-import { ReactNebula } from "@flodlc/nebula";
 import Header from "./components/General/Header";
-import Elvis from "../assets/img/elvis.jpg";
-import Beatles from "../assets/img/beatles.jpg";
+import Elvis from "../assets/img/elvis.webp";
 import Carousel from "./components/General/Carousel.component";
-import Jackson from "../assets/img/jackson.jpg";
-import Abba from "../assets/img/abba.jpg";
-import Nirvana from "../assets/img/nirvana.jpg";
+import Jackson from "../assets/img/jackson.webp";
+import Abba from "../assets/img/abba.webp";
+import Nirvana from "../assets/img/nirvana.webp";
+import Ray from "../assets/img/ray.webp";
+import Sinatra from "../assets/img/Sinatra.webp";
+import Beatles from "../assets/img/beatles.webp";
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
 
@@ -21,7 +22,7 @@ const Home = () => {
             factor={8}
             speed={0}
             style={{
-              backgroundImage: `url(${Elvis})`,
+              backgroundColor: "#000000",
               backgroundSize: "cover",
             }}
           >
@@ -43,121 +44,172 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full bg-black/50">
-              <div className="w-full h-screen absolute top-0 left-0">
-                <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                  <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
-                    Componenta
-                  </h1>
-                </div>
-              </div>
-            </div>
+            <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={1.2}
+            offset={1.4}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
             <div className="flex justify-end">
               <img
-                alt="cloud"
-                src="https://freepngimg.com/thumb/cloud/7-cloud-png-image.png"
+                alt="ray charles"
+                src={Ray}
                 style={{ width: "20%", marginRight: "5%" }}
               />
             </div>
+            <div className=" flex justify-start">
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+              />
+            </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={1.99} factor={1} speed={1}>
-            <Carousel />
+          <ParallaxLayer offset={1.5} factor={1} speed={1}>
+            <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
 
           <ParallaxLayer
             offset={2}
-            factor={1}
-            speed={2}
+            factor={0.25}
+            speed={1}
             style={{
               backgroundImage: `url(${Beatles})`,
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full bg-black/50">
-              <div className="w-full h-screen absolute top-0 left-0">
-                <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                  <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
-                    Componenta
-                  </h1>
-                </div>
-              </div>
+            <div className="w-full h-full bg-black/50"></div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={2.4}
+            speed={2}
+            style={{ opacity: 0.6 }}
+            factor={0.5}
+          >
+            <div className="flex justify-end">
+              <img
+                alt="ray charles"
+                src={Ray}
+                style={{ width: "20%", marginRight: "5%" }}
+              />
+            </div>
+            <div className=" flex justify-start">
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+              />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.99} factor={1} speed={1}>
-            <Carousel />
+          <ParallaxLayer offset={2.5} factor={1} speed={1}>
+            <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={3}
-            factor={1}
-            speed={2}
+            factor={0.25}
+            speed={1}
             style={{
               backgroundImage: `url(${Abba})`,
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full bg-black/50">
-              <div className="w-full h-screen absolute top-0 left-0">
-                <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                  <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
-                    Componenta
-                  </h1>
-                </div>
-              </div>
+            <div className="w-full h-full bg-black/50"></div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={3.4}
+            speed={2}
+            style={{ opacity: 0.6 }}
+            factor={0.5}
+          >
+            <div className="flex justify-end">
+              <img
+                alt="ray charles"
+                src={Ray}
+                style={{ width: "20%", marginRight: "5%" }}
+              />
+            </div>
+            <div className=" flex justify-start">
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+              />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={3.99} factor={1} speed={1}>
-            <Carousel />
+          <ParallaxLayer offset={3.5} factor={1} speed={1}>
+            <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={4}
-            factor={1}
-            speed={2}
+            factor={0.25}
+            speed={1}
             style={{
               backgroundImage: `url(${Jackson})`,
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full bg-black/50">
-              <div className="w-full h-screen absolute top-0 left-0">
-                <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                  <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
-                    Componenta
-                  </h1>
-                </div>
-              </div>
+            <div className="w-full h-full bg-black/50"></div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={4.4}
+            speed={2}
+            style={{ opacity: 0.6 }}
+            factor={0.5}
+          >
+            <div className="flex justify-end">
+              <img
+                alt="ray charles"
+                src={Ray}
+                style={{ width: "20%", marginRight: "5%" }}
+              />
+            </div>
+            <div className=" flex justify-start">
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+              />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={4.99} factor={1} speed={1}>
-            <Carousel />
+          <ParallaxLayer offset={4.5} factor={1} speed={1}>
+            <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={5}
-            factor={1}
-            speed={2}
+            factor={0.25}
+            speed={1}
             style={{
               backgroundImage: `url(${Nirvana})`,
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full bg-black/50">
-              <div className="w-full h-screen absolute top-0 left-0">
-                <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                  <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
-                    Componenta
-                  </h1>
-                </div>
-              </div>
+            <div className="w-full h-full bg-black/50"></div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={5.4}
+            speed={2}
+            style={{ opacity: 0.6 }}
+            factor={0.5}
+          >
+            <div className="flex justify-end">
+              <img
+                alt="ray charles"
+                src={Ray}
+                style={{ width: "20%", marginRight: "5%" }}
+              />
+            </div>
+            <div className=" flex justify-start">
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+              />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={5.99} factor={1} speed={1}>
-            <Carousel />
+          <ParallaxLayer offset={5.5} factor={1} speed={1}>
+            <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
         </Parallax>
       </div>
