@@ -1,4 +1,3 @@
-
 import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import Header from "./components/General/Header";
@@ -48,7 +47,7 @@ const Home = () => {
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={1.4}
+            offset={1.6}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
@@ -57,15 +56,15 @@ const Home = () => {
               <img
                 alt="ray charles"
                 src={Ray}
-                style={{ width: "20%", marginRight: "5%" }}
-                className="-rotate-2"
+                style={{ width: "17%", marginRight: "2%", marginTop: "6%" }}
+                className="transform -rotate-4"
               />
             </div>
             <div className=" flex justify-start">
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "4%", marginTop: "5%" }}
+                style={{ width: "15%", marginLeft: "4%", marginTop: "6%" }}
                 className=" rotate-2"
               />
             </div>
@@ -220,7 +219,6 @@ const Home = () => {
           </ParallaxLayer>
         </Parallax>
       </div>
-
     </>
   );
 };
