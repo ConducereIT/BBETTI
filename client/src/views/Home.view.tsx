@@ -38,7 +38,7 @@ const Home = () => {
           <ParallaxLayer
             offset={1}
             factor={0.25}
-            speed={1}
+            speed={0.5}
             style={{
               backgroundImage: `url(${Elvis})`,
               backgroundSize: "cover",
@@ -67,14 +67,14 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={1.5} factor={1} speed={1}>
+          <ParallaxLayer offset={1.25} factor={1.25} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
 
           <ParallaxLayer
             offset={2}
             factor={0.25}
-            speed={1}
+            speed={0.5}
             style={{
               backgroundImage: `url(${Beatles})`,
               backgroundSize: "cover",
@@ -103,13 +103,13 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.5} factor={1} speed={1}>
+          <ParallaxLayer offset={2.25} factor={1.25} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={3}
             factor={0.25}
-            speed={1}
+            speed={0.5}
             style={{
               backgroundImage: `url(${Abba})`,
               backgroundSize: "cover",
@@ -138,13 +138,13 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={3.5} factor={1} speed={1}>
+          <ParallaxLayer offset={3.25} factor={1.25} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={4}
             factor={0.25}
-            speed={1}
+            speed={0.5}
             style={{
               backgroundImage: `url(${Jackson})`,
               backgroundSize: "cover",
@@ -173,13 +173,13 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={4.5} factor={1} speed={1}>
+          <ParallaxLayer offset={4.25} factor={1.25} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={5}
             factor={0.25}
-            speed={1}
+            speed={0.5}
             style={{
               backgroundImage: `url(${Nirvana})`,
               backgroundSize: "cover",
@@ -208,7 +208,7 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={5.5} factor={1} speed={1}>
+          <ParallaxLayer offset={5.25} factor={1.25} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full"></div>
           </ParallaxLayer>
         </Parallax>
