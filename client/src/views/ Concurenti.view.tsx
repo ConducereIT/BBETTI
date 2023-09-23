@@ -1,11 +1,9 @@
-import React from "react";
+import Header from "./components/General/Header";
 
-const Concurenti = () => {
+export default function App() {
   return (
     <>
-      <h1>Concurenti</h1>
+      <Header />
     </>
   );
-};
-
-export default Concurenti;
+}
