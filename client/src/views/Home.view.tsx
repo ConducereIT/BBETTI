@@ -57,18 +57,22 @@ const Home = () => {
                 alt="ray charles"
                 src={Ray}
                 style={{ width: "20%", marginRight: "5%" }}
+                className="-rotate-2"
               />
             </div>
             <div className=" flex justify-start">
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+                style={{ width: "15%", marginLeft: "4%", marginTop: "5%" }}
+                className=" rotate-2"
               />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={1.25} factor={1.25} speed={0.5}>
-            <div className=" bg-green-600/30 w-full h-full"></div>
+            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[60%] h-[70%] w-[100%] bg-white/20"></div>
+            </div>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -104,7 +108,9 @@ const Home = () => {
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2.25} factor={1.25} speed={0.5}>
-            <div className=" bg-green-600/30 w-full h-full"></div>
+            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[60%] h-[70%] w-[100%] bg-white/20 "></div>
+            </div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={3}
