@@ -1,14 +1,16 @@
 import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import Header from "./components/General/Header";
-import Elvis from "../assets/img/elvis.webp";
-import Carousel from "./components/General/Carousel.component";
-import Jackson from "../assets/img/jackson.webp";
-import Abba from "../assets/img/abba.webp";
-import Nirvana from "../assets/img/nirvana.webp";
-import Ray from "../assets/img/ray.webp";
-import Sinatra from "../assets/img/Sinatra.webp";
-import Beatles from "../assets/img/beatles.webp";
+import Elvis from "../assets/img/posters/elvis.webp";
+import Jackson from "../assets/img/posters/jackson.webp";
+import Abba from "../assets/img/posters/abba.webp";
+import Nirvana from "../assets/img/posters/nirvana.webp";
+import Ray from "../assets/img/posters/ray.webp";
+import Sinatra from "../assets/img/posters/Sinatra.webp";
+import Beatles from "../assets/img/posters/beatles.webp";
+import Furtuna from "../assets/img/concurenti/portrait_teodor_furtuna.webp";
+import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
+import Beyonce from "../assets/img/posters/beyonce.webp";
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
 
@@ -37,7 +39,7 @@ const Home = () => {
           </ParallaxLayer>
           <ParallaxLayer
             offset={1}
-            factor={0.25}
+            factor={0.4}
             speed={0.5}
             style={{
               backgroundImage: `url(${Elvis})`,
@@ -47,37 +49,45 @@ const Home = () => {
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={1.6}
+            offset={1.7}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-end">
+            <div className="flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
-                style={{ width: "17%", marginRight: "2%", marginTop: "6%" }}
-                className="transform -rotate-4"
+                className="transform -rotate-4 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="baiat 50s"
+                src={Furtuna}
+                className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-start">
+            <div className=" flex justify-between m-4 mt-40 md:mt-20">
+              <img
+                alt="fata 50s"
+                src={Dinut}
+                className="transform md:w-[17%] w-[40%]"
+              />
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "4%", marginTop: "6%" }}
-                className=" rotate-2"
+                className=" -rotate-2  md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={1.25} factor={1.25} speed={0.5}>
+          <ParallaxLayer offset={1.4} factor={1.1} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[60%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
 
           <ParallaxLayer
             offset={2}
-            factor={0.25}
+            factor={0.4}
             speed={0.5}
             style={{
               backgroundImage: `url(${Beatles})`,
@@ -87,34 +97,44 @@ const Home = () => {
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={2.4}
+            offset={2.7}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-end">
+            <div className="flex justify-between m-4 ">
               <img
                 alt="ray charles"
                 src={Ray}
-                style={{ width: "20%", marginRight: "5%" }}
+                className="transform -rotate-4 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="baiat 50s"
+                src={Furtuna}
+                className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-start">
+            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+              <img
+                alt="fata 50s"
+                src={Dinut}
+                className="transform md:w-[17%] w-[40%]"
+              />
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+                className=" -rotate-2  md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.25} factor={1.25} speed={0.5}>
+          <ParallaxLayer offset={2.4} factor={1.1} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[60%] h-[70%] w-[100%] bg-white/20 "></div>
+              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={3}
-            factor={0.25}
+            factor={0.4}
             speed={0.5}
             style={{
               backgroundImage: `url(${Abba})`,
@@ -124,32 +144,44 @@ const Home = () => {
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={3.4}
+            offset={3.7}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-end">
+            <div className="flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
-                style={{ width: "20%", marginRight: "5%" }}
+                className="transform -rotate-4 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="baiat 50s"
+                src={Furtuna}
+                className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-start">
+            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+              <img
+                alt="fata 50s"
+                src={Dinut}
+                className="transform md:w-[17%] w-[40%]"
+              />
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+                className=" -rotate-2  md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={3.25} factor={1.25} speed={0.5}>
-            <div className=" bg-green-600/30 w-full h-full"></div>
+          <ParallaxLayer offset={3.4} factor={1.1} speed={0.5}>
+            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+            </div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={4}
-            factor={0.25}
+            factor={0.4}
             speed={0.5}
             style={{
               backgroundImage: `url(${Jackson})`,
@@ -159,32 +191,44 @@ const Home = () => {
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={4.4}
+            offset={4.7}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-end">
+            <div className="flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
-                style={{ width: "20%", marginRight: "5%" }}
+                className="transform -rotate-4 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="baiat 50s"
+                src={Furtuna}
+                className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-start">
+            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+              <img
+                alt="fata 50s"
+                src={Dinut}
+                className="transform md:w-[17%] w-[40%]"
+              />
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+                className=" -rotate-2  md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={4.25} factor={1.25} speed={0.5}>
-            <div className=" bg-green-600/30 w-full h-full"></div>
+          <ParallaxLayer offset={4.4} factor={1.1} speed={0.5}>
+            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+            </div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={5}
-            factor={0.25}
+            factor={0.4}
             speed={0.5}
             style={{
               backgroundImage: `url(${Nirvana})`,
@@ -194,28 +238,87 @@ const Home = () => {
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={5.4}
+            offset={5.7}
             speed={2}
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-end">
+            <div className="flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
-                style={{ width: "20%", marginRight: "5%" }}
+                className="transform -rotate-4 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="baiat 50s"
+                src={Furtuna}
+                className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-start">
+            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+              <img
+                alt="fata 50s"
+                src={Dinut}
+                className="transform md:w-[17%] w-[40%]"
+              />
               <img
                 alt="Sintra"
                 src={Sinatra}
-                style={{ width: "15%", marginLeft: "5%", marginTop: "5%" }}
+                className=" -rotate-2  md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={5.25} factor={1.25} speed={0.5}>
-            <div className=" bg-green-600/30 w-full h-full"></div>
+          <ParallaxLayer offset={5.4} factor={1.1} speed={0.5}>
+            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={6}
+            factor={0.4}
+            speed={0.5}
+            style={{
+              backgroundImage: `url(${Beyonce})`,
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="w-full h-full bg-black/50"></div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={6.7}
+            speed={2}
+            style={{ opacity: 0.6 }}
+            factor={0.5}
+          >
+            <div className="flex justify-between m-4">
+              <img
+                alt="ray charles"
+                src={Ray}
+                className="transform -rotate-4 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="baiat 50s"
+                src={Furtuna}
+                className="transform md:w-[17%] w-[40%]"
+              />
+            </div>
+            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+              <img
+                alt="fata 50s"
+                src={Dinut}
+                className="transform md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                className=" -rotate-2  md:w-[17%] w-[40%]"
+              />
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={6.4} factor={1.1} speed={0.5}>
+            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+            </div>
           </ParallaxLayer>
         </Parallax>
       </div>
