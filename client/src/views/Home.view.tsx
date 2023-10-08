@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import Header from "./components/General/Header";
 import Elvis from "../assets/img/posters/elvis.webp";
@@ -11,8 +11,37 @@ import Beatles from "../assets/img/posters/beatles.webp";
 import Furtuna from "../assets/img/concurenti/portrait_teodor_furtuna.webp";
 import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
 import Beyonce from "../assets/img/posters/beyonce.webp";
+
+import "intersection-observer";
+
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
+
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const handleIntersection: IntersectionObserverCallback = (entries) => {
+      // Restul codului pentru gestionarea observării
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -81,7 +110,7 @@ const Home = () => {
           </ParallaxLayer>
           <ParallaxLayer offset={1.4} factor={1.1} speed={0.5}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
 
@@ -127,9 +156,9 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.4} factor={1.1} speed={0.5}>
+          <ParallaxLayer offset={2.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -174,9 +203,9 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={3.4} factor={1.1} speed={0.5}>
+          <ParallaxLayer offset={3.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -221,9 +250,9 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={4.4} factor={1.1} speed={0.5}>
+          <ParallaxLayer offset={4.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -268,9 +297,9 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={5.4} factor={1.1} speed={0.5}>
+          <ParallaxLayer offset={5.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -315,9 +344,9 @@ const Home = () => {
               />
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={6.4} factor={1.1} speed={0.5}>
+          <ParallaxLayer offset={6.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
         </Parallax>
