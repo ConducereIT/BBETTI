@@ -7,6 +7,8 @@ import Abba from "../assets/img/posters/abba.webp";
 import Nirvana from "../assets/img/posters/nirvana.webp";
 import Ray from "../assets/img/posters/ray.webp";
 import Sinatra from "../assets/img/posters/Sinatra.webp";
+import Travolta from "../assets/img/items/50s/travolta.webp";
+import Mercedes300 from "../assets/img/items/50s/mercedes_300sl.webp";
 import Beatles from "../assets/img/posters/beatles.webp";
 import Furtuna from "../assets/img/concurenti/portrait_teodor_furtuna.webp";
 import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
@@ -85,31 +87,45 @@ const Home = () => {
           >
             <div className="flex justify-between m-4">
               <img
-                alt="ray charles"
-                src={Ray}
-                className="transform -rotate-4 md:w-[17%] w-[40%]"
+                alt="fata 50s"
+                src={Dinut}
+                className=" -rotate-2 transform md:w-[17%] w-[40%] md:h-[17%] h-[40%]"
               />
               <img
                 alt="baiat 50s"
                 src={Furtuna}
-                className="transform md:w-[17%] w-[40%]"
+                className=" rotate-2 transform md:w-[17%] w-[40%] md:h-[17%] h-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4 mt-40 md:mt-20">
-              <img
-                alt="fata 50s"
-                src={Dinut}
-                className="transform md:w-[17%] w-[40%]"
-              />
-              <img
-                alt="Sintra"
-                src={Sinatra}
-                className=" -rotate-2  md:w-[17%] w-[40%]"
-              />
+            <div className=" flex justify-between m-4">
+              <div className="md:w-[17%] w-[40%] md:h-[17%] h-[40%]">
+                <img
+                  alt="ray charles"
+                  src={Ray}
+                  className="transform -rotate-6  scale-75"
+                />
+                <img
+                  src={Mercedes300}
+                  alt="Mercedes"
+                  className="transform -rotate-6 scale-100"
+                />
+              </div>
+              <div className="md:w-[17%] w-[40%] md:h-[17%] h-[40%]">
+                <img
+                  alt="Sintra"
+                  src={Sinatra}
+                  className=" scale-75 rotate-3"
+                />
+                <img
+                  alt="Travolta"
+                  src={Travolta}
+                  className=" scale-100 -rotate-3"
+                />
+              </div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={1.4} factor={1.1} speed={0.5}>
-            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+            <div className="  w-full h-full flex justify-center items-center">
               <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
@@ -132,7 +148,7 @@ const Home = () => {
             factor={0.5}
           >
             <div className="flex justify-between m-4 ">
-              <img
+              {/* <img
                 alt="ray charles"
                 src={Ray}
                 className="transform -rotate-4 md:w-[17%] w-[40%]"
@@ -141,10 +157,10 @@ const Home = () => {
                 alt="baiat 50s"
                 src={Furtuna}
                 className="transform md:w-[17%] w-[40%]"
-              />
+              /> */}
             </div>
             <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
-              <img
+              {/* <img
                 alt="fata 50s"
                 src={Dinut}
                 className="transform md:w-[17%] w-[40%]"
@@ -153,11 +169,11 @@ const Home = () => {
                 alt="Sintra"
                 src={Sinatra}
                 className=" -rotate-2  md:w-[17%] w-[40%]"
-              />
+              /> */}
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2.4} factor={1.1} speed={0.5} ref={elementRef}>
-            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
+            <div className="  w-full h-full flex justify-center items-center">
               <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
             </div>
           </ParallaxLayer>
