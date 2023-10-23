@@ -1,7 +1,12 @@
 {
   "dependencies": {
+    "@types/sequelize": "^4.28.17",
     "bcryptjs": "^2.4.3",
-    "sequelize": "^6.33.0"
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.5"

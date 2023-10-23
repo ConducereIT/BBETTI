@@ -12,3 +12,9 @@ classes:
   - path: user.ts
     type: jsonrpc
     methods: []
+  - path: RegisterController.ts
+    type: jsonrpc
+    methods: []
+  - path: db.ts
+    type: jsonrpc
+    methods: []
