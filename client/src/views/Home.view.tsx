@@ -15,6 +15,8 @@ import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
 import Beyonce from "../assets/img/posters/beyonce.webp";
 
 import "intersection-observer";
+import Singer from "./components/General/Singer.component";
+import Pachete from "./components/General/Pachete.component";
 
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
@@ -126,7 +128,9 @@ const Home = () => {
           </ParallaxLayer>
           <ParallaxLayer offset={1.4} factor={1.1} speed={0.5}>
             <div className="  w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
+                <Singer />
+              </div>
             </div>
           </ParallaxLayer>
 
@@ -148,7 +152,7 @@ const Home = () => {
             factor={0.5}
           >
             <div className="flex justify-between m-4 ">
-              {/* <img
+              <img
                 alt="ray charles"
                 src={Ray}
                 className="transform -rotate-4 md:w-[17%] w-[40%]"
@@ -157,10 +161,10 @@ const Home = () => {
                 alt="baiat 50s"
                 src={Furtuna}
                 className="transform md:w-[17%] w-[40%]"
-              /> */}
+              />
             </div>
             <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
-              {/* <img
+              <img
                 alt="fata 50s"
                 src={Dinut}
                 className="transform md:w-[17%] w-[40%]"
@@ -169,12 +173,14 @@ const Home = () => {
                 alt="Sintra"
                 src={Sinatra}
                 className=" -rotate-2  md:w-[17%] w-[40%]"
-              /> */}
+              />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className="  w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] ">
+                <Pachete />
+              </div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
