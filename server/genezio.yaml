@@ -3,18 +3,21 @@ region: eu-central-1
 cloudProvider: genezio
 sdk:
   language: ts
-  path: ../client/src/sdk/
+  path: ../client/src/sdk
 scripts:
   preFrontendDeploy: cd ../client && npm install && npm run build
 frontend:
   path: ../client/build
 classes:
-  - path: user.ts
-    type: jsonrpc
-    methods: []
   - path: RegisterController.ts
     type: jsonrpc
     methods: []
+  - path: user.ts
+    type: jsonrpc
+    methods: []
   - path: db.ts
+    type: jsonrpc
+    methods: []
+  - path: mailer.ts
     type: jsonrpc
     methods: []
