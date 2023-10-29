@@ -52,14 +52,14 @@ export default function ConcurentiCarousel() {
                   </div>
                   <div className="w-full h-full absolute top-0 left-0 hover:bg-black/50 duration-500 ">
                     <div className="text-transparent hover:text-white w-full h-full grid place-items-center">
-                      <p className=" text-4xl mt-10 font-bold">
+                      <p className=" text-3xl mt-10 font-bold">
                         {concurent.name}
                       </p>
-                      <p className=" m-4 mt-10 text-xl">
+                      <p className=" m-4 mt-5 text-lg">
                         {concurent.description}
                       </p>
                       <div className="">
-                        <button className="p-4 bg-transparent hover:bg-blue-600 duration-300 rounded-lg text-2xl ">
+                        <button className="px-4 py-2 bg-transparent hover:bg-blue-600 duration-300 rounded-lg text-2xl ">
                           Vote
                         </button>
                       </div>

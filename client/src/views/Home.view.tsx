@@ -17,6 +17,7 @@ import Beyonce from "../assets/img/posters/beyonce.webp";
 import "intersection-observer";
 import Singer from "./components/General/Singer.component";
 import Pachete from "./components/General/Pachete.component";
+import ContactInfo from "./components/General/ContactInfo.component";
 
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
@@ -226,8 +227,10 @@ const Home = () => {
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={3.4} factor={1.1} speed={0.5} ref={elementRef}>
-            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
+            <div className=" w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
+                <ContactInfo />
+              </div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
