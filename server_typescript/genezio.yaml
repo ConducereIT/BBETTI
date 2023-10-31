@@ -1,9 +1,11 @@
-name: emailauthservice
-region: us-east-1
-language: ts
+# name: Balul-Bobocilor
+region: eu-central-1
 cloudProvider: genezio
+sdk:
+  language: ts
+  path: ../client/src/sdk/
+scripts:
+  preFrontendDeploy: cd ../client && npm install && npm run build
+frontend:
+  path: ../client/build
 classes:
-  - path: emailAuthServicePostgresql.ts
-    type: jsonrpc
-    methods: []
-packageManager: npm

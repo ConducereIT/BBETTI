@@ -11,6 +11,8 @@ export type User = {
   verified: boolean;
   tokenConfirmEmail: string;
   tokenReset: string;
+  voteFata: boolean;
+  voteBaiat: boolean;
 };
 
 export type UserLoginResponse = {
