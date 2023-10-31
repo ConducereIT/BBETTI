@@ -1,5 +1,6 @@
 import { sequelize, UserTable } from "./db";
 import { Sequelize } from "sequelize";
+import { Send_mailer } from "./mailer";
 import bcryptjs from "bcryptjs";
 
 export type CreateUserResponse = {
@@ -8,7 +9,7 @@ export type CreateUserResponse = {
 };
 
 export class User {
-  private sequelize: Sequelize;
+  public sequelize: Sequelize;
 
   constructor() {
     this.sequelize = sequelize;
@@ -54,7 +55,15 @@ export class User {
       const subject = "Cod pentru verificare email";
       const message = `Codul de verificare este ${code}`;
 
-      if (true) {
+      const mailer = new Send_mailer();
+      const emailSent = await mailer.send(
+        process.env.MAIL_USER,
+        email,
+        subject,
+        message
+      );
+
+      if (emailSent) {
         return { status: true, message: "Success" };
       } else {
         return {
@@ -69,5 +78,10 @@ export class User {
         message: "Eroare interna. Te rog reincearca mai tarziu!",
       };
     }
+  }
+
+  async testDb() {
+    console.log("SDsaa");
+    console.log(sequelize);
   }
 }

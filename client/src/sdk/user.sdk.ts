@@ -7,7 +7,7 @@ import { Remote } from "./remote";
 
 
 export class User {
-  static remote = new Remote("http://127.0.0.1:8083/User");
+  static remote = new Remote("https://4cohjr5asglbhw6hpesjr6ddxe0cencm.lambda-url.eu-central-1.on.aws/User");
 
   static async helloWorld(): Promise<string> {
     return await User.remote.call("User.helloWorld");

@@ -15,9 +15,6 @@ classes:
   - path: user.ts
     type: jsonrpc
     methods: []
-  - path: db.ts
-    type: jsonrpc
-    methods: []
   - path: mailer.ts
     type: jsonrpc
     methods: []
