@@ -1,0 +1,9 @@
+name: emailauthservice
+region: us-east-1
+language: ts
+cloudProvider: genezio
+classes:
+  - path: emailAuthServicePostgresql.ts
+    type: jsonrpc
+    methods: []
+packageManager: npm
