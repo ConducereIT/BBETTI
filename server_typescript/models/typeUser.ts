@@ -48,3 +48,8 @@ export type EmailConfirmationResponse = {
   user?: User;
   errorMessage?: string;
 };
+
+export type VoteResponse = {
+  status: string;
+  errorMessage?: string;
+};

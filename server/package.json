@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "sequelize": "^6.33.0"
-  },
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.5"
-  }
-}

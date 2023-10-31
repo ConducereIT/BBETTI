@@ -1,4 +1,4 @@
-# name: Balul-Bobocilor
+name: Balul-Bobocilor
 region: eu-central-1
 cloudProvider: genezio
 sdk:
@@ -9,3 +9,6 @@ scripts:
 frontend:
   path: ../client/build
 classes:
+  - path: emailAuthServicePostgresql.ts
+    type: jsonrpc
+    methods: []

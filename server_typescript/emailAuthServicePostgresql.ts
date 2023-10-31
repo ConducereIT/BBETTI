@@ -1,5 +1,10 @@
 import jwt from "jsonwebtoken";
-import { sequelize, UserModel, ActiveSession } from "./models/userPostgresql";
+import {
+  sequelize,
+  UserModel,
+  ActiveSession,
+  TabelaVoturi,
+} from "./models/userPostgresql";
 import { hashPassword, validatePassword, POSTGRESQL_DB_URI } from "./helper";
 import {
   UserLoginResponse,
@@ -8,6 +13,7 @@ import {
   ResetPasswordConfirmResponse,
   EmailConfirmationResponse,
   ResendEmailConfirmationResponse,
+  VoteResponse,
 } from "./models/typeUser";
 import { Send_mailer } from "./mailer";
 import { randomUUID } from "crypto";
@@ -65,13 +71,15 @@ export class UserServicePostgresql {
       authProvider: "Email",
       verified: false,
       tokenConfirmEmail: token,
+      voteFata: false,
+      voteBaiat: false,
     });
 
     const mailer = new Send_mailer();
     const mailverify = await mailer.send(
       email,
       "Confirmation mail",
-      "Confirm token: " + token,
+      "Confirm token: " + token
     );
 
     if (!mailverify)
@@ -90,6 +98,8 @@ export class UserServicePostgresql {
         verified: newUser.verified,
         tokenConfirmEmail: newUser.tokenConfirmEmail,
         tokenReset: newUser.tokenReset,
+        voteBaiat: newUser.voteBaiat,
+        voteFata: newUser.voteFata,
       },
     };
   }
@@ -116,7 +126,7 @@ export class UserServicePostgresql {
 
     const isValid = await validatePassword(
       existingUser.hashedPassword!,
-      password,
+      password
     );
 
     if (isValid) {
@@ -126,7 +136,7 @@ export class UserServicePostgresql {
         process.env.JWT_TOKEN_SECRET!,
         {
           expiresIn: 86400, // 1 week
-        },
+        }
       );
 
       await ActiveSession.create({ token: token, userId: existingUser.userId });
@@ -140,6 +150,8 @@ export class UserServicePostgresql {
           verified: existingUser.verified,
           tokenConfirmEmail: existingUser.tokenConfirmEmail,
           tokenReset: existingUser.tokenReset,
+          voteBaiat: existingUser.voteBaiat,
+          voteFata: existingUser.voteFata,
         },
         token: token,
       };
@@ -201,7 +213,7 @@ export class UserServicePostgresql {
     const mailverify = await mailer.send(
       email,
       "Reset password",
-      "Reset token: " + token,
+      "Reset token: " + token
     );
 
     if (!mailverify)
@@ -221,10 +233,10 @@ export class UserServicePostgresql {
    */
   async resetPasswordConfirmation(
     token: string,
-    password: string,
+    password: string
   ): Promise<ResetPasswordConfirmResponse> {
     console.log(
-      `Received reset password confirmation request for token ${token}`,
+      `Received reset password confirmation request for token ${token}`
     );
 
     try {
@@ -282,10 +294,10 @@ export class UserServicePostgresql {
    * @returns {Promise<ResendEmailConfirmationResponse>} An object with a boolean property "status" indicating success or failure.
    */
   async resendEmailConfirmation(
-    email: string,
+    email: string
   ): Promise<ResendEmailConfirmationResponse> {
     console.log(
-      `Received resend email confirmation request for user with email ${email}`,
+      `Received resend email confirmation request for user with email ${email}`
     );
 
     const existingUser = await UserModel.findOne({ where: { email: email } });
@@ -301,7 +313,7 @@ export class UserServicePostgresql {
       const mailVerification = await mailer.send(
         email,
         "Confirmation mail",
-        "Confirm token: " + token,
+        "Confirm token: " + token
       );
 
       if (!mailVerification) {
@@ -312,5 +324,42 @@ export class UserServicePostgresql {
     } else {
       return { status: "error", errorMessage: "User not found" };
     }
+  }
+
+  /**
+   *  Vote system
+   *  @param {string} email
+   *  @param {string} numeConcurent
+   *  @param {string} gender
+   *  @returns {Promise<VoteResponse>} An object with a boolean property "status" indicating success or failure.
+   */
+
+  async voteConcurenti(
+    email: string,
+    numeConcurent: string,
+    gender: string
+  ): Promise<VoteResponse> {
+    const existingUser = await UserModel.findOne({ where: { email: email } });
+
+    let canVote;
+    if (gender === "FATA") {
+      canVote = existingUser?.voteFata === true ? true : false;
+    } else if (gender === "BAIAT") {
+      canVote = existingUser?.voteBaiat === true ? true : false;
+    }
+
+    if (canVote) {
+      const concurent = await TabelaVoturi.findOne({
+        where: { name: numeConcurent },
+      });
+
+      await concurent?.increment("count", { by: 1 });
+
+      await concurent?.save;
+    } else {
+      return { status: "ERROR", errorMessage: "Ai votat deja" };
+    }
+
+    return { status: "Ok" };
   }
 }

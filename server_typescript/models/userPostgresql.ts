@@ -13,6 +13,37 @@ export const sequelize = new Sequelize(POSTGRESQL_DB_URI, {
   },
 });
 
+export class TabelaVoturi extends Model {
+  id!: string;
+  name!: string;
+  gender!: string;
+  count!: bigint;
+}
+
+TabelaVoturi.init(
+  {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
+    gender: {
+      type: DataTypes.STRING,
+    },
+    count: {
+      type: DataTypes.BIGINT,
+    },
+  },
+  {
+    sequelize,
+    modelName: "Concurenti",
+    tableName: "concurenti",
+  }
+);
+
 export class UserModel extends Model {
   email!: string;
   userId!: string;
@@ -23,6 +54,8 @@ export class UserModel extends Model {
   lastSignedIn!: Date | null;
   tokenConfirmEmail!: string;
   tokenReset!: string;
+  voteBaiat!: boolean;
+  voteFata!: boolean;
 }
 
 UserModel.init(
@@ -55,13 +88,21 @@ UserModel.init(
       type: DataTypes.STRING,
       defaultValue: "token",
     },
+    voteFata: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    voteBaiat: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
     verified: DataTypes.BOOLEAN,
   },
   {
     sequelize,
     modelName: "User",
     tableName: "users",
-  },
+  }
 );
 
 export class ActiveSession extends Model {
@@ -78,5 +119,5 @@ ActiveSession.init(
     sequelize,
     modelName: "ActiveSession",
     tableName: "active_sessions",
-  },
+  }
 );
