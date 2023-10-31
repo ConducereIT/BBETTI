@@ -3,11 +3,16 @@ import React from "react";
 export default function Pachete() {
   return (
     <>
-      <div className="grid grid-cols-2 place-items-center mt-20">
-        <div className="max-w-sm bg-black border border-2 border-white rounded-lg shadow">
+      <div className="grid md:grid-cols-2 place-items-center md:mt-20">
+        <div className="max-w-sm bg-black border-2 border-white rounded-lg shadow md:mb-0 mb-10">
           <img
-            className="rounded-t-lg border-b-2"
-            src="https://the-club.com/wp-content/uploads/The-Club-Band-2.jpg  "
+            className="rounded-t-lg border-b-2 md:hidden"
+            src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=500&height=200"
+            alt="pachet vip"
+          />
+          <img
+            className="rounded-t-lg border-b-2 hidden md:block"
+            src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=700&height=450"
             alt="pachet vip"
           />
           <div className="p-5">
@@ -23,10 +28,15 @@ export default function Pachete() {
             </div>
           </div>
         </div>
-        <div className="max-w-sm bg-black border border-2 border-white rounded-lg shadow">
+        <div className="max-w-sm bg-black  border-2 border-white rounded-lg shadow">
           <img
-            className="rounded-t-lg border-b-2"
-            src="https://the-club.com/wp-content/uploads/The-Club-Band-2.jpg  "
+            className="rounded-t-lg border-b-2 md:hidden"
+            src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=500&height=200"
+            alt="pachet vip"
+          />
+          <img
+            className="rounded-t-lg border-b-2 hidden md:block"
+            src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=700&height=450"
             alt="pachet vip"
           />
           <div className="p-5">

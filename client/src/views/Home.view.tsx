@@ -17,7 +17,10 @@ import Beyonce from "../assets/img/posters/beyonce.webp";
 import "intersection-observer";
 import Singer from "./components/General/Singer.component";
 import Pachete from "./components/General/Pachete.component";
-import ContactInfo from "./components/General/ContactInfo.component";
+import Description from "./components/General/Description.component";
+import Locatie from "./components/General/Locatie.component";
+import MasterCeremonies from "./components/General/MasterCeremonies.component";
+import Gallery from "./components/General/Gallery.component";
 
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
@@ -52,7 +55,7 @@ const Home = () => {
     <>
       <Header />
       <div>
-        <Parallax ref={parallax} pages={8}>
+        <Parallax ref={parallax} pages={7.5}>
           <ParallaxLayer
             offset={0}
             factor={8}
@@ -130,7 +133,7 @@ const Home = () => {
           <ParallaxLayer offset={1.4} factor={1.1} speed={0.5}>
             <div className="  w-full h-full flex justify-center items-center">
               <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
-                <Singer />
+                <Description />
               </div>
             </div>
           </ParallaxLayer>
@@ -180,7 +183,7 @@ const Home = () => {
           <ParallaxLayer offset={2.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className="  w-full h-full flex justify-center items-center">
               <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] ">
-                <Pachete />
+                <Singer />
               </div>
             </div>
           </ParallaxLayer>
@@ -229,7 +232,7 @@ const Home = () => {
           <ParallaxLayer offset={3.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className=" w-full h-full flex justify-center items-center">
               <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
-                <ContactInfo />
+                <MasterCeremonies />
               </div>
             </div>
           </ParallaxLayer>
@@ -276,8 +279,10 @@ const Home = () => {
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={4.4} factor={1.1} speed={0.5} ref={elementRef}>
-            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
+            <div className="  w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
+                <Pachete />
+              </div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -323,8 +328,10 @@ const Home = () => {
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={5.4} factor={1.1} speed={0.5} ref={elementRef}>
-            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
+            <div className=" w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
+                <Gallery />
+              </div>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -370,8 +377,10 @@ const Home = () => {
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={6.4} factor={1.1} speed={0.5} ref={elementRef}>
-            <div className=" bg-green-600/30 w-full h-full flex justify-center items-center">
-              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%] bg-white/20"></div>
+            <div className=" w-full h-full flex justify-center items-center">
+              <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
+                <Locatie />
+              </div>
             </div>
           </ParallaxLayer>
         </Parallax>
