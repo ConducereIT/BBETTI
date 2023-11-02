@@ -91,7 +91,7 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4">
               <img
                 alt="fata 50s"
                 src={Dinut}
@@ -103,7 +103,7 @@ const Home = () => {
                 className=" rotate-2 transform md:w-[17%] w-[40%] md:h-[17%] h-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4">
               <div className="md:w-[17%] w-[40%] md:h-[17%] h-[40%]">
                 <img
                   alt="ray charles"
@@ -155,7 +155,7 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-between m-4 ">
+            <div className="hidden md:flex justify-between m-4 ">
               <img
                 alt="ray charles"
                 src={Ray}
@@ -167,7 +167,7 @@ const Home = () => {
                 className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="fata 50s"
                 src={Dinut}
@@ -204,7 +204,7 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
@@ -216,7 +216,7 @@ const Home = () => {
                 className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="fata 50s"
                 src={Dinut}
@@ -253,7 +253,7 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
@@ -265,7 +265,7 @@ const Home = () => {
                 className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="fata 50s"
                 src={Dinut}
@@ -302,7 +302,7 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
@@ -314,7 +314,7 @@ const Home = () => {
                 className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="fata 50s"
                 src={Dinut}
@@ -351,7 +351,7 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4">
               <img
                 alt="ray charles"
                 src={Ray}
@@ -363,7 +363,7 @@ const Home = () => {
                 className="transform md:w-[17%] w-[40%]"
               />
             </div>
-            <div className=" flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="fata 50s"
                 src={Dinut}
