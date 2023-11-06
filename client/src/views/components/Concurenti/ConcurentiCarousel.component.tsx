@@ -1,15 +1,9 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
-
-import { Concurenti } from "../../../assets/config/Concurenti";
-
-// import required modules
 import {
   Keyboard,
   Scrollbar,
@@ -17,12 +11,54 @@ import {
   Pagination,
   EffectFlip,
 } from "swiper/modules";
+import { useState } from "react";
+
+import { Concurenti } from "../../../assets/config/Concurenti";
+
+import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+
+interface Concurent {
+  image: string;
+  id: number;
+  name: string;
+  description: string;
+  sex: string;
+}
 
 export default function ConcurentiCarousel() {
+  const [openDivs, setOpenDivs] = useState<boolean[]>(
+    Concurenti.map(() => false)
+  );
+
+  const [error, setError] = useState("");
+
+  const toggleOpen = (index: number) => {
+    const updatedOpenDivs = [...openDivs];
+    updatedOpenDivs[index] = !updatedOpenDivs[index];
+    setOpenDivs(updatedOpenDivs);
+  };
+
+  const handleVote = async (concurent: Concurent) => {
+    try {
+      const user = await serverFunction.checkSession(
+        window.localStorage.getItem("token") || ""
+      );
+
+      if (!user) {
+        throw new Error("Login first");
+      }
+
+      if (user.status == "ok") {
+      }
+    } catch (error) {
+      console.error("Vote failed", error);
+    }
+  };
+
   return (
     <>
-      <div className=" flex justify-center">
-        <div className="h-1/2 w-1/2">
+      <div className="flex justify-center">
+        <div className="h-[50%] w-[60%]">
           <Swiper
             slidesPerView={1}
             centeredSlides={false}
@@ -43,27 +79,40 @@ export default function ConcurentiCarousel() {
             modules={[EffectFlip, Keyboard, Scrollbar, Navigation, Pagination]}
             className="mySwiper"
           >
-            {Concurenti.map((concurent, index) => (
-              <SwiperSlide>
-                <div>
+            {Concurenti.map((concurent: Concurent, index: number) => (
+              <SwiperSlide key={index}>
+                <div className="m-20">
                   <div className="w-full h-full object-cover object-left mx-auto">
-                    <img src={concurent.image} />
+                    <img src={concurent.image} alt={`Image ${index}`} />
                   </div>
-                  <div className="w-full h-full absolute top-0 left-0 hover:bg-black/50 duration-500 ">
-                    <div className="text-transparent hover:text-white w-full h-full grid place-items-center">
-                      <p className=" text-3xl mt-10 font-bold">
-                        {concurent.name}
-                      </p>
-                      <p className=" m-4 mt-5 text-lg">
-                        {concurent.description}
-                      </p>
-                      <div className="">
-                        <button className="px-4 py-2 bg-transparent hover:bg-blue-600 duration-300 rounded-lg text-2xl ">
-                          Vote
+                  <button
+                    onClick={() => toggleOpen(index)}
+                    className="px-4 py-1 mt-10 w-full h-full bg-white duration-300 rounded-lg text-2xl"
+                  >
+                    Vote
+                  </button>
+
+                  {openDivs[index] ? (
+                    <div className="absolute h-[50%] w-[50%] center bg-gray-100 top-0">
+                      <div>
+                        <div className="w-auto h-auto object-cover object-left mx-auto">
+                          <img src={concurent.image} alt={`Image ${index}`} />
+                        </div>
+                        <button
+                          className="sticky bottom-0 p-10 bg-green-400 text-white w-[100%]"
+                          onClick={() => handleVote(concurent)} // Handle vote click
+                        >
+                          <h1>voteaza {`${concurent.sex}`}</h1>
+                        </button>
+                        <button
+                          className="sticky bottom-0 p-10 bg-blue-400 text-white w-[100%]"
+                          onClick={() => toggleOpen(index)}
+                        >
+                          Inchide
                         </button>
                       </div>
                     </div>
-                  </div>
+                  ) : null}
                 </div>
               </SwiperSlide>
             ))}
