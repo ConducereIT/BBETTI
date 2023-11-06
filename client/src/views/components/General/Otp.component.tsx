@@ -6,7 +6,7 @@ import { UserServicePostgresql as serverFunction } from "../../../sdk/userServic
 
 const OtpComp = () => {
   const [user, setUser] = useState({
-    email: "",
+    email: localStorage.getItem("email") || "",
     token: "",
   });
 
@@ -23,6 +23,7 @@ const OtpComp = () => {
 
     if (status.status === "ok") {
       localStorage.setItem("email", user.email);
+      localStorage.setItem("token", user.token);
       window.location.replace("/");
     } else {
       setError(`${status.errorMessage}`);

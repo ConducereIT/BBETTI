@@ -14,6 +14,7 @@ import {
   EmailConfirmationResponse,
   ResendEmailConfirmationResponse,
   VoteResponse,
+  GetToken,
 } from "./models/typeUser";
 import { Send_mailer } from "./mailer";
 import { randomUUID } from "crypto";
@@ -185,6 +186,28 @@ export class UserServicePostgresql {
     }
 
     return { status: "ok" };
+  }
+
+  /**
+   * Sends a password reset token to a user's email.
+   * @param {string} email - The user's email address.
+   * @returns {Promise<GetToken>} Return Token for a specific email
+   */
+
+  async getToken(email: string): Promise<GetToken> {
+    const existingUser = await UserModel.findOne({ where: { email: email } });
+
+    const id = existingUser?.userId;
+
+    const tokenUser = await ActiveSession.findOne({
+      where: { userId: id },
+    });
+
+    if (!tokenUser) {
+      return { status: "error", errorMessage: "ceva a mers prost" };
+    }
+
+    return { status: "ok", token: tokenUser.token };
   }
 
   /**

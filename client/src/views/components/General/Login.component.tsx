@@ -6,7 +6,7 @@ import { UserServicePostgresql as serverFunction } from "../../../sdk/userServic
 
 export default function LoginComp() {
   const [user, setUser] = useState({
-    email: "",
+    email: localStorage.getItem("email") || "",
     password: "",
   });
 
@@ -33,8 +33,13 @@ export default function LoginComp() {
 
     const info = status.status;
 
-    if (info == "ok" && status.user?.verified) {
+    if (info == "ok" && status.user?.verified == true) {
       localStorage.setItem("email", user.email);
+      const status = await serverFunction.getToken(user.email);
+
+      if (status.status == "ok") {
+        localStorage.setItem("token", status.token || "");
+      }
       window.location.replace("/");
     } else if (info == "ok" && !status.user?.verified) {
       window.location.replace("/otp");
@@ -57,7 +62,6 @@ export default function LoginComp() {
                   name="email"
                   value={user.email}
                   type="text"
-                  maxLength={80}
                   placeholder="Email"
                   className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
                   onChange={handleChange}
@@ -71,7 +75,6 @@ export default function LoginComp() {
                   name="password"
                   value={user.password}
                   type="password"
-                  maxLength={80}
                   placeholder="Password"
                   className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
                   onChange={handleChange}
