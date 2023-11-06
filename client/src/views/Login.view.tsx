@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { User } from "../sdk/user.sdk";
+import React from "react";
+import Header from "./components/General/Header";
+import LoginComp from "./components/General/Login.component";
 
 const Login = () => {
-  const [element, setElement] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchElement = async () => {
-      const el = await User.helloWorld();
-      setElement(el);
-    };
-
-    fetchElement();
-  }, []);
-
-  return <div>{element}</div>;
+  return (
+    <>
+      <Header />
+      <LoginComp />
+    </>
+  );
 };
 
 export default Login;
