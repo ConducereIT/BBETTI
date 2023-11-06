@@ -57,7 +57,6 @@ const OtpComp = () => {
                   name="email"
                   value={user.email || ""}
                   type="text"
-                  maxLength={80}
                   placeholder="Email"
                   className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
                   onChange={handleChange}
@@ -71,7 +70,6 @@ const OtpComp = () => {
                   name="token"
                   value={user.token}
                   type="text"
-                  maxLength={80}
                   placeholder="Verification Code"
                   className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
                   onChange={handleChange}
