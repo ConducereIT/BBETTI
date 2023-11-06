@@ -4,10 +4,11 @@ import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
 
-export default function LoginComp() {
+const RegisterComp = () => {
   const [user, setUser] = useState({
     email: "",
     password: "",
+    confirmationPassword: "",
   });
 
   const [error, setError] = useState("");
@@ -16,27 +17,22 @@ export default function LoginComp() {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
-  const handleForgot = async (event: any) => {
-    event.prevendDefault();
-
-    const status = await serverFunction.resetPassword(user.email);
-
-    if (status.status != "ok") {
-      setError(`${status.errorMessage}`);
-    }
-  };
-
   const handleSummit = async (event: any) => {
     event.preventDefault();
 
-    const status = await serverFunction.login(user.email, user.password);
+    if (user.confirmationPassword !== user.password) {
+      setError("Parolele nu corespund");
+      return;
+    } else {
+      setError("");
+    }
+
+    const status = await serverFunction.register(user.email, user.password);
 
     const info = status.status;
 
-    if (info == "ok" && status.user?.verified) {
+    if (info == "ok") {
       localStorage.setItem("email", user.email);
-      window.location.replace("/");
-    } else if (info == "ok" && !status.user?.verified) {
       window.location.replace("/otp");
     } else setError(`${status.errorMessage}`);
   };
@@ -78,22 +74,28 @@ export default function LoginComp() {
                 />
               </div>
             </label>
-            <div className="flex items-center justify-between mb-6">
-              <label className="flex items-center">
-                <input type="checkbox" className="mr-2 text-white" />
-                <p className="text-white text-sm">Remember Me</p>
-              </label>
-              <button onClick={handleForgot} className="text-white text-sm">
-                Forgot Password?
-              </button>
-            </div>
+            <label className="mb-6">
+              <div className="my-5 md:my-5 flex">
+                <AiFillLock color="white" className="text-3xl md:text-4xl" />
+                <input
+                  name="confirmationPassword"
+                  value={user.confirmationPassword}
+                  type="password"
+                  maxLength={80}
+                  placeholder="Confirmation Password"
+                  className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
+                  onChange={handleChange}
+                />
+              </div>
+            </label>
+
             <div className="flex justify-center mt-10 bg-gray-500/60 py-4">
               <button
                 onClick={handleSummit}
                 className="text-white w-full"
                 type="submit"
               >
-                LOGIN
+                REGISTER
               </button>
             </div>
           </form>
@@ -101,4 +103,6 @@ export default function LoginComp() {
       </div>
     </>
   );
-}
+};
+
+export default RegisterComp;
