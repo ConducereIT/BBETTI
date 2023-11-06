@@ -1,75 +1,27 @@
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-// import required modules
-import { Parallax, Pagination, Navigation } from "swiper/modules";
-
-export default function Descriere() {
+export default function Description() {
   return (
     <>
-      <Swiper
-        speed={600}
-        parallax={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper h-full rounded-lg bg-slate-400"
-      >
-        <div
-          slot="container-start"
-          className="parallax-bg"
-          data-swiper-parallax="-23%"
-        ></div>
-        <SwiperSlide>
-          <div
-            className="flex justify-center text-4xl mt-10"
-            data-swiper-parallax="-200"
-          >
-            <p>Despre BBETTI</p>
-          </div>
-          <div
-            className="m-10 text-justify text-xl"
-            data-swiper-parallax="-100"
-          >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-            </p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="flex justify-center text-4xl mt-10"
-            data-swiper-parallax="-200"
-          >
-            <p>Program eveniment</p>
-          </div>
-          <div
-            className="m-10 text-justify text-xl"
-            data-swiper-parallax="-100"
-          >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-              laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-              Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-              Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-              ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-              tincidunt ut libero. Aenean feugiat non eros quis feugiat.
-            </p>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      <div>
+        <p className=" flex justify-center items-center text-white text-xl   md:text-3xl text-center">
+          Rock ‘n’ roll, disco, extravaganță și nostalgie, sunt doar câteva
+          dintre referințele ce descriu seara ce urmează să ajungă unul dintre
+          cele mai Funky Flashback-uri ale fiecăruia dintre noi.
+          <br />
+          <br />
+          Balul Bobocilor ETTI 2023, împreună cu cei 12 boboci talentați, își
+          propune să ne poarte într-o călătorie ce se întinde pe mai bine de
+          jumatate de secol, unde vom retrăi emoțiile și nebunia celor mai
+          iconice perioade din istoria muzicii.
+          <br />
+          <br /> Locul unde îți va cânta prietena, de la “Can’t help falling in
+          love with you” până la “Baby… one more time” și într-un final “La tine
+          și la bani”, este chiar BBETTI2023.
+          <br />
+          <br /> Whenever, wherever, we’re meant to be togheter, iar acestea
+          fiind spuse ne vedem cu toții pe 14 noiembrie, la cel mai memorabil
+          Bal al Bobocilor de până acum!
+        </p>
+      </div>
     </>
   );
 }
