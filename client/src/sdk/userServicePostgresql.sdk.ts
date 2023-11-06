@@ -4,7 +4,7 @@
 */
 
 import { Remote } from "./remote";
-import { UserLoginResponse, CheckSessionResponse, GetToken, ResetPasswordResponse, ResetPasswordConfirmResponse, EmailConfirmationResponse, ResendEmailConfirmationResponse, VoteResponse } from "./models/typeUser";
+import { UserLoginResponse, CheckSessionResponse, GetToken, ResetPasswordResponse, ResetPasswordConfirmResponse, EmailConfirmationResponse, ResendEmailConfirmationResponse, VoteResponse, CanVote } from "./models/typeUser";
 
 
 export class UserServicePostgresql {
@@ -34,8 +34,11 @@ export class UserServicePostgresql {
   static async resendEmailConfirmation(email: string): Promise<ResendEmailConfirmationResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.resendEmailConfirmation", email);
   }
-  static async voteConcurenti(email: string, idConcurent: number, gender: string): Promise<VoteResponse> {
+  static async voteConcurenti(email: string, idConcurent: string, gender: string): Promise<VoteResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, idConcurent, gender);
+  }
+  static async canVote(email: string): Promise<CanVote> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.canVote", email);
   }
 }
 

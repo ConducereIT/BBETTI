@@ -13,3 +13,4 @@ export type ResetPasswordConfirmResponse = {status: string, user?: User, errorMe
 export type EmailConfirmationResponse = {status: string, user?: User, errorMessage?: string};
 export type ResendEmailConfirmationResponse = {status: string, errorMessage?: string};
 export type VoteResponse = {status: string, errorMessage?: string};
+export type CanVote = {status: string, statusF: boolean, statusB: boolean, errorMessage?: string};

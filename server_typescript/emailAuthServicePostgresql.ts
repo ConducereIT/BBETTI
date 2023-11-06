@@ -5,7 +5,7 @@ import {
   ActiveSession,
   TabelaVoturi,
 } from "./models/userPostgresql";
-import {hashPassword, validatePassword, POSTGRESQL_DB_URI} from "./helper";
+import { hashPassword, validatePassword, POSTGRESQL_DB_URI } from "./helper";
 import {
   UserLoginResponse,
   CheckSessionResponse,
@@ -15,9 +15,10 @@ import {
   ResendEmailConfirmationResponse,
   VoteResponse,
   GetToken,
+  CanVote,
 } from "./models/typeUser";
-import {Send_mailer} from "./mailer";
-import {randomUUID} from "crypto";
+import { Send_mailer } from "./mailer";
+import { randomUUID } from "crypto";
 
 /**
  * The User server class that will be deployed on the genezio infrastructure.
@@ -47,7 +48,7 @@ export class UserServicePostgresql {
   async register(email: string, password: string): Promise<UserLoginResponse> {
     console.log(`Registering user with email ${email}...`);
 
-    const existingUser = await UserModel.findOne({where: {email: email}});
+    const existingUser = await UserModel.findOne({ where: { email: email } });
 
     if (existingUser) {
       return {
@@ -59,7 +60,7 @@ export class UserServicePostgresql {
 
     const hashedPassword = await hashPassword(password);
 
-    const token = jwt.sign({email}, process.env.JWT_TOKEN_SECRET!, {
+    const token = jwt.sign({ email }, process.env.JWT_TOKEN_SECRET!, {
       expiresIn: 86400, // 1 week
     });
 
@@ -116,7 +117,7 @@ export class UserServicePostgresql {
    * is ok if the login was successfull, error otherwise.
    */
   async login(email: string, password: string): Promise<UserLoginResponse> {
-    const existingUser = await UserModel.findOne({where: {email: email}});
+    const existingUser = await UserModel.findOne({ where: { email: email } });
 
     if (!existingUser) {
       return {
@@ -140,7 +141,7 @@ export class UserServicePostgresql {
         }
       );
 
-      await ActiveSession.create({token: token, userId: existingUser.userId});
+      await ActiveSession.create({ token: token, userId: existingUser.userId });
       return {
         status: "ok",
         user: {
@@ -171,21 +172,21 @@ export class UserServicePostgresql {
    * @returns {Promise<CheckSessionResponse>} An object containing a boolean property "status" which is ok if the token is valid, error otherwise.
    */
   async checkSession(token: string): Promise<CheckSessionResponse> {
-    const session = await ActiveSession.findOne({where: {token: token}});
+    const session = await ActiveSession.findOne({ where: { token: token } });
 
     if (!session) {
-      return {status: "error", errorMessage: "Invalid session token."};
+      return { status: "error", errorMessage: "Invalid session token." };
     }
 
     const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET!) as any;
 
-    const user = await UserModel.findOne({where: {userId: decoded.userId}});
+    const user = await UserModel.findOne({ where: { userId: decoded.userId } });
 
     if (!user) {
-      return {status: "error", errorMessage: "Invalid session token."};
+      return { status: "error", errorMessage: "Invalid session token." };
     }
 
-    return {status: "ok"};
+    return { status: "ok" };
   }
 
   /**
@@ -195,19 +196,19 @@ export class UserServicePostgresql {
    */
 
   async getToken(email: string): Promise<GetToken> {
-    const existingUser = await UserModel.findOne({where: {email: email}});
+    const existingUser = await UserModel.findOne({ where: { email: email } });
 
     const id = existingUser?.userId;
 
     const tokenUser = await ActiveSession.findOne({
-      where: {userId: id},
+      where: { userId: id },
     });
 
     if (!tokenUser) {
-      return {status: "error", errorMessage: "ceva a mers prost"};
+      return { status: "error", errorMessage: "ceva a mers prost" };
     }
 
-    return {status: "ok", token: tokenUser.token};
+    return { status: "ok", token: tokenUser.token };
   }
 
   /**
@@ -216,7 +217,7 @@ export class UserServicePostgresql {
    * @returns {Promise<ResetPasswordResponse>} An object with a boolean property "status" indicating success or failure.
    */
   async resetPassword(email: string): Promise<ResetPasswordResponse> {
-    const existingUser = await UserModel.findOne({where: {email: email}});
+    const existingUser = await UserModel.findOne({ where: { email: email } });
 
     if (!existingUser) {
       return {
@@ -225,7 +226,7 @@ export class UserServicePostgresql {
       };
     }
 
-    const token = jwt.sign({email}, process.env.JWT_TOKEN_SECRET!, {
+    const token = jwt.sign({ email }, process.env.JWT_TOKEN_SECRET!, {
       expiresIn: 86400, // 1 week
     });
 
@@ -245,7 +246,7 @@ export class UserServicePostgresql {
         errorMessage: "Email not send",
       };
 
-    return {status: "ok"};
+    return { status: "ok" };
   }
 
   /**
@@ -265,7 +266,7 @@ export class UserServicePostgresql {
     try {
       const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET!) as any;
 
-      const user = await UserModel.findOne({where: {email: decoded.email}});
+      const user = await UserModel.findOne({ where: { email: decoded.email } });
 
       if (user) {
         const hashedPassword = await hashPassword(password);
@@ -273,13 +274,13 @@ export class UserServicePostgresql {
         user.hashedPassword = hashedPassword;
         await user.save();
 
-        return {status: "ok", user: user};
+        return { status: "ok", user: user };
       } else {
-        return {status: "error", errorMessage: "User not found"};
+        return { status: "error", errorMessage: "User not found" };
       }
     } catch (error) {
       console.error(error);
-      return {status: "error", errorMessage: "Token invalid"};
+      return { status: "error", errorMessage: "Token invalid" };
     }
   }
 
@@ -294,20 +295,20 @@ export class UserServicePostgresql {
     try {
       const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET!) as any;
       console.log(decoded.email);
-      const user = await UserModel.findOne({where: {email: decoded.email}});
+      const user = await UserModel.findOne({ where: { email: decoded.email } });
 
       if (user) {
         user.tokenConfirmEmail = "token";
         user.verified = true;
         await user.save();
 
-        return {status: "ok", user: user};
+        return { status: "ok", user: user };
       } else {
-        return {status: "error", errorMessage: "User not found"};
+        return { status: "error", errorMessage: "User not found" };
       }
     } catch (error) {
       console.error(error);
-      return {status: "error", errorMessage: "Token invalid"};
+      return { status: "error", errorMessage: "Token invalid" };
     }
   }
 
@@ -323,9 +324,9 @@ export class UserServicePostgresql {
       `Received resend email confirmation request for user with email ${email}`
     );
 
-    const existingUser = await UserModel.findOne({where: {email: email}});
+    const existingUser = await UserModel.findOne({ where: { email: email } });
     if (existingUser) {
-      const token = jwt.sign({email}, process.env.JWT_TOKEN_SECRET!, {
+      const token = jwt.sign({ email }, process.env.JWT_TOKEN_SECRET!, {
         expiresIn: 86400, // 1 week
       });
 
@@ -340,19 +341,19 @@ export class UserServicePostgresql {
       );
 
       if (!mailVerification) {
-        return {status: "error", errorMessage: "Email not sent"};
+        return { status: "error", errorMessage: "Email not sent" };
       }
 
-      return {status: "ok"};
+      return { status: "ok" };
     } else {
-      return {status: "error", errorMessage: "User not found"};
+      return { status: "error", errorMessage: "User not found" };
     }
   }
 
   /**
    *  Vote system
    *  @param {string} email
-   *  @param {string} numeConcurent
+   *  @param {string} idConcurent
    *  @param {string} gender
    *  @returns {Promise<VoteResponse>} An object with a boolean property "status" indicating success or failure.
    */
@@ -362,8 +363,8 @@ export class UserServicePostgresql {
     idConcurent: string,
     gender: string
   ): Promise<VoteResponse> {
-    console.log(`Received vote request for user with email ${email}`)
-    const existingUser = await UserModel.findOne({where: {email: email}});
+    console.log(`Received vote request for user with email ${email}`);
+    const existingUser = await UserModel.findOne({ where: { email: email } });
 
     let canVote;
     if (gender === "F") {
@@ -374,21 +375,38 @@ export class UserServicePostgresql {
 
     if (canVote) {
       const concurent = await TabelaVoturi.findOne({
-        where: {id: idConcurent},
+        where: { id: idConcurent },
       });
 
-      await concurent?.increment("count", {by: 1});
+      await concurent?.increment("count", { by: 1 });
       await concurent?.save;
 
       if (gender === "F") {
-        await existingUser?.update({voteFata: true});
+        await existingUser?.update({ voteFata: true });
       } else if (gender === "M") {
-        await existingUser?.update({voteFata: true});
+        await existingUser?.update({ voteBaiat: true });
       }
     } else {
-      return {status: "ERROR", errorMessage: "Ai votat deja"};
+      return { status: "ERROR", errorMessage: "Ai votat deja" };
     }
 
-    return {status: "ok"};
+    return { status: "ok" };
+  }
+
+  async canVote(email: string): Promise<CanVote> {
+    const existingUser = await UserModel.findOne({ where: { email: email } });
+    if (!existingUser) {
+      return {
+        status: "no",
+        statusF: false,
+        statusB: false,
+        errorMessage: "User not found",
+      };
+    }
+
+    const fata = existingUser?.voteFata === true ? false : true;
+    const baiat = existingUser?.voteBaiat === true ? false : true;
+
+    return { status: "ok", statusF: fata, statusB: baiat };
   }
 }

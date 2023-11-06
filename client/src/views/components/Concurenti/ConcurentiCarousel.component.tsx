@@ -11,7 +11,7 @@ import {
   Pagination,
   EffectFlip,
 } from "swiper/modules";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Concurenti } from "../../../assets/config/Concurenti";
 
@@ -19,7 +19,7 @@ import { UserServicePostgresql as serverFunction } from "../../../sdk/userServic
 
 interface Concurent {
   image: string;
-  id: number;
+  idConcurent: string;
   name: string;
   description: string;
   sex: string;
@@ -29,6 +29,11 @@ export default function ConcurentiCarousel() {
   const [openDivs, setOpenDivs] = useState<boolean[]>(
     Concurenti.map(() => false)
   );
+
+  const [user, setUser] = useState({
+    fata: true,
+    baiat: true,
+  });
 
   const [error, setError] = useState("");
 
@@ -40,20 +45,27 @@ export default function ConcurentiCarousel() {
 
   const handleVote = async (concurent: Concurent) => {
     try {
-      const user = await serverFunction.checkSession(
+      const userV = await serverFunction.checkSession(
         window.localStorage.getItem("token") || ""
       );
 
-      if (!user) {
+      if (!userV) {
         throw new Error("Login first");
       }
 
-      if (user.status == "ok") {
+      if (
+        (user.fata && concurent.sex === "F") ||
+        (user.baiat && concurent.sex === "M")
+      ) {
+        alert("Ai votat");
+        return;
+      }
+      if (userV.status == "ok") {
         const email = window.localStorage.getItem("email" || " ");
 
         const voteStatus = await serverFunction.voteConcurenti(
           email || " ",
-          concurent.id,
+          concurent.idConcurent,
           concurent.sex
         );
 
@@ -65,6 +77,17 @@ export default function ConcurentiCarousel() {
       setError(`${error}`);
     }
   };
+
+  useEffect(() => {
+    const vote = async () => {
+      const email = localStorage.getItem("email");
+      const ceva = await serverFunction.canVote(email || "");
+
+      setUser({ fata: ceva.statusF, baiat: ceva.statusB });
+    };
+
+    vote();
+  }, []);
 
   return (
     <>
@@ -113,7 +136,12 @@ export default function ConcurentiCarousel() {
                           className="sticky bottom-0 p-10 bg-green-400 text-white w-[100%]"
                           onClick={() => handleVote(concurent)} // Handle vote click
                         >
-                          <h1>voteaza {`${concurent.sex}`}</h1>
+                          {(user.fata && concurent.sex === "F") ||
+                          (user.baiat && concurent.sex === "M") ? (
+                            <h1>voteaza {`${concurent.sex}`}</h1>
+                          ) : (
+                            <h1>Ai votat</h1>
+                          )}
                         </button>
                         <button
                           className="sticky bottom-0 p-10 bg-blue-400 text-white w-[100%]"

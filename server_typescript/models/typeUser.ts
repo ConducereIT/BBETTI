@@ -59,3 +59,10 @@ export type VoteResponse = {
   status: string;
   errorMessage?: string;
 };
+
+export type CanVote = {
+  status: string;
+  statusF: boolean;
+  statusB: boolean;
+  errorMessage?: string;
+};
