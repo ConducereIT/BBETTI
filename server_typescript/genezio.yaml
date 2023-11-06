@@ -12,3 +12,6 @@ classes:
   - path: emailAuthServicePostgresql.ts
     type: jsonrpc
     methods: []
+  - path: mailer.ts
+    type: jsonrpc
+    methods: []
