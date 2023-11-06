@@ -1,11 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
+import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+
 export default function Header() {
   const [nav, setNav] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
 
   const handleNav = () => {
     setNav(!nav);
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    const CheckSS = async () => {
+      const status = await serverFunction.checkSession(token || "null");
+
+      if (status.status == "ok") {
+        setIsAuth(true);
+      }
+    };
+
+    CheckSS();
+  }, []);
+
+  const handleLogOut = () => {
+    window.localStorage.removeItem("token");
+  };
+
   return (
     <>
       <div className=" fixed top-0 z-10 rounded-div flex items-center justify-between h-20 font-bold w-full bg-black text-white md:px-8">
@@ -29,20 +52,24 @@ export default function Header() {
             {" "}
             Contact
           </a>
-          <a
-            href="/login"
-            className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
-          >
-            {" "}
-            Log in
-          </a>
-          <a
-            href="/register"
-            className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
-          >
-            {" "}
-            Register
-          </a>
+          {isAuth != true ? (
+            <a
+              href="/login"
+              className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
+            >
+              {" "}
+              Log in
+            </a>
+          ) : (
+            <a
+              href="/"
+              onClick={handleLogOut}
+              className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
+            >
+              {" "}
+              Logout
+            </a>
+          )}
         </div>
         <div
           onClick={handleNav}

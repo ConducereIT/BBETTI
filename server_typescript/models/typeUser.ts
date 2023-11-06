@@ -27,6 +27,12 @@ export type CheckSessionResponse = {
   errorMessage?: string;
 };
 
+export type GetToken = {
+  status: string;
+  token?: string;
+  errorMessage?: string;
+};
+
 export type ResetPasswordResponse = {
   status: string;
   errorMessage?: string;

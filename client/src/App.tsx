@@ -10,6 +10,7 @@ import Contact from "./views/Contact.view";
 import Login from "./views/Login.view";
 import Register from "./views/Register.view";
 import Otp from "./views/Otp.view";
+import ResetPassword from "./views/ResetPassword.view";
 
 //Console
 import Admin from "./views/Console/Admin.view";
@@ -22,6 +23,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import ResetPass from "./views/ResetPassword.view";
 
 const App = () => {
   return (
@@ -33,6 +35,7 @@ const App = () => {
           <Route path="/concurenti" element={<Concurenti />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/register" element={<Register />} />
           <Route path="/otp" element={<Otp />} />
           <Route path="/admin-console" element={<Admin />} />

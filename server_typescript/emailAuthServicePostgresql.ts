@@ -14,6 +14,7 @@ import {
   EmailConfirmationResponse,
   ResendEmailConfirmationResponse,
   VoteResponse,
+  GetToken,
 } from "./models/typeUser";
 import { Send_mailer } from "./mailer";
 import { randomUUID } from "crypto";
@@ -190,6 +191,28 @@ export class UserServicePostgresql {
   /**
    * Sends a password reset token to a user's email.
    * @param {string} email - The user's email address.
+   * @returns {Promise<GetToken>} Return Token for a specific email
+   */
+
+  async getToken(email: string): Promise<GetToken> {
+    const existingUser = await UserModel.findOne({ where: { email: email } });
+
+    const id = existingUser?.userId;
+
+    const tokenUser = await ActiveSession.findOne({
+      where: { userId: id },
+    });
+
+    if (!tokenUser) {
+      return { status: "error", errorMessage: "ceva a mers prost" };
+    }
+
+    return { status: "ok", token: tokenUser.token };
+  }
+
+  /**
+   * Sends a password reset token to a user's email.
+   * @param {string} email - The user's email address.
    * @returns {Promise<ResetPasswordResponse>} An object with a boolean property "status" indicating success or failure.
    */
   async resetPassword(email: string): Promise<ResetPasswordResponse> {
@@ -336,7 +359,7 @@ export class UserServicePostgresql {
 
   async voteConcurenti(
     email: string,
-    numeConcurent: string,
+    idConcurent: number,
     gender: string
   ): Promise<VoteResponse> {
     const existingUser = await UserModel.findOne({ where: { email: email } });
@@ -350,7 +373,7 @@ export class UserServicePostgresql {
 
     if (canVote) {
       const concurent = await TabelaVoturi.findOne({
-        where: { name: numeConcurent },
+        where: { id: idConcurent },
       });
 
       await concurent?.increment("count", { by: 1 });
@@ -360,6 +383,6 @@ export class UserServicePostgresql {
       return { status: "ERROR", errorMessage: "Ai votat deja" };
     }
 
-    return { status: "Ok" };
+    return { status: "ok" };
   }
 }

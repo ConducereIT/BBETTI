@@ -4,7 +4,7 @@
 */
 
 import { Remote } from "./remote";
-import { UserLoginResponse, CheckSessionResponse, ResetPasswordResponse, ResetPasswordConfirmResponse, EmailConfirmationResponse, ResendEmailConfirmationResponse, VoteResponse } from "./models/typeUser";
+import { UserLoginResponse, CheckSessionResponse, GetToken, ResetPasswordResponse, ResetPasswordConfirmResponse, EmailConfirmationResponse, ResendEmailConfirmationResponse, VoteResponse } from "./models/typeUser";
 
 
 export class UserServicePostgresql {
@@ -19,6 +19,9 @@ export class UserServicePostgresql {
   static async checkSession(token: string): Promise<CheckSessionResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.checkSession", token);
   }
+  static async getToken(email: string): Promise<GetToken> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.getToken", email);
+  }
   static async resetPassword(email: string): Promise<ResetPasswordResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.resetPassword", email);
   }
@@ -31,8 +34,8 @@ export class UserServicePostgresql {
   static async resendEmailConfirmation(email: string): Promise<ResendEmailConfirmationResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.resendEmailConfirmation", email);
   }
-  static async voteConcurenti(email: string, numeConcurent: string, gender: string): Promise<VoteResponse> {
-    return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, numeConcurent, gender);
+  static async voteConcurenti(email: string, idConcurent: number, gender: string): Promise<VoteResponse> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, idConcurent, gender);
   }
 }
 
