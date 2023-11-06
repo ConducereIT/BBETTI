@@ -359,7 +359,7 @@ export class UserServicePostgresql {
 
   async voteConcurenti(
     email: string,
-    numeConcurent: string,
+    idConcurent: number,
     gender: string
   ): Promise<VoteResponse> {
     const existingUser = await UserModel.findOne({ where: { email: email } });
@@ -373,7 +373,7 @@ export class UserServicePostgresql {
 
     if (canVote) {
       const concurent = await TabelaVoturi.findOne({
-        where: { name: numeConcurent },
+        where: { id: idConcurent },
       });
 
       await concurent?.increment("count", { by: 1 });
@@ -383,6 +383,6 @@ export class UserServicePostgresql {
       return { status: "ERROR", errorMessage: "Ai votat deja" };
     }
 
-    return { status: "Ok" };
+    return { status: "ok" };
   }
 }

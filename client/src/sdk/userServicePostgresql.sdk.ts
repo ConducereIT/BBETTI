@@ -34,8 +34,8 @@ export class UserServicePostgresql {
   static async resendEmailConfirmation(email: string): Promise<ResendEmailConfirmationResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.resendEmailConfirmation", email);
   }
-  static async voteConcurenti(email: string, numeConcurent: string, gender: string): Promise<VoteResponse> {
-    return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, numeConcurent, gender);
+  static async voteConcurenti(email: string, idConcurent: number, gender: string): Promise<VoteResponse> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, idConcurent, gender);
   }
 }
 

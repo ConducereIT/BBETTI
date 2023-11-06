@@ -49,9 +49,20 @@ export default function ConcurentiCarousel() {
       }
 
       if (user.status == "ok") {
+        const email = window.localStorage.getItem("email" || " ");
+
+        const voteStatus = await serverFunction.voteConcurenti(
+          email || " ",
+          concurent.id,
+          concurent.sex
+        );
+
+        if (voteStatus.status != "ok") {
+          throw new Error(`${voteStatus.status}`);
+        }
       }
     } catch (error) {
-      console.error("Vote failed", error);
+      setError(`${error}`);
     }
   };
 
