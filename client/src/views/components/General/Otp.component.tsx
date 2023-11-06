@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import bg_image from "../../../assets/img/Background/back-landing-page.webp";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
 
-export default function LoginComp() {
+const OtpComp = () => {
   const [user, setUser] = useState({
     email: "",
-    password: "",
+    token: "",
   });
 
   const [error, setError] = useState("");
@@ -16,29 +16,29 @@ export default function LoginComp() {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
-  const handleForgot = async (event: any) => {
-    event.prevendDefault();
+  const handleSummit = async (event: any) => {
+    event.preventDefault();
 
-    const status = await serverFunction.resetPassword(user.email);
+    const status = await serverFunction.emailConfirmation(user.token);
 
-    if (status.status != "ok") {
+    if (status.status === "ok") {
+      localStorage.setItem("email", user.email);
+      window.location.replace("/");
+    } else {
       setError(`${status.errorMessage}`);
     }
   };
 
-  const handleSummit = async (event: any) => {
-    event.preventDefault();
+  const resendEmail = async (event: any) => {
+    event.prevendDefault();
 
-    const status = await serverFunction.login(user.email, user.password);
+    const status = await serverFunction.resendEmailConfirmation(user.email);
 
-    const info = status.status;
-
-    if (info == "ok" && status.user?.verified) {
-      localStorage.setItem("email", user.email);
-      window.location.replace("/");
-    } else if (info == "ok" && !status.user?.verified) {
-      window.location.replace("/otp");
-    } else setError(`${status.errorMessage}`);
+    if (status.status == "ok") {
+      setError("Codul de verificare a fost trimis!");
+    } else {
+      setError(`${status.errorMessage}`);
+    }
   };
 
   return (
@@ -55,45 +55,45 @@ export default function LoginComp() {
                 <AiOutlineMail color="white" className="text-3xl md:text-4xl" />
                 <input
                   name="email"
-                  value={user.email}
+                  value={user.email || ""}
                   type="text"
-                  maxLength={80}
                   placeholder="Email"
                   className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
                   onChange={handleChange}
                 />
               </div>
             </label>
-            <label className="mb-6">
+            <label className="mb-4">
               <div className="my-5 md:my-5 flex">
-                <AiFillLock color="white" className="text-3xl md:text-4xl" />
+                <AiOutlineMail color="white" className="text-3xl md:text-4xl" />
                 <input
-                  name="password"
-                  value={user.password}
-                  type="password"
-                  maxLength={80}
-                  placeholder="Password"
+                  name="token"
+                  value={user.token}
+                  type="text"
+                  placeholder="Verification Code"
                   className="bg-transparent border-b-2 text-lg md:text-2xl text-white ml-4"
                   onChange={handleChange}
                 />
               </div>
             </label>
+
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center">
                 <input type="checkbox" className="mr-2 text-white" />
                 <p className="text-white text-sm">Remember Me</p>
               </label>
-              <button onClick={handleForgot} className="text-white text-sm">
-                Forgot Password?
+              <button onClick={resendEmail} className="text-white text-sm">
+                Resend Email Code?
               </button>
             </div>
+
             <div className="flex justify-center mt-10 bg-gray-500/60 py-4">
               <button
                 onClick={handleSummit}
                 className="text-white w-full"
                 type="submit"
               >
-                LOGIN
+                Confirm
               </button>
             </div>
           </form>
@@ -101,4 +101,6 @@ export default function LoginComp() {
       </div>
     </>
   );
-}
+};
+
+export default OtpComp;
