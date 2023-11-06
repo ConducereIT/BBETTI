@@ -13,7 +13,7 @@ import Beatles from "../assets/img/posters/beatles.webp";
 import Furtuna from "../assets/img/concurenti/portrait_teodor_furtuna.webp";
 import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
 import Beyonce from "../assets/img/posters/beyonce.webp";
-
+import Background from "../assets/img/Background/back-landing-page.webp";
 import "intersection-observer";
 import Singer from "./components/General/Singer.component";
 import Pachete from "./components/General/Pachete.component";
@@ -21,6 +21,7 @@ import Description from "./components/General/Description.component";
 import Locatie from "./components/General/Locatie.component";
 import MasterCeremonies from "./components/General/MasterCeremonies.component";
 import Gallery from "./components/General/Gallery.component";
+import Footer from "./components/General/Footer.component";
 
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
@@ -65,10 +66,13 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full object-cover object-left scale-x-[1] mx-auto"></div>
+            <div className="w-full h-full object-cover object-left scale-x-[1] mx-auto ">
+              {" "}
+              <img src={Background} />
+            </div>
             <div className="w-full h-screen absolute top-0 left-0">
               <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold">
+                <h1 className="sm:text-5xl text-4xl text-white font-bold">
                   Balul Bobocilor
                 </h1>
               </div>
@@ -382,6 +386,7 @@ const Home = () => {
                 <Locatie />
               </div>
             </div>
+            <Footer />
           </ParallaxLayer>
         </Parallax>
       </div>
