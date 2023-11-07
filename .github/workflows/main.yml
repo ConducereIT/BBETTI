@@ -15,6 +15,9 @@ jobs:
       - uses: Genez-io/genezio-github-action@main
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
+      - name: install pg
+        working-directory: ./server
+        run: npm install pg
       - name: Deploy backend
         working-directory: ./server
         run: genezio deploy
