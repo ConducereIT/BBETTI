@@ -27,7 +27,7 @@ interface Concurent {
 
 export default function ConcurentiCarousel() {
   const [openDivs, setOpenDivs] = useState<boolean[]>(
-    Concurenti.map(() => false)
+    Concurenti.map(() => false),
   );
 
   const [user, setUser] = useState({
@@ -46,7 +46,7 @@ export default function ConcurentiCarousel() {
   const handleVote = async (concurent: Concurent) => {
     try {
       const userV = await serverFunction.checkSession(
-        window.localStorage.getItem("token") || ""
+        window.localStorage.getItem("token") || "",
       );
 
       if (!userV) {
@@ -66,7 +66,8 @@ export default function ConcurentiCarousel() {
         const voteStatus = await serverFunction.voteConcurenti(
           email || " ",
           concurent.idConcurent,
-          concurent.sex
+          concurent.sex,
+          window.localStorage.getItem("token") || "",
         );
 
         if (voteStatus.status != "ok") {
@@ -81,8 +82,10 @@ export default function ConcurentiCarousel() {
   useEffect(() => {
     const vote = async () => {
       const email = localStorage.getItem("email");
-      const ceva = await serverFunction.canVote(email || "");
-
+      const ceva = await serverFunction.canVote(
+        email || "",
+        window.localStorage.getItem("token") || "",
+      );
       setUser({ fata: ceva.statusF, baiat: ceva.statusB });
     };
 

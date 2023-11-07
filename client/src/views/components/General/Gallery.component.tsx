@@ -13,7 +13,7 @@ import { EffectFade, Navigation, Pagination } from "swiper/modules";
 
 import { GalleryImages } from "../../../assets/config/GalleryConfig";
 
-export default function App() {
+export default function Gallery() {
   return (
     <>
       <div className=" mt   -10">

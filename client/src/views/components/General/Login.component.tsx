@@ -51,8 +51,9 @@ export default function LoginComp() {
         style={{ backgroundImage: `url(${bg_image})` }}
       >
         <div>
-          <h1 className="text-white text-center">{error ? error : ""}</h1>
+
           <form className="bg-black/90 p-6 px-4 md:p-10 md:px-24">
+            <h1 className="text-white text-center mb-10">{error ? error : ""}</h1>
             <label className="mb-4">
               <div className="my-5 md:my-5 flex">
                 <AiOutlineMail color="white" className="text-3xl md:text-4xl" />

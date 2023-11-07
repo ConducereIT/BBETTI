@@ -1,7 +1,7 @@
 import ConcurentiCarousel from "./components/Concurenti/ConcurentiCarousel.component";
 import Header from "./components/General/Header";
 import "../Concurenti.css";
-export default function App() {
+export default function Concurenti() {
   return (
     <>
       <Header />

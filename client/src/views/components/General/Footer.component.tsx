@@ -4,7 +4,7 @@ import { BiLogoFacebook, BiLogoTiktok } from "react-icons/bi";
 export default function Footer() {
   return (
     <>
-      <div className="grid place-items-center text-white ">
+      <div className="grid place-items-center text-white mt-8">
         <div className=" flex justify-between gap-5 mb-5">
           <a
             href="https://www.instagram.com/ligastudentilorelectronistilse/"
@@ -43,8 +43,8 @@ export default function Footer() {
             </div>
           </a>
         </div>
-        <div>
-          <hr className="text-white border-2 w-screen" />
+        <div className="w-full">
+          <hr className="text-white border-2 w-4/5 mx-auto" style={{ borderColor: '#F2F2F2' }} />
         </div>
         <div className=" mt-5 text-lg">
           <p className=" text-center">

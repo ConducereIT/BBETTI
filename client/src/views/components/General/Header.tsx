@@ -26,12 +26,12 @@ export default function Header() {
   }, []);
 
   const handleLogOut = () => {
-    window.localStorage.removeItem("token");
+    window.localStorage.clear();
   };
 
   return (
     <>
-      <div className=" fixed top-0 z-10 rounded-div flex items-center justify-between h-20 font-bold w-full bg-black text-white md:px-8">
+      <div className=" fixed top-0 z-10 opacity-75 rounded-div flex items-center justify-between h-20 font-bold w-full bg-black text-white md:px-8">
         <a href="/">
           <h1 className="text-2xl uppercase pl-2 select-none">
             Balul Bobocilor

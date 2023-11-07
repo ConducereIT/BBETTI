@@ -34,11 +34,11 @@ export class UserServicePostgresql {
   static async resendEmailConfirmation(email: string): Promise<ResendEmailConfirmationResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.resendEmailConfirmation", email);
   }
-  static async voteConcurenti(email: string, idConcurent: string, gender: string): Promise<VoteResponse> {
-    return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, idConcurent, gender);
+  static async voteConcurenti(email: string, idConcurent: string, gender: string, token: string): Promise<VoteResponse> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.voteConcurenti", email, idConcurent, gender, token);
   }
-  static async canVote(email: string): Promise<CanVote> {
-    return await UserServicePostgresql.remote.call("UserServicePostgresql.canVote", email);
+  static async canVote(email: string, token: string): Promise<CanVote> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.canVote", email, token);
   }
 }
 
