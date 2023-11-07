@@ -13,7 +13,7 @@ export const sequelize = new Sequelize(POSTGRESQL_DB_URI, {
       require: true,
     },
   },
-  dialectModule: pg,
+  dialectModule: pg.Client,
 });
 
 export class TabelaVoturi extends Model {
