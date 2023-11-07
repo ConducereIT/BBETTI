@@ -4,8 +4,8 @@ import Avram from "../img/concurenti/50s-avram.webp";
 import Mocanca from "../img/concurenti/50s-mocanca.webp";
 import Belu from "../img/concurenti/60s - Belu.webp";
 import Ungureanu from "../img/concurenti/60s - Ungureanu.webp";
-import Georgescu from "../img/concurenti/70s - Georgescu.webp";
-import Minculescu from "../img/concurenti/70s - Minculescu.webp"
+import Minculescu from "../img/concurenti/70s - Georgescu.webp";
+import Georgescu from "../img/concurenti/70s - Minculescu.webp"
 import Bacanu from "../img/concurenti/80s - Băcanu.webp"
 import Dragomir from "../img/concurenti/80s - Dragomir.webp"
 import Colcer from "../img/concurenti/90s - Colcer.webp"

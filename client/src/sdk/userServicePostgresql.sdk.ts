@@ -8,7 +8,7 @@ import { UserLoginResponse, CheckSessionResponse, GetToken, ResetPasswordRespons
 
 
 export class UserServicePostgresql {
-  static remote = new Remote("http://127.0.0.1:8083/UserServicePostgresql");
+  static remote = new Remote("https://bviduan5zpfqttb6fke4556sly0ymswi.lambda-url.eu-central-1.on.aws/UserServicePostgresql");
 
   static async register(email: string, password: string): Promise<UserLoginResponse> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.register", email, password);

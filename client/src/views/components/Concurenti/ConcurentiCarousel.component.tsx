@@ -126,7 +126,7 @@ export default function ConcurentiCarousel() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="h-[50%] w-[60%]">
+        <div className="md:h-[50%] w-[60%]">
           <Swiper
             slidesPerView={1}
             centeredSlides={false}
