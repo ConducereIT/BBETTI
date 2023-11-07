@@ -6,7 +6,7 @@ import "./App.css";
 // Views
 import Home from "./views/Home.view";
 import Concurenti from "./views/ Concurenti.view";
-import Contact from "./views/Contact.view";
+import Sponsori from "./views/Sponsori.view";
 import Login from "./views/Login.view";
 import Register from "./views/Register.view";
 import Otp from "./views/Otp.view";
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
 
           <Route path="/concurenti" element={<Concurenti />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/sponsori" element={<Sponsori />} />
           <Route path="/login" element={<Login />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/register" element={<Register />} />

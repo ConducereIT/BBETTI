@@ -4,7 +4,7 @@ import { ReactNebula } from "@flodlc/nebula";
 import Header from "./components/General/Header";
 import Carousel from "./components/General/Carousel.component";
 
-const Contact = () => {
+const Sponsori = () => {
   const parallax = useRef<IParallax>(null!);
   return (
     <>
@@ -115,7 +115,7 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Sponsori;
 // {
 /* <Parallax
         ref={parallax}

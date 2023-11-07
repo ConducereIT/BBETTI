@@ -24,10 +24,26 @@ interface Concurent {
   description: string;
   sex: string;
 }
+function shufflePairs(array:any) {
+  let pairs = [];
+
+  for (let i = 0; i < array.length; i += 2) {
+    if (array[i + 1] !== undefined) {
+      pairs.push([array[i], array[i + 1]]);
+    } else {
+      pairs.push([array[i]]);
+    }
+  }
+
+  pairs.sort(() => Math.random() - 0.5);
+
+  return pairs.reduce((acc, pair) => acc.concat(pair), []);
+}
+const concurentiShuffled = shufflePairs(Concurenti);
 
 export default function ConcurentiCarousel() {
   const [openDivs, setOpenDivs] = useState<boolean[]>(
-    Concurenti.map(() => false),
+    concurentiShuffled.map(() => false),
   );
 
   const [user, setUser] = useState({

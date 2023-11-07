@@ -46,11 +46,11 @@ export default function Header() {
             Concurenți
           </a>
           <a
-            href="/contact"
+            href="/sponsori"
             className=" no-underline p-4 duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
           >
             {" "}
-            Contact
+            Sponsori
           </a>
           {isAuth != true ? (
             <a
