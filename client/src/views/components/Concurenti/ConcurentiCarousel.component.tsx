@@ -39,9 +39,10 @@ function shufflePairs(array:any) {
 
   return pairs.reduce((acc, pair) => acc.concat(pair), []);
 }
-const concurentiShuffled = shufflePairs(Concurenti);
+
 
 export default function ConcurentiCarousel() {
+  const concurentiShuffled = shufflePairs(Concurenti);
   const [openDivs, setOpenDivs] = useState<boolean[]>(
     concurentiShuffled.map(() => false),
   );
