@@ -15,7 +15,7 @@ export default function Header() {
     const token = localStorage.getItem("token");
 
     const CheckSS = async () => {
-      if(!token) return;
+      if (!token) return;
 
       const status = await serverFunction.checkSession(token || "null");
 
@@ -33,7 +33,7 @@ export default function Header() {
 
   return (
     <>
-      <div className=" fixed top-0 z-10 opacity-75 rounded-div flex items-center justify-between h-20 font-bold w-full bg-black text-white md:px-8">
+      <div className=" fixed top-0 z-10  rounded-div flex items-center justify-between h-20 font-bold w-full bg-black/90 text-white md:px-8">
         <a href="/">
           <h1 className="text-2xl uppercase pl-2 select-none">
             Balul Bobocilor
@@ -41,18 +41,18 @@ export default function Header() {
         </a>
         <div className=" hidden md:block">
           <a
+            href="/"
+            className=" p-4 duration-300 hover:text-blue-600 no-underline"
+          >
+            {" "}
+            Acasă
+          </a>
+          <a
             href="/concurenti"
             className=" p-4 duration-300 hover:text-blue-600 no-underline"
           >
             {" "}
             Concurenți
-          </a>
-          <a
-            href="/sponsori"
-            className=" no-underline p-4 duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
-          >
-            {" "}
-            Sponsori
           </a>
           {isAuth != true ? (
             <a
@@ -88,29 +88,15 @@ export default function Header() {
         >
           <ul className="w-full p-4 ">
             <li className=" py-6 border-b">
-              <a href="/concurenti">Concurenți</a>
+              <a href="/">Acasă</a>
             </li>
             <li className=" py-6 border-b">
-              <a href="/sponsori">Sponsori</a>
+              <a href="/concurenti">Concurenți</a>
             </li>
-            {isAuth != true ? (
-              <a
-                href="/login"
-                className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
-              >
-                {" "}
-                Log in
-              </a>
-            ) : (
-              <a
-                href="/"
-                onClick={handleLogOut}
-                className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
-              >
-                {" "}
-                Logout
-              </a>
-            )}
+
+            <li className=" py-6 border-b">
+              <a href="/login">Log in</a>
+            </li>
           </ul>
         </div>
       </div>
