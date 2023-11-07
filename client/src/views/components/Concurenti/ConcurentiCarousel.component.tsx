@@ -75,16 +75,17 @@ export default function ConcurentiCarousel() {
     setUser({ fata: ceva.statusF, baiat: ceva.statusB });
   };
 
-  if(localStorage.getItem("token"))  {
-    console.log("token: ", localStorage.getItem("token"));
-    vote();
-  }
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      vote();
+    }
+  }, []);
 
   const handleVote = async (concurent: Concurent) => {
-    console.log("concurent: ", concurent);
     try {
       if (!localStorage.getItem("token")) {
-        console.log("token: ", localStorage.getItem("token"));
+        throw new Error("Login first");
       }
       const userV = await serverFunction.checkSession(
         window.localStorage.getItem("token") || "",
@@ -95,8 +96,8 @@ export default function ConcurentiCarousel() {
       }
 
       if (
-        (user.fata && concurent.sex === "F") ||
-        (user.baiat && concurent.sex === "M")
+        (!user.fata && concurent.sex === "F") ||
+        (!user.baiat && concurent.sex === "M")
       ) {
         alert("Ai votat");
         return;
@@ -149,6 +150,13 @@ export default function ConcurentiCarousel() {
             {concurentiOrder.map((concurent: Concurent, index: number) => (
               <SwiperSlide key={index}>
                 <div className="m-20 ">
+                  <div
+                    className=" mt-10 mb-10 w-full h-full bg-cover duration-300 rounded-lg text-2xl scale-150"
+                    style={{backgroundImage:`url(${BgButton})`}}
+                  >
+                    <h1 className="w-full text-center text-base"> {concurent.name}</h1>
+                  </div>
+
                   <div className="w-full h-full object-cover object-left mx-auto ">
                     <img src={concurent.image} alt={`Image ${index}`} />
                   </div>
@@ -158,9 +166,9 @@ export default function ConcurentiCarousel() {
                     style={{backgroundImage:`url(${BgButton})`}}
                   >
                     {(user.fata && concurent.sex === "F") || (user.baiat && concurent.sex === "M") ? (
-                      <h1>Votează {`${concurent.sex}`}</h1>
+                      <h1>Votează </h1>
                     ) : (
-                      <h1>Ai votat</h1>
+                      <h1>Ai votat!</h1>
                     )}
                   </button>
                 </div>

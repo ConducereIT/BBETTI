@@ -58,6 +58,10 @@
   background: #424448;
 }
 
-.swiper-button-next, .swiper-button-prev {
-  color: red;
+.swiper-button-next:after, .swiper-button-prev:after {
+  color: #d9d9d9d9;
+}
+
+.swiper-pagination{
+  display: none;
 }
