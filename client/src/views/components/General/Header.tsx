@@ -91,14 +91,26 @@ export default function Header() {
               <a href="/concurenti">Concurenți</a>
             </li>
             <li className=" py-6 border-b">
-              <a href="/contact">Contact</a>
+              <a href="/sponsori">Sponsori</a>
             </li>
-            <li className=" py-6 border-b">
-              <a href="/login">Log in</a>
-            </li>
-            <li className=" py-6 border-b">
-              <a href="/register">Register</a>
-            </li>
+            {isAuth != true ? (
+              <a
+                href="/login"
+                className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
+              >
+                {" "}
+                Log in
+              </a>
+            ) : (
+              <a
+                href="/"
+                onClick={handleLogOut}
+                className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
+              >
+                {" "}
+                Logout
+              </a>
+            )}
           </ul>
         </div>
       </div>
