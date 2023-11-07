@@ -19,7 +19,7 @@ export default function MasterCeremonies() {
           </div>
           <div className=" text-white mt-10">
             <div className=" text-3xl font-bold flex justify-center">
-              <p>MC Ana Moga</p>
+              <p>MC Care o fi</p>
             </div>
             <p className=" text-justify mx-8 text-xl my-10">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -14,6 +14,29 @@ import Furtuna from "../assets/img/concurenti/portrait_teodor_furtuna.webp";
 import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
 import Beyonce from "../assets/img/posters/beyonce.webp";
 import Background from "../assets/img/Background/back-landing-page.webp";
+import Boy50s from "../assets/img/concurenti/50s-avram.webp";
+import Girl50s from "../assets/img/concurenti/50s-mocanca.webp";
+import Boy60s from "../assets/img/concurenti/60s - Belu.webp";
+import Girl60s from "../assets/img/concurenti/60s - Ungureanu.webp";
+import Boy70s from "../assets/img/concurenti/70s - Minculescu.webp";
+import Girl70s from "../assets/img/concurenti/70s - Georgescu.webp";
+import Boy80s from "../assets/img/concurenti/80s - Dragomir.webp";
+import Girl80s from "../assets/img/concurenti/80s - Băcanu.webp";
+import Girl90s from "../assets/img/concurenti/90s - Colcer.webp";
+import Boy90s from "../assets/img/concurenti/90s - Ilinca.webp";
+import Boy00s from "../assets/img/concurenti/00s - Badea.webp";
+import Girl00s from "../assets/img/concurenti/00s-Ambrozie.webp";
+import Right60s from "../assets/img/items/60s/60s-the-beatles.webp";
+import Left60s from "../assets/img/items/60s/60s_movie.webp";
+import Right70s from "../assets/img/items/70s/70s-right.webp";
+import Left70s from "../assets/img/items/70s/70s-left.webp";
+import Right80s from "../assets/img/items/80s/80s-right.webp";
+import Left80s from "../assets/img/items/80s/80s-left.webp";
+import Right90s from "../assets/img/items/90s/90s-right.webp";
+import Left90s from "../assets/img/items/90s/90s-left.webp";
+import Right00s from "../assets/img/items/00s/00s-right.webp";
+import Left00s from "../assets/img/items/00s/00s-left.webp";
+
 import "intersection-observer";
 import Singer from "./components/General/Singer.component";
 import Pachete from "./components/General/Pachete.component";
@@ -56,7 +79,7 @@ const Home = () => {
     <>
       <Header />
       <div>
-        <Parallax ref={parallax} pages={7.5}>
+        <Parallax ref={parallax} pages={7.51}>
           <ParallaxLayer
             offset={0}
             factor={8}
@@ -66,13 +89,12 @@ const Home = () => {
               backgroundSize: "cover",
             }}
           >
-            <div className="w-full h-full object-cover object-left scale-x-[1] mx-auto ">
-              {" "}
-              <img src={Background} />
-            </div>
-            <div className="w-full h-screen absolute top-0 left-0">
+            <div
+              className="w-full h-screen absolute top-0 left-0"
+              style={{ backgroundImage: `url(${Background})` }}
+            >
               <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                <h1 className="sm:text-5xl text-4xl text-white font-bold">
+                <h1 className="sm:text-5xl text-4xl text-white font-bold bg-black/70 p-10 rounded-full">
                   Balul Bobocilor
                 </h1>
               </div>
@@ -95,43 +117,30 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4">
+            <div className="hidden md:flex justify-between m-4 ">
               <img
                 alt="fata 50s"
-                src={Dinut}
-                className=" -rotate-2 transform md:w-[17%] w-[40%] md:h-[17%] h-[40%]"
+                src={Girl50s}
+                className="transform md:w-[17%] w-[40%] rotate-6"
               />
+
               <img
                 alt="baiat 50s"
-                src={Furtuna}
-                className=" rotate-2 transform md:w-[17%] w-[40%] md:h-[17%] h-[40%]"
+                src={Boy50s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
             </div>
-            <div className="hidden md:flex justify-between m-4">
-              <div className="md:w-[17%] w-[40%] md:h-[17%] h-[40%]">
-                <img
-                  alt="ray charles"
-                  src={Ray}
-                  className="transform -rotate-6  scale-75"
-                />
-                <img
-                  src={Mercedes300}
-                  alt="Mercedes"
-                  className="transform -rotate-6 scale-100"
-                />
-              </div>
-              <div className="md:w-[17%] w-[40%] md:h-[17%] h-[40%]">
-                <img
-                  alt="Sintra"
-                  src={Sinatra}
-                  className=" scale-75 rotate-3"
-                />
-                <img
-                  alt="Travolta"
-                  src={Travolta}
-                  className=" scale-100 -rotate-3"
-                />
-              </div>
+            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
+              <img
+                alt="ray charles"
+                src={Ray}
+                className="transform -rotate-6 md:w-[17%] w-[40%]"
+              />
+              <img
+                alt="Sintra"
+                src={Sinatra}
+                className=" rotate-6  md:w-[17%] w-[40%]"
+              />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={1.4} factor={1.1} speed={0.5}>
@@ -161,26 +170,27 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between m-4 ">
               <img
-                alt="ray charles"
-                src={Ray}
-                className="transform -rotate-4 md:w-[17%] w-[40%]"
+                alt="fata 60s"
+                src={Girl60s}
+                className="transform md:w-[17%] w-[40%] rotate-6"
               />
+
               <img
-                alt="baiat 50s"
-                src={Furtuna}
-                className="transform md:w-[17%] w-[40%]"
+                alt="baiat 60s"
+                src={Boy60s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="fata 50s"
-                src={Dinut}
-                className="transform md:w-[17%] w-[40%]"
+                alt="ray charles"
+                src={Right60s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
               <img
                 alt="Sintra"
-                src={Sinatra}
-                className=" -rotate-2  md:w-[17%] w-[40%]"
+                src={Left60s}
+                className="  md:w-[17%] w-[40%] rotate-6"
               />
             </div>
           </ParallaxLayer>
@@ -210,26 +220,26 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between m-4">
               <img
-                alt="ray charles"
-                src={Ray}
-                className="transform -rotate-4 md:w-[17%] w-[40%]"
+                alt="baiat 70s"
+                src={Boy70s}
+                className="transform md:w-[17%] w-[40%] rotate-6"
               />
               <img
-                alt="baiat 50s"
-                src={Furtuna}
-                className="transform md:w-[17%] w-[40%]"
+                alt="fata 70s"
+                src={Girl70s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="fata 50s"
-                src={Dinut}
-                className="transform md:w-[17%] w-[40%]"
+                alt="ray charles"
+                src={Left70s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
               <img
                 alt="Sintra"
-                src={Sinatra}
-                className=" -rotate-2  md:w-[17%] w-[40%]"
+                src={Right70s}
+                className="  md:w-[17%] w-[40%] rotate-6"
               />
             </div>
           </ParallaxLayer>
@@ -259,26 +269,26 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between m-4">
               <img
-                alt="ray charles"
-                src={Ray}
-                className="transform -rotate-4 md:w-[17%] w-[40%]"
+                alt="fata 80s"
+                src={Girl80s}
+                className="transform md:w-[17%] w-[40%] rotate-6"
               />
               <img
-                alt="baiat 50s"
-                src={Furtuna}
-                className="transform md:w-[17%] w-[40%]"
+                alt="baiat 80s"
+                src={Boy80s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="fata 50s"
-                src={Dinut}
-                className="transform md:w-[17%] w-[40%]"
+                alt="ray charles"
+                src={Left80s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
               <img
                 alt="Sintra"
-                src={Sinatra}
-                className=" -rotate-2  md:w-[17%] w-[40%]"
+                src={Right80s}
+                className=" rotate-6  md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
@@ -308,26 +318,27 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between m-4">
               <img
-                alt="ray charles"
-                src={Ray}
-                className="transform -rotate-4 md:w-[17%] w-[40%]"
+                alt="fata 90s"
+                src={Girl90s}
+                className="transform md:w-[17%] w-[40%] rotate-6"
               />
+
               <img
-                alt="baiat 50s"
-                src={Furtuna}
-                className="transform md:w-[17%] w-[40%]"
+                alt="baiat 90s"
+                src={Boy90s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="fata 50s"
-                src={Dinut}
-                className="transform md:w-[17%] w-[40%]"
+                alt="ray charles"
+                src={Left90s}
+                className="transform -rotate-6 md:w-[17%] w-[40%]"
               />
               <img
                 alt="Sintra"
-                src={Sinatra}
-                className=" -rotate-2  md:w-[17%] w-[40%]"
+                src={Right90s}
+                className=" md:w-[17%] w-[40%] rotate-6"
               />
             </div>
           </ParallaxLayer>
@@ -357,26 +368,27 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between m-4">
               <img
-                alt="ray charles"
-                src={Ray}
-                className="transform -rotate-4 md:w-[17%] w-[40%]"
+                alt="fata 00s"
+                src={Girl00s}
+                className="transform md:w-[17%] w-[40%] rotate-6"
               />
+
               <img
-                alt="baiat 50s"
-                src={Furtuna}
-                className="transform md:w-[17%] w-[40%]"
+                alt="baiat 00s"
+                src={Boy00s}
+                className="transform md:w-[17%] w-[40%] -rotate-6"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="fata 50s"
-                src={Dinut}
-                className="transform md:w-[17%] w-[40%]"
+                alt="ray charles"
+                src={Left00s}
+                className="transform -rotate-6 md:w-[17%] w-[40%]"
               />
               <img
                 alt="Sintra"
-                src={Sinatra}
-                className=" -rotate-2  md:w-[17%] w-[40%]"
+                src={Right00s}
+                className=" rotate-6 md:w-[17%] w-[40%]"
               />
             </div>
           </ParallaxLayer>
