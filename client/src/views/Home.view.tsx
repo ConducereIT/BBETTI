@@ -4,7 +4,7 @@ import Header from "./components/General/Header";
 import Elvis from "../assets/img/posters/elvis.webp";
 import Jackson from "../assets/img/posters/jackson.webp";
 import Abba from "../assets/img/posters/abba.webp";
-import Nirvana from "../assets/img/posters/nirvana.webp";
+import Nirvana from "../assets/img/posters/nirvana1.webp";
 import Ray from "../assets/img/posters/ray.webp";
 import Sinatra from "../assets/img/posters/Sinatra.webp";
 import Travolta from "../assets/img/items/50s/travolta.webp";
