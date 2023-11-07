@@ -12,9 +12,14 @@ import {
   EffectFlip,
 } from "swiper/modules";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+import BgButton from "../../../assets/img/items/bara-vot.webp"
 
 import { Concurenti } from "../../../assets/config/Concurenti";
-
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
 
 interface Concurent {
@@ -24,6 +29,7 @@ interface Concurent {
   description: string;
   sex: string;
 }
+
 function shufflePairs(array:any) {
   let pairs = [];
 
@@ -42,10 +48,15 @@ function shufflePairs(array:any) {
 
 
 export default function ConcurentiCarousel() {
-  const concurentiShuffled = shufflePairs(Concurenti);
-  const [openDivs, setOpenDivs] = useState<boolean[]>(
-    concurentiShuffled.map(() => false),
-  );
+  const navigate = useNavigate();
+  const [concurentiOrder, setConcurentiOrder] = useState<Concurent[]>([]);
+
+  useEffect(() => {
+    const shuffledConcurenti = shufflePairs(Concurenti);
+    setConcurentiOrder(shuffledConcurenti);
+  }, []);
+
+  const [openDivs, setOpenDivs] = useState<boolean[]>(concurentiOrder.map(() => false));
 
   const [user, setUser] = useState({
     fata: true,
@@ -54,14 +65,27 @@ export default function ConcurentiCarousel() {
 
   const [error, setError] = useState("");
 
-  const toggleOpen = (index: number) => {
-    const updatedOpenDivs = [...openDivs];
-    updatedOpenDivs[index] = !updatedOpenDivs[index];
-    setOpenDivs(updatedOpenDivs);
+
+  const vote = async () => {
+    const email = localStorage.getItem("email");
+    const ceva = await serverFunction.canVote(
+      email || "",
+      window.localStorage.getItem("token") || "",
+    );
+    setUser({ fata: ceva.statusF, baiat: ceva.statusB });
   };
 
+  if(localStorage.getItem("token"))  {
+    console.log("token: ", localStorage.getItem("token"));
+    vote();
+  }
+
   const handleVote = async (concurent: Concurent) => {
+    console.log("concurent: ", concurent);
     try {
+      if (!localStorage.getItem("token")) {
+        console.log("token: ", localStorage.getItem("token"));
+      }
       const userV = await serverFunction.checkSession(
         window.localStorage.getItem("token") || "",
       );
@@ -89,25 +113,14 @@ export default function ConcurentiCarousel() {
 
         if (voteStatus.status != "ok") {
           throw new Error(`${voteStatus.status}`);
+        } else {
+          navigate("/");
         }
       }
     } catch (error) {
       setError(`${error}`);
     }
   };
-
-  useEffect(() => {
-    const vote = async () => {
-      const email = localStorage.getItem("email");
-      const ceva = await serverFunction.canVote(
-        email || "",
-        window.localStorage.getItem("token") || "",
-      );
-      setUser({ fata: ceva.statusF, baiat: ceva.statusB });
-    };
-
-    vote();
-  }, []);
 
   return (
     <>
@@ -125,53 +138,31 @@ export default function ConcurentiCarousel() {
                 slidesPerGroup: 2,
               },
             }}
-            scrollbar={true}
+            scrollbar={false}
             navigation={true}
             pagination={{
               clickable: true,
             }}
-            modules={[EffectFlip, Keyboard, Scrollbar, Navigation, Pagination]}
+            modules={[EffectFlip, Keyboard, Navigation, Pagination]}
             className="mySwiper"
           >
-            {Concurenti.map((concurent: Concurent, index: number) => (
+            {concurentiOrder.map((concurent: Concurent, index: number) => (
               <SwiperSlide key={index}>
-                <div className="m-20">
-                  <div className="w-full h-full object-cover object-left mx-auto">
+                <div className="m-20 ">
+                  <div className="w-full h-full object-cover object-left mx-auto ">
                     <img src={concurent.image} alt={`Image ${index}`} />
                   </div>
                   <button
-                    onClick={() => toggleOpen(index)}
-                    className="px-4 py-1 mt-10 w-full h-full bg-white duration-300 rounded-lg text-2xl"
+                    onClick={() => handleVote(concurent)}
+                    className=" mt-10 w-full h-full bg-cover duration-300 rounded-lg text-2xl "
+                    style={{backgroundImage:`url(${BgButton})`}}
                   >
-                    Vote
+                    {(user.fata && concurent.sex === "F") || (user.baiat && concurent.sex === "M") ? (
+                      <h1>Votează {`${concurent.sex}`}</h1>
+                    ) : (
+                      <h1>Ai votat</h1>
+                    )}
                   </button>
-
-                  {openDivs[index] ? (
-                    <div className="absolute h-[50%] w-[50%] center bg-gray-100 top-0">
-                      <div>
-                        <div className="w-auto h-auto object-cover object-left mx-auto">
-                          <img src={concurent.image} alt={`Image ${index}`} />
-                        </div>
-                        <button
-                          className="sticky bottom-0 p-10 bg-green-400 text-white w-[100%]"
-                          onClick={() => handleVote(concurent)} // Handle vote click
-                        >
-                          {(user.fata && concurent.sex === "F") ||
-                          (user.baiat && concurent.sex === "M") ? (
-                            <h1>voteaza {`${concurent.sex}`}</h1>
-                          ) : (
-                            <h1>Ai votat</h1>
-                          )}
-                        </button>
-                        <button
-                          className="sticky bottom-0 p-10 bg-blue-400 text-white w-[100%]"
-                          onClick={() => toggleOpen(index)}
-                        >
-                          Inchide
-                        </button>
-                      </div>
-                    </div>
-                  ) : null}
                 </div>
               </SwiperSlide>
             ))}

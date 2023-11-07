@@ -57,3 +57,7 @@
 ::-webkit-scrollbar-thumb:hover{
   background: #424448;
 }
+
+.swiper-button-next, .swiper-button-prev {
+  color: red;
+}
