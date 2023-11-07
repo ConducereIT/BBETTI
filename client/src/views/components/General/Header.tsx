@@ -15,6 +15,8 @@ export default function Header() {
     const token = localStorage.getItem("token");
 
     const CheckSS = async () => {
+      if(!token) return;
+
       const status = await serverFunction.checkSession(token || "null");
 
       if (status.status == "ok") {
