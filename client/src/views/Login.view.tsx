@@ -1,9 +1,12 @@
 import React from "react";
+import Header from "./components/General/Header";
+import LoginComp from "./components/General/Login.component";
 
 const Login = () => {
   return (
     <>
-      <h1>Login</h1>
+      <Header />
+      <LoginComp />
     </>
   );
 };
