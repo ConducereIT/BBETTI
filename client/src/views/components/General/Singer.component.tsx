@@ -1,20 +1,38 @@
 import React from "react";
+import Rares from "../../../assets/img/ComponentImages/rares_singer.webp";
+import RaresMobile from "../../../assets/img/ComponentImages/Rares_mobile.webp";
 
 export default function Singer() {
   return (
     <>
-      <div className=" h-[100%] w-[100%] ">
-        <div className="h-[100%] w-[100%] flex justify-center items-center ">
-          <img
-            alt="smiley"
-            className=" rounded-lg hidden md:block"
-            src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=800&height=500"
-          />
-          <img
-            alt="smiley"
-            className=" rounded-lg block md:hidden"
-            src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=500&height=800"
-          />
+      <div className=" w-full  h-full">
+        <div className="grid md:grid-cols-2">
+          <div className="w-full h-full">
+            <img
+              className=" hidden md:block rounded-full"
+              src={Rares}
+              alt="Singer"
+            />
+            <img
+              className=" block md:hidden rounded-full"
+              src={RaresMobile}
+              alt="Singer"
+            />
+          </div>
+          <div className=" text-white mt-10">
+            <div className=" text-3xl font-bold flex justify-center">
+              <p>Rareș Mariș</p>
+            </div>
+            <p className=" text-justify mx-8 text-xl my-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
         </div>
       </div>
     </>
