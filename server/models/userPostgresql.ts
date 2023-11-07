@@ -6,6 +6,7 @@ export const sequelize = new Sequelize(POSTGRESQL_DB_URI, {
   define: {
     timestamps: false,
   },
+  logging: false,
   dialectOptions: {
     ssl: {
       require: true,
