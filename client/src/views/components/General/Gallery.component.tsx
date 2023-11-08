@@ -17,7 +17,7 @@ export default function Gallery() {
   return (
     <div className="">
       <div className=" mt-20 md:mt-2">
-        <h1 className="z-10 text-gray-300 text-center text-xl ">
+        <h1 className="z-10 text-gray-300 text-center text-2xl mt-10 md:mt-0 md:text-3xl font-bold mb-10 ">
           Editie Anterioara
         </h1>
         <Swiper
