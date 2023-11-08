@@ -3,6 +3,7 @@ import bg_image from "../../../assets/img/Background/back-landing-page.webp";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+import BgButton from "../../../assets/img/items/bara-vot.webp";
 
 export default function LoginComp() {
   const [user, setUser] = useState({
@@ -81,15 +82,13 @@ export default function LoginComp() {
                 Forgot Password?
               </button>
             </div>
-            <div className="flex justify-center mt-10 bg-gray-500/60 py-4">
-              <button
+              <div
+                className="bg-cover duration-300 rounded-lg text-center scale-125 mt-9"
+                style={{ backgroundImage: `url(${BgButton})` }}
                 onClick={handleSummit}
-                className="text-white w-full"
-                type="submit"
               >
-                LOGIN
-              </button>
-            </div>
+                <h1 className="text-base text-white scale-75 md:text-base xl:text-xl">Login</h1>
+              </div>
           </form>
         </div>
       </div>

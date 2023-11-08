@@ -1,5 +1,5 @@
 import React from "react";
-
+import "@fontsource/montserrat";
 // Style
 import "./App.css";
 
