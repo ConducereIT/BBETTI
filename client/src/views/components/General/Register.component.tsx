@@ -20,6 +20,14 @@ const RegisterComp = () => {
   const handleSummit = async (event: any) => {
     event.preventDefault();
 
+    const emailRegex = /.*@.*\.upb\.ro/;
+    if (!emailRegex.test(user.email)) {
+      setError("Foloseste un mail valabil de la UPB ");
+      return;
+    } else {
+      setError("");
+    }
+
     if (user.confirmationPassword !== user.password) {
       setError("Parolele nu corespund");
       return;
@@ -44,8 +52,8 @@ const RegisterComp = () => {
         style={{ backgroundImage: `url(${bg_image})` }}
       >
         <div>
-          <h1 className="text-white text-center">{error ? error : ""}</h1>
           <form className="bg-black/90 p-6 px-4 md:p-10 md:px-24">
+            <h1 className="text-white text-center ">{error ? error : ""}</h1>
             <label className="mb-4">
               <div className="my-5 md:my-5 flex">
                 <AiOutlineMail color="white" className="text-3xl md:text-4xl" />

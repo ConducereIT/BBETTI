@@ -69,7 +69,7 @@ export default function ConcurentiCarousel() {
   const vote = async () => {
     const email = localStorage.getItem("email");
     const ceva = await serverFunction.canVote(
-      email || "",
+      window.localStorage.getItem("email") || "",
       window.localStorage.getItem("token") || "",
     );
     setUser({ fata: ceva.statusF, baiat: ceva.statusB });
@@ -95,18 +95,12 @@ export default function ConcurentiCarousel() {
         throw new Error("Login first");
       }
 
-      if (
-        (!user.fata && concurent.sex === "F") ||
-        (!user.baiat && concurent.sex === "M")
-      ) {
-        alert("Ai votat");
-        return;
-      }
+      console.log(userV)
       if (userV.status == "ok") {
         const email = window.localStorage.getItem("email" || " ");
 
         const voteStatus = await serverFunction.voteConcurenti(
-          email || " ",
+          window.localStorage.getItem("email") || "",
           concurent.idConcurent,
           concurent.sex,
           window.localStorage.getItem("token") || "",
@@ -122,7 +116,6 @@ export default function ConcurentiCarousel() {
       setError(`${error}`);
     }
   };
-
   return (
     <>
       <div className="flex justify-center">
@@ -180,7 +173,7 @@ export default function ConcurentiCarousel() {
                     style={{ backgroundImage: `url(${BgButton})` }}
                   >
                     {(user.fata && concurent.sex === "F") || (user.baiat && concurent.sex === "M") ? (
-                      <span>Votează</span>
+                      <span>Voteaza!</span>
                     ) : (
                       <span>Ai votat!</span>
                     )}

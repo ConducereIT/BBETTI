@@ -10,7 +10,7 @@ const OtpComp = () => {
     token: "",
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState("Codul de verificare a fost trimis pe email!");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [event.target.name]: event.target.value });
@@ -22,8 +22,8 @@ const OtpComp = () => {
     const status = await serverFunction.emailConfirmation(user.token);
 
     if (status.status === "ok") {
-      localStorage.setItem("email", user.email);
-      localStorage.setItem("token", user.token);
+      localStorage.setItem("email", status.user?.email!);
+      localStorage.setItem("token", status.token!);
       window.location.replace("/");
     } else {
       setError(`${status.errorMessage}`);
@@ -48,9 +48,11 @@ const OtpComp = () => {
         className="h-screen flex flex-col justify-center items-center"
         style={{ backgroundImage: `url(${bg_image})` }}
       >
+
         <div>
-          <h1 className="text-white text-center">{error ? error : ""}</h1>
           <form className="bg-black/90 p-6 px-4 md:p-10 md:px-24">
+
+            <h1 className="text-white text-center mb-10">{error ? error : ""}</h1>
             <label className="mb-4">
               <div className="my-5 md:my-5 flex">
                 <AiOutlineMail color="white" className="text-3xl md:text-4xl" />

@@ -59,6 +59,8 @@ export class UserModel extends Model {
   tokenReset!: string;
   voteBaiat!: boolean;
   voteFata!: boolean;
+  voteFataName!: string;
+  voteBaiatName!: string;
 }
 
 UserModel.init(
@@ -75,7 +77,7 @@ UserModel.init(
     createdAt: DataTypes.DATE,
     lastSignedIn: {
       type: DataTypes.DATE,
-      defaultValue: undefined,
+      defaultValue: Date.now(),
     },
     authProvider: {
       type: DataTypes.STRING,
@@ -98,6 +100,14 @@ UserModel.init(
     voteBaiat: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+    },
+    voteFataName: {
+      type: DataTypes.STRING,
+      defaultValue: "Nimeni",
+    },
+    voteBaiatName: {
+      type: DataTypes.STRING,
+      defaultValue: "Nimeni",
     },
     verified: DataTypes.BOOLEAN,
   },
