@@ -134,9 +134,18 @@ export default function ConcurentiCarousel() {
               enabled: true,
             }}
             breakpoints={{
-              769: {
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
                 slidesPerView: 2,
                 slidesPerGroup: 2,
+                spaceBetween: 20,
               },
             }}
             scrollbar={false}
@@ -148,27 +157,32 @@ export default function ConcurentiCarousel() {
             className="mySwiper"
           >
             {concurentiOrder.map((concurent: Concurent, index: number) => (
-              <SwiperSlide key={index}>
-                <div className="m-20 ">
+              <SwiperSlide key={index} className="flex justify-center items-center">
+                <div className="mt-20 md:m-20">
                   <div
-                    className=" mt-10 mb-10 w-full h-full bg-cover duration-300 rounded-lg text-2xl scale-150"
-                    style={{backgroundImage:`url(${BgButton})`}}
+                    className="bg-cover duration-300 rounded-lg text-center scale-125"
+                    style={{ backgroundImage: `url(${BgButton})` }}
                   >
-                    <h1 className="w-full text-center text-base"> {concurent.name}</h1>
+                    <h1 className="text-base scale-75 md:text-xl xl:text-2xl">{concurent.name}</h1>
                   </div>
 
-                  <div className="w-full h-full object-cover object-left mx-auto ">
-                    <img src={concurent.image} alt={`Image ${index}`} />
+                  <div className="my-4">
+                    <img
+                      className="mx-auto rounded-lg"
+                      src={concurent.image}
+                      alt={`Concurent ${concurent.name}`}
+                    />
                   </div>
+
                   <button
                     onClick={() => handleVote(concurent)}
-                    className=" mt-10 w-full h-full bg-cover duration-300 rounded-lg text-2xl "
-                    style={{backgroundImage:`url(${BgButton})`}}
+                    className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
+                    style={{ backgroundImage: `url(${BgButton})` }}
                   >
                     {(user.fata && concurent.sex === "F") || (user.baiat && concurent.sex === "M") ? (
-                      <h1>Votează </h1>
+                      <span>Votează</span>
                     ) : (
-                      <h1>Ai votat!</h1>
+                      <span>Ai votat!</span>
                     )}
                   </button>
                 </div>
