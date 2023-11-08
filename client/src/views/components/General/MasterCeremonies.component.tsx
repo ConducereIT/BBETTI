@@ -3,7 +3,7 @@ import React from "react";
 export default function MasterCeremonies() {
   return (
     <>
-      <div className=" w-full  h-full">
+      <div className=" w-full  h-full flex items-center justify-center">
         <div className="grid md:grid-cols-2">
           <div className="w-full h-full">
             <img
@@ -17,7 +17,7 @@ export default function MasterCeremonies() {
               alt="MasterOfCeremonies"
             />
           </div>
-          <div className=" text-white mt-10">
+          <div className=" text-gray-300 mt-20">
             <div className=" text-3xl font-bold flex justify-center">
               <p>MC Care o fi</p>
             </div>

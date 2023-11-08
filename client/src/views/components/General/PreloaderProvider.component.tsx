@@ -3,13 +3,13 @@ import { useEffect } from "react";
 
 export const PreloaderContext = createContext({});
 
-export const PreloaderProvider = ({ children }:any) => {
+export const PreloaderProvider = ({ children }: any) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const delay = setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 1500);
 
     return () => clearTimeout(delay);
   }, []);

@@ -15,8 +15,11 @@ import { GalleryImages } from "../../../assets/config/GalleryConfig";
 
 export default function Gallery() {
   return (
-    <>
-      <div className=" mt   -10">
+    <div className="">
+      <div className=" mt-20 md:mt-2">
+        <h1 className="z-10 text-gray-300 text-center text-xl ">
+          Editie Anterioara
+        </h1>
         <Swiper
           spaceBetween={30}
           effect={"fade"}
@@ -43,6 +46,6 @@ export default function Gallery() {
           ))}
         </Swiper>
       </div>
-    </>
+    </div>
   );
 }
