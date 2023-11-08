@@ -314,7 +314,7 @@ export class UserServicePostgresql {
           },
         );
 
-        await ActiveSession.create({ token: token, userId: user.userId });
+        await ActiveSession.create({ token: tokenbcrypt, userId: user.userId });
 
         return { status: "ok", user: user, token: tokenbcrypt };
       } else {
@@ -401,8 +401,10 @@ export class UserServicePostgresql {
 
       if (gender === "F") {
         await existingUser?.update({ voteFata: true });
+        await existingUser?.update({voteFataName: concurent?.name});
       } else if (gender === "M") {
         await existingUser?.update({ voteBaiat: true });
+        await existingUser?.update({voteBaiatName: concurent?.name});
       }
     } else {
       return { status: "ERROR", errorMessage: "Ai votat deja" };
