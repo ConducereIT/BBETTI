@@ -45,6 +45,7 @@ import Locatie from "./components/General/Locatie.component";
 import MasterCeremonies from "./components/General/MasterCeremonies.component";
 import Gallery from "./components/General/Gallery.component";
 import Footer from "./components/General/Footer.component";
+import Sponsori from "./components/General/Sponsori.component";
 
 const Home = () => {
   const parallax = useRef<IParallax>(null!);
@@ -295,7 +296,7 @@ const Home = () => {
           <ParallaxLayer offset={4.4} factor={1.1} speed={0.5} ref={elementRef}>
             <div className="  w-full h-full flex justify-center items-center">
               <div className="  md:w-[60%] md:h-[70%] md:mb-20 h-[70%] w-[100%]">
-                <Pachete />
+                <Sponsori />
               </div>
             </div>
           </ParallaxLayer>
