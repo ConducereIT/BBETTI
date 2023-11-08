@@ -3,14 +3,26 @@ import { PreloaderContext } from "./PreloaderProvider.component";
 import LogoWhite from "../../../assets/img/Background/back-landing-page.webp";
 
 const Preloader = () => {
-  const { isLoading } : any = useContext(PreloaderContext);
+  const { isLoading }: any = useContext(PreloaderContext);
 
   if (!isLoading) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-white duration-300" style={{backgroundImage:`URL(${LogoWhite})`}}>
+    <div
+      className="fixed inset-0 flex items-center justify-center z-50  duration-300"
+      style={{ backgroundImage: `URL(${LogoWhite})` }}
+    >
+      <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
+        <h1 className="sm:text-5xl text-4xl text-center text-gray-300 font-bold bg-black/70 p-10 rounded-full">
+          Balul Bobocilor{" "}
+          <p className="mt-2 sm:text-lg text-xl text-center">
+            {" "}
+            Where memories are made
+          </p>
+        </h1>
+      </div>
     </div>
   );
 };

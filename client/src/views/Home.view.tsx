@@ -94,7 +94,7 @@ const Home = () => {
               style={{ backgroundImage: `url(${Background})` }}
             >
               <div className=" max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-center items-center">
-                <h1 className="sm:text-5xl text-4xl text-white font-bold bg-black/70 p-10 rounded-full">
+                <h1 className="sm:text-5xl text-4xl text-gray-300 font-bold bg-black/70 p-10 rounded-full">
                   Balul Bobocilor
                 </h1>
               </div>
@@ -117,29 +117,29 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4 ">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
                 alt="fata 50s"
                 src={Girl50s}
-                className="transform md:w-[17%] w-[40%] rotate-6"
+                className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
                 alt="baiat 50s"
                 src={Boy50s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
                 src={Ray}
-                className="transform -rotate-6 md:w-[17%] w-[40%]"
+                className="transform -rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
               <img
                 alt="Sintra"
                 src={Sinatra}
-                className=" rotate-6  md:w-[17%] w-[40%]"
+                className=" rotate-6  md:w-[17%] w-[40%] scale-[85%]"
               />
             </div>
           </ParallaxLayer>
@@ -168,29 +168,29 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4 ">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
                 alt="fata 60s"
                 src={Girl60s}
-                className="transform md:w-[17%] w-[40%] rotate-6"
+                className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
                 alt="baiat 60s"
                 src={Boy60s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
-            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
                 src={Right60s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
               <img
                 alt="Sintra"
                 src={Left60s}
-                className="  md:w-[17%] w-[40%] rotate-6"
+                className="  md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
             </div>
           </ParallaxLayer>
@@ -218,28 +218,28 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
                 alt="baiat 70s"
                 src={Boy70s}
-                className="transform md:w-[17%] w-[40%] rotate-6"
+                className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
               <img
                 alt="fata 70s"
                 src={Girl70s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
-            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
                 src={Left70s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
               <img
                 alt="Sintra"
                 src={Right70s}
-                className="  md:w-[17%] w-[40%] rotate-6"
+                className="  md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
             </div>
           </ParallaxLayer>
@@ -267,28 +267,28 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20">
               <img
                 alt="fata 80s"
                 src={Girl80s}
-                className="transform md:w-[17%] w-[40%] rotate-6"
+                className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
               <img
                 alt="baiat 80s"
                 src={Boy80s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
-            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between  mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
                 src={Left80s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
               <img
                 alt="Sintra"
                 src={Right80s}
-                className=" rotate-6  md:w-[17%] w-[40%]"
+                className=" rotate-6  md:w-[17%] w-[40%] scale-[85%]"
               />
             </div>
           </ParallaxLayer>
@@ -316,29 +316,29 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20">
               <img
                 alt="fata 90s"
                 src={Girl90s}
-                className="transform md:w-[17%] w-[40%] rotate-6"
+                className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
                 alt="baiat 90s"
                 src={Boy90s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
-            <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
+            <div className="hidden md:flex justify-between  mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
                 src={Left90s}
-                className="transform -rotate-6 md:w-[17%] w-[40%]"
+                className="transform -rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
               <img
                 alt="Sintra"
                 src={Right90s}
-                className=" md:w-[17%] w-[40%] rotate-6"
+                className=" md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
             </div>
           </ParallaxLayer>
@@ -366,29 +366,29 @@ const Home = () => {
             style={{ opacity: 0.6 }}
             factor={0.5}
           >
-            <div className="hidden md:flex justify-between m-4">
+            <div className="hidden md:flex justify-between mt-40 md:mt-20">
               <img
                 alt="fata 00s"
                 src={Girl00s}
-                className="transform md:w-[17%] w-[40%] rotate-6"
+                className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
                 alt="baiat 00s"
                 src={Boy00s}
-                className="transform md:w-[17%] w-[40%] -rotate-6"
+                className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
                 src={Left00s}
-                className="transform -rotate-6 md:w-[17%] w-[40%]"
+                className="transform -rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
               <img
                 alt="Sintra"
                 src={Right00s}
-                className=" rotate-6 md:w-[17%] w-[40%]"
+                className=" rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
             </div>
           </ParallaxLayer>

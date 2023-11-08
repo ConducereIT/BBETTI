@@ -19,7 +19,7 @@ export default function Singer() {
               alt="Singer"
             />
           </div>
-          <div className=" text-white ">
+          <div className=" text-gray-300 mt-20">
             <div className=" text-2xl mt-10 md:mt-0 md:text-3xl font-bold flex justify-center">
               <p>Rareș Mariș</p>
             </div>
