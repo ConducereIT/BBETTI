@@ -65,7 +65,9 @@
 .swiper-pagination{
   display: none;
 }
-
+body{
+  font-family: "Montserrat";
+}
 @media (max-width: 768px) {
   .swiper-button-next:after{
     margin-left:1.4rem;

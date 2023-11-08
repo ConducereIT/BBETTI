@@ -3,6 +3,7 @@ import bg_image from "../../../assets/img/Background/back-landing-page.webp";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+import BgButton from "../../../assets/img/items/bara-vot.webp";
 
 export default function ResetPasswordConfirmComp() {
   const [user, setUser] = useState({
@@ -36,8 +37,8 @@ export default function ResetPasswordConfirmComp() {
         style={{ backgroundImage: `url(${bg_image})` }}
       >
         <div>
-          <h1 className="text-white text-center">{error ? error : ""}</h1>
           <form className="bg-black/90 p-6 px-4 md:p-10 md:px-24">
+            <h1 className="text-white text-center">{error ? error : ""}</h1>
             <label className="mb-4">
               <div className="my-5 md:my-5 flex">
                 <AiOutlineMail color="white" className="text-3xl md:text-4xl" />
@@ -53,14 +54,12 @@ export default function ResetPasswordConfirmComp() {
             </label>
 
             <div className="flex items-center justify-between mb-6"></div>
-            <div className="flex justify-center mt-10 bg-gray-500/60 py-4">
-              <button
-                onClick={handleSummit}
-                className="text-white w-full"
-                type="submit"
-              >
-                Confirm
-              </button>
+            <div
+              className="bg-cover duration-300 rounded-lg text-center scale-125 mt-9"
+              style={{ backgroundImage: `url(${BgButton})` }}
+              onClick={handleSummit}
+            >
+              <h1 className="text-base text-white scale-75 md:text-base xl:text-xl">Confirm</h1>
             </div>
           </form>
         </div>

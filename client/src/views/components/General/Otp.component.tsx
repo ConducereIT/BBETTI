@@ -3,6 +3,7 @@ import bg_image from "../../../assets/img/Background/back-landing-page.webp";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+import BgButton from "../../../assets/img/items/bara-vot.webp";
 
 const OtpComp = () => {
   const [user, setUser] = useState({
@@ -31,7 +32,6 @@ const OtpComp = () => {
   };
 
   const resendEmail = async (event: any) => {
-    event.prevendDefault();
 
     const status = await serverFunction.resendEmailConfirmation(user.email);
 
@@ -90,14 +90,12 @@ const OtpComp = () => {
               </button>
             </div>
 
-            <div className="flex justify-center mt-10 bg-gray-500/60 py-4">
-              <button
-                onClick={handleSummit}
-                className="text-white w-full"
-                type="submit"
-              >
-                Confirm
-              </button>
+            <div
+              className="bg-cover duration-300 rounded-lg text-center scale-125 mt-9"
+              style={{ backgroundImage: `url(${BgButton})` }}
+              onClick={handleSummit}
+            >
+              <h1 className="text-base text-white scale-75 md:text-base xl:text-xl">Confirm</h1>
             </div>
           </form>
         </div>
