@@ -95,7 +95,6 @@ export default function ConcurentiCarousel() {
         throw new Error("Login first");
       }
 
-      console.log(userV)
       if (userV.status == "ok") {
         const email = window.localStorage.getItem("email" || " ");
 

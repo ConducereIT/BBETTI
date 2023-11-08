@@ -11,6 +11,7 @@ import Login from "./views/Login.view";
 import Register from "./views/Register.view";
 import Otp from "./views/Otp.view";
 import ResetPassword from "./views/ResetPassword.view";
+import ResetPasswordConfirm from "./views/ResetPasswordConfirm.view";
 
 //Console
 import Admin from "./views/Console/Admin.view";
@@ -35,10 +36,10 @@ const App = () => {
         <Router basename="/">
           <Routes>
             <Route path="/" element={<Home />} />
-
             <Route path="/concurenti" element={<Concurenti />} />
             <Route path="/sponsori" element={<Sponsori />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/resetpasswordconfirm" element={<ResetPasswordConfirm />} />
             <Route path="/resetpassword" element={<ResetPassword />} />
             <Route path="/register" element={<Register />} />
             <Route path="/otp" element={<Otp />} />
