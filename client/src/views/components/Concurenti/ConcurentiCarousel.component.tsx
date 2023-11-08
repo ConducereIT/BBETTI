@@ -155,7 +155,7 @@ export default function ConcurentiCarousel() {
                     className="bg-cover duration-300 rounded-lg text-center scale-125"
                     style={{ backgroundImage: `url(${BgButton})` }}
                   >
-                    <h1 className="text-base scale-75 md:text-xl xl:text-2xl">{concurent.name}</h1>
+                    <h1 className="text-base scale-75 md:text-xl xl:text-xl">{concurent.name}</h1>
                   </div>
 
                   <div className="my-4">
