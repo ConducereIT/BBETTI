@@ -24,26 +24,31 @@ import {
   Navigate,
 } from "react-router-dom";
 import ResetPass from "./views/ResetPassword.view";
+import { PreloaderProvider } from "./views/components/General/PreloaderProvider.component";
+import Preloader from "./views/components/General/Preloader.component";
 
 const App = () => {
   return (
     <>
-      <Router basename="/">
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <PreloaderProvider>
+        <Preloader />
+        <Router basename="/">
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/concurenti" element={<Concurenti />} />
-          <Route path="/sponsori" element={<Sponsori />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/resetpassword" element={<ResetPassword />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/otp" element={<Otp />} />
-          <Route path="/admin-console" element={<Admin />} />
-          <Route path="/developer-console" element={<Developer />} />
+            <Route path="/concurenti" element={<Concurenti />} />
+            <Route path="/sponsori" element={<Sponsori />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/resetpassword" element={<ResetPassword />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/otp" element={<Otp />} />
+            <Route path="/admin-console" element={<Admin />} />
+            <Route path="/developer-console" element={<Developer />} />
 
-          <Route path="*" element={<Navigate replace to="/" />} />
-        </Routes>
-      </Router>
+            <Route path="*" element={<Navigate replace to="/" />} />
+          </Routes>
+        </Router>
+      </PreloaderProvider>
     </>
   );
 };
