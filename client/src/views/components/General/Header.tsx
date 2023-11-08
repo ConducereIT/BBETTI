@@ -54,13 +54,13 @@ export default function Header() {
             {" "}
             Concurenți
           </a>
-          {isAuth != true ? (
+          {!window.localStorage.getItem("token") ? (
             <a
               href="/login"
               className=" no-underline duration-300 hover:text-blue-600 px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
             >
               {" "}
-              Log in
+              Autentificare
             </a>
           ) : (
             <a
@@ -94,12 +94,24 @@ export default function Header() {
               <a href="/concurenti">Concurenți</a>
             </li>
 
-            <li className=" py-6 border-b">
-              <a href="/login">Log in</a>
-            </li>
+            {!window.localStorage.getItem("token") ? (
+              <li className=" py-6 border-b">
+                <a href="/login">Autentificare</a>
+              </li>
+            ) : (
+              <li className=" py-6 border-b">
+                <a href="/" onClick={handleLogOut}>
+                  Deconectare
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
     </>
   );
 }
+
+<li className=" py-6 border-b">
+  <a href="/login">Autentificare</a>
+</li>;

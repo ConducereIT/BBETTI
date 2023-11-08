@@ -19,6 +19,7 @@ import {
 } from "./models/typeUser";
 import { Send_mailer } from "./mailer";
 import { randomUUID } from "crypto";
+import { v4 as uuidv4 } from "uuid";
 
 /**
  * The User server class that will be deployed on the genezio infrastructure.
@@ -48,6 +49,15 @@ export class UserServicePostgresql {
   async register(email: string, password: string): Promise<UserLoginResponse> {
     console.log(`Registering user with email ${email}...`);
 
+    const regex = /.*@.*\.upb\.ro/;
+    const isUpbMail = regex.test(email);
+
+    if (!isUpbMail) {
+      return {
+        status: "error",
+        errorMessage: "You can only register using an UPB email address.",
+      };
+    }
     const existingUser = await UserModel.findOne({ where: { email: email } });
 
     if (existingUser) {
@@ -60,9 +70,7 @@ export class UserServicePostgresql {
 
     const hashedPassword = await hashPassword(password);
 
-    const token = jwt.sign({ email }, process.env.JWT_TOKEN_SECRET!, {
-      expiresIn: 86400, // 1 week
-    });
+    const token = uuidv4();
 
     const newUser = await UserModel.create({
       userId: randomUUID(),
@@ -122,7 +130,7 @@ export class UserServicePostgresql {
     if (!existingUser) {
       return {
         status: "error",
-        errorMessage: "No user found with this email address.",
+        errorMessage: "Try again! Email or password is incorrect",
       };
     }
 
@@ -226,9 +234,7 @@ export class UserServicePostgresql {
       };
     }
 
-    const token = jwt.sign({ email }, process.env.JWT_TOKEN_SECRET!, {
-      expiresIn: 86400, // 1 week
-    });
+    const token = uuidv4();
 
     existingUser.tokenReset = token;
     await existingUser.save();
@@ -264,9 +270,7 @@ export class UserServicePostgresql {
     );
 
     try {
-      const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET!) as any;
-
-      const user = await UserModel.findOne({ where: { email: decoded.email } });
+      const user = await UserModel.findOne({ where: { tokenReset: token } });
 
       if (user) {
         const hashedPassword = await hashPassword(password);
@@ -293,16 +297,26 @@ export class UserServicePostgresql {
     console.log(`Received email confirmation request for token ${token}`);
 
     try {
-      const decoded = jwt.verify(token, process.env.JWT_TOKEN_SECRET!) as any;
-      console.log(decoded.email);
-      const user = await UserModel.findOne({ where: { email: decoded.email } });
+      const user = await UserModel.findOne({
+        where: { tokenConfirmEmail: token },
+      });
 
       if (user) {
         user.tokenConfirmEmail = "token";
         user.verified = true;
         await user.save();
 
-        return { status: "ok", user: user };
+        const tokenbcrypt = jwt.sign(
+          user.toJSON(),
+          process.env.JWT_TOKEN_SECRET!,
+          {
+            expiresIn: 86400,
+          },
+        );
+
+        await ActiveSession.create({ token: token, userId: user.userId });
+
+        return { status: "ok", user: user, token: tokenbcrypt };
       } else {
         return { status: "error", errorMessage: "User not found" };
       }
@@ -326,9 +340,7 @@ export class UserServicePostgresql {
 
     const existingUser = await UserModel.findOne({ where: { email: email } });
     if (existingUser) {
-      const token = jwt.sign({ email }, process.env.JWT_TOKEN_SECRET!, {
-        expiresIn: 86400, // 1 week
-      });
+      const token = uuidv4();
 
       existingUser.tokenConfirmEmail = token;
       await existingUser.save();

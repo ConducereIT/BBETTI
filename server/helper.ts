@@ -13,8 +13,6 @@ export async function validatePassword(
   saltedPassword: string,
   password: string,
 ): Promise<boolean> {
-  console.log("saltedPassword: " + saltedPassword);
-  console.log("password: " + password);
   return new Promise((resolve) => {
     bcrypt.compare(password, saltedPassword, async function (err, res) {
       if (err) {
@@ -33,7 +31,7 @@ export async function validatePassword(
 
 export async function hashPassword(password: string): Promise<string> {
   return new Promise((resolve) => {
-    bcrypt.genSalt(2, function (err, salt) {
+    bcrypt.genSalt(10, function (err, salt) {
       if (err) {
         throw err;
       }

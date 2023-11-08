@@ -80,7 +80,7 @@ export default function LoginComp() {
                 />
               </div>
             </label>
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 mt-10">
               <a href="/register" className="text-white text-sm">
                 Register
               </a>

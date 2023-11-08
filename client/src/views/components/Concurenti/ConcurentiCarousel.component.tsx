@@ -96,8 +96,8 @@ export default function ConcurentiCarousel() {
       }
 
       if (
-        (!user.fata && concurent.sex === "F") ||
-        (!user.baiat && concurent.sex === "M")
+        (user.fata && concurent.sex === "F") ||
+        (user.baiat && concurent.sex === "M")
       ) {
         alert("Ai votat");
         return;

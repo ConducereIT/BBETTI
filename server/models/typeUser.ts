@@ -52,6 +52,7 @@ export type ResendEmailConfirmationResponse = {
 export type EmailConfirmationResponse = {
   status: string;
   user?: User;
+  token?: string;
   errorMessage?: string;
 };
 
