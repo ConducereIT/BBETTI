@@ -18,14 +18,7 @@ export default function LoginComp() {
 
   const handleForgot = async (event: any) => {
     event.preventDefault();
-
-    const status = await serverFunction.resetPassword(user.email);
-
-    if (status.status != "ok") {
-      setError(`${status.errorMessage}`);
-    }
-
-    window.location.replace("/resetpassword");
+    window.location.replace("/resetpasswordconfirm");
   };
 
   const handleSummit = async (event: any) => {

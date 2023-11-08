@@ -19,7 +19,6 @@ export async function validatePassword(
         throw err;
       }
 
-      console.log("res", res);
       if (res) {
         resolve(true);
       } else {
