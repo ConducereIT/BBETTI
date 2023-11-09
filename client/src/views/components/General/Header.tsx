@@ -6,6 +6,7 @@ import { UserServicePostgresql as serverFunction } from "../../../sdk/userServic
 export default function Header() {
   const [nav, setNav] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
+  const [isAdmin, setIsAdmin] = useState("");
 
   const handleNav = () => {
     setNav(!nav);
@@ -17,10 +18,14 @@ export default function Header() {
     const CheckSS = async () => {
       if (!token) return;
 
-      const status = await serverFunction.checkSession(token || "null");
-
-      if (status.status == "ok") {
+      const auth = await serverFunction.checkSession(token || "null");
+      if(auth.status == "ok") {
         setIsAuth(true);
+      }
+
+      const admin = await serverFunction.isAdmin(token || "null");
+      if(admin.status == "ok") {
+        setIsAdmin(admin.admin);
       }
     };
 
@@ -54,6 +59,22 @@ export default function Header() {
             {" "}
             Concurenți
           </a>
+          {isAdmin==="admin" || isAdmin==="superadmin" ? ( <a
+            href="/admin-console"
+            className=" no-underline duration-300 hover:text-[#d9d9d9d9] px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
+          >
+            {" "}
+            Admin
+          </a>):null}
+
+          {isAdmin==="superadmin" ? ( <a
+            href="/super-admin-console"
+            className=" no-underline duration-300 hover:text-[#d9d9d9d9] px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
+          >
+            {" "}
+            SuperAdmin
+          </a>):null}
+
           {!window.localStorage.getItem("token") ? (
             <a
               href="/login"
@@ -93,6 +114,13 @@ export default function Header() {
             <li className=" py-6 border-b">
               <a href="/concurenti">Concurenți</a>
             </li>
+            {isAdmin==="admin" || isAdmin==="superadmin" ? (    <li className=" py-6 border-b">
+              <a href="/admin-console">Admin</a>
+            </li>):null}
+
+            {isAdmin==="superadmin" ? (  <li className=" py-6 border-b">
+                <a href="/super-admin-console">SuperAdmin</a>
+            </li>):null}
 
             {!window.localStorage.getItem("token") ? (
               <li className=" py-6 border-b">
