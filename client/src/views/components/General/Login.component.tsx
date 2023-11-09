@@ -78,9 +78,9 @@ export default function LoginComp() {
               <a href="/register" className="text-white text-sm">
                 Register
               </a>
-              <button onClick={handleForgot} className="text-white text-sm">
+              <div onClick={handleForgot} className="text-white text-sm">
                 Forgot Password?
-              </button>
+              </div>
             </div>
               <div
                 className="bg-cover duration-300 rounded-lg text-center scale-125 mt-9"

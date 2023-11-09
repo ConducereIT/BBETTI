@@ -77,3 +77,21 @@ body{
     margin-right:1.2rem;
   }
 }
+
+/* UserTable.css */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Margin între tabel și alte elemente */
+}
+
+th, td {
+  padding: 8px 12px; /* Padding pentru celule */
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Linii între rânduri */
+}
+
+th {
+  background-color: #f2f2f2; /* Culoare de fundal pentru antetele de tabel */
+}

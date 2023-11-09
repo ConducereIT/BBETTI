@@ -40,6 +40,15 @@ export class UserServicePostgresql {
   static async canVote(email: string, token: string): Promise<CanVote> {
     return await UserServicePostgresql.remote.call("UserServicePostgresql.canVote", email, token);
   }
+  static async getConcurenti(token: string): Promise<any> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.getConcurenti", token);
+  }
+  static async getUsers(token: string): Promise<any> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.getUsers", token);
+  }
+  static async isAdmin(token: string): Promise<any> {
+    return await UserServicePostgresql.remote.call("UserServicePostgresql.isAdmin", token);
+  }
 }
 
 export { Remote };

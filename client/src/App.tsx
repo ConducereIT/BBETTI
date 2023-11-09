@@ -15,7 +15,7 @@ import ResetPasswordConfirm from "./views/ResetPasswordConfirm.view";
 
 //Console
 import Admin from "./views/Console/Admin.view";
-import Developer from "./views/Console/Developer.view";
+import SuperAdmin from "./views/Console/Developer.view";
 
 // Import
 import {
@@ -44,7 +44,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/otp" element={<Otp />} />
             <Route path="/admin-console" element={<Admin />} />
-            <Route path="/developer-console" element={<Developer />} />
+            <Route path="/super-admin-console" element={<SuperAdmin />} />
 
             <Route path="*" element={<Navigate replace to="/" />} />
           </Routes>

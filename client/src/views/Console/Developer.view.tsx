@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import UserTableDeveloper from "../components/General/UserTableDeveloper.component";
+import { UserServicePostgresql } from "../../sdk/userServicePostgresql.sdk";
 
 const Developer = () => {
+  const [jsonData, setJsonData] = useState([]);
+  React.useEffect(() => {
+    async function getUsersDB() {
+      if (!window.localStorage.getItem("token")) {
+        window.location.replace("/");
+      }
+      const jsonData = await UserServicePostgresql.getConcurenti(
+        window.localStorage.getItem("token")!,
+      );
+      if (jsonData.status !== "ok") {
+        window.location.replace("/");
+      }
+      setJsonData(jsonData.concurenti);
+    }
+
+    getUsersDB();
+  }, []);
+
   return (
     <>
-      <h1>Developer</h1>
+      <UserTableDeveloper data={jsonData} />
     </>
   );
 };

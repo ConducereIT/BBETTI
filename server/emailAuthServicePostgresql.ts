@@ -439,4 +439,72 @@ export class UserServicePostgresql {
 
     return { status: "ok", statusF: fata, statusB: baiat };
   }
+
+  async getConcurenti(token:string): Promise<any> {
+    const session = await ActiveSession.findOne({ where: { token: token } });
+    if (!session) {
+      return {
+        status: "ERROR",
+        errorMessage: "Invalid session token.",
+      };
+    }
+    const getUser = await UserModel.findOne({ where: { userId: session.userId } })
+    console.log(`Received getConcurenti request for user with token ${getUser?.email}`)
+    if(getUser?.admin === "superadmin")
+    {
+      const concurenti = await TabelaVoturi.findAll();
+      return {status:"ok",concurenti:concurenti};
+    }
+    else {
+      return {
+        status: "ERROR",
+        errorMessage: "Invalid session token.",
+      };
+    }
+  }
+  async getUsers(token:string): Promise<any> {
+    const session = await ActiveSession.findOne({ where: { token: token } });
+    if (!session) {
+      return {
+        status: "ERROR",
+        errorMessage: "Invalid session token.",
+      };
+    }
+    const getUser = await UserModel.findOne({ where: { userId: session.userId } })
+    console.log(`Received getUsers request for user with token ${getUser?.email}`)
+    if(getUser?.admin === "admin" || getUser?.admin === "superadmin")
+    {
+      const users = await UserModel.findAll();
+      return {status:"ok",users:users};
+    }
+    else {
+      return {
+        status: "ERROR",
+        errorMessage: "Invalid session token.",
+      };
+    }
+  }
+
+  async isAdmin(token:string): Promise<any> {
+
+    const session = await ActiveSession.findOne({ where: { token: token } });
+    if (!session) {
+      return {
+        status: "ERROR",
+        errorMessage: "Invalid session token.",
+      };
+    }
+    const getUser = await UserModel.findOne({ where: { userId: session.userId } })
+    console.log(`Received isAdmin request for user with token ${getUser?.email}`)
+    if(getUser?.admin === "admin" || getUser?.admin === "superadmin")
+    {
+      return {status:"ok", admin:getUser?.admin};
+    }
+    else {
+      return {
+        status: "ERROR",
+        errorMessage: "Invalid session token.",
+      };
+    }
+  }
 }
