@@ -61,6 +61,7 @@ export class UserModel extends Model {
   voteFata!: boolean;
   voteFataName!: string;
   voteBaiatName!: string;
+  admin!: string;
 }
 
 UserModel.init(
@@ -108,6 +109,10 @@ UserModel.init(
     voteBaiatName: {
       type: DataTypes.STRING,
       defaultValue: "Nimeni",
+    },
+    admin: {
+      type: DataTypes.STRING,
+      defaultValue: "votant",
     },
     verified: DataTypes.BOOLEAN,
   },
