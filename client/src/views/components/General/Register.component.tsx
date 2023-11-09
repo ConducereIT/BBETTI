@@ -21,8 +21,8 @@ const RegisterComp = () => {
   const handleSummit = async (event: any) => {
     event.preventDefault();
 
-    const regex = /[^@]+@upb\.ro/;
-    if (!regex.test(user.email)) {
+    const emailRegex = /.*@.*upb\.ro/;
+    if (!emailRegex.test(user.email)) {
       setError("Foloseste un mail valabil de la UPB ");
       return;
     } else {
