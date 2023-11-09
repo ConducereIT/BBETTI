@@ -5,11 +5,11 @@ import PozaMobil from "../../../assets/img/MC/MCMobil.webp";
 export default function MasterCeremonies() {
   return (
     <>
-      <div className=" w-full  h-full flex items-center justify-center mt-10 md:mt-0">
+      <div className=" w-full  h-full flex items-center justify-center mt-10 md:mt-6">
         <div className="grid md:grid-cols-2">
           <div className="w-full h-full mb-10 md:mb-0">
             <img
-              className=" hidden md:block rounded-lg"
+              className=" hidden md:block rounded-lg scale-[90%]"
               src={PozaDesk}
               alt="MasterOfCeremonies"
             />
@@ -19,11 +19,11 @@ export default function MasterCeremonies() {
               alt="MasterOfCeremonies"
             />
           </div>
-          <div className=" text-gray-300 ">
-            <div className=" text-3xl font-bold flex justify-center mb-10">
+          <div className=" text-gray-300 md:mt-16 ">
+            <div className=" text-2xl font-bold flex justify-center mb-10">
               <p>MC Ștefan Costea</p>
             </div>
-            <p className=" text-justify mx-8 text-xs md:text-base">
+            <p className=" text-justify mx-8 text-xs md:text-sm">
               În cadrul LSE, Ștefan Costea și-a descoperit pasiunea pentru
               prezentarea de evenimente. Ce-l diferențiază cu adevărat pe Ștefan
               este entuziasmul său contagios și abilitatea de a comunica cu
