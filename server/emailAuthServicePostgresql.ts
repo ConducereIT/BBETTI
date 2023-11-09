@@ -49,7 +49,7 @@ export class UserServicePostgresql {
   async register(email: string, password: string): Promise<UserLoginResponse> {
     console.log(`Registering user with email ${email}...`);
 
-    const regex = /.*@.*\.upb\.ro/;
+    const regex = /[^@]+@upb\.ro/;
     const isUpbMail = regex.test(email);
 
     if (!isUpbMail) {
