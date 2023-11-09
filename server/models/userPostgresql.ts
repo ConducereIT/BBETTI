@@ -112,7 +112,6 @@ UserModel.init(
     },
     admin: {
       type: DataTypes.STRING,
-      defaultValue: "votant",
     },
     verified: DataTypes.BOOLEAN,
   },

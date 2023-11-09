@@ -4,6 +4,8 @@ import { UserServicePostgresql } from "../../sdk/userServicePostgresql.sdk";
 
 const Admin = () => {
   const [jsonData, setJsonData] = useState([]);
+  const [adminType, setAdminType] = useState("");
+
   React.useEffect(() => {
     async function getUsersDB() {
       if (!window.localStorage.getItem("token")) {
@@ -15,15 +17,27 @@ const Admin = () => {
       if (jsonData.status !== "ok") {
         window.location.replace("/");
       }
+
+      const adminType = await UserServicePostgresql.isAdmin(
+        window.localStorage.getItem("token")!,
+      );
+
+      if (adminType.status !== "ok") {
+        window.location.replace("/");
+      }
+
+      setAdminType(adminType.admin);
+
       setJsonData(jsonData.users);
     }
 
     getUsersDB();
   }, []);
 
+
   return (
     <>
-      <UserTableAdmin data={jsonData} />
+      <UserTableAdmin data={jsonData} adminType={adminType} />
     </>
   );
 };
