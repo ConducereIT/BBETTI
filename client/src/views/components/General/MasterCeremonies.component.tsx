@@ -1,34 +1,44 @@
 import React from "react";
+import PozaDesk from "../../../assets/img/MC/MCDesk.webp";
+import PozaMobil from "../../../assets/img/MC/MCMobil.webp";
 
 export default function MasterCeremonies() {
   return (
     <>
-      <div className=" w-full  h-full flex items-center justify-center">
+      <div className=" w-full  h-full flex items-center justify-center mt-10 md:mt-0">
         <div className="grid md:grid-cols-2">
-          <div className="w-full h-full">
+          <div className="w-full h-full mb-10 md:mb-0">
             <img
               className=" hidden md:block rounded-lg"
-              src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=450&height=600"
+              src={PozaDesk}
               alt="MasterOfCeremonies"
             />
             <img
               className=" block md:hidden rounded-lg"
-              src="https://cdn.knd.ro/media/521/2861/1699/20285399/1/smiley--crop-1674168104.jpg?width=800&height=550"
+              src={PozaMobil}
               alt="MasterOfCeremonies"
             />
           </div>
-          <div className=" text-gray-300 mt-20">
-            <div className=" text-3xl font-bold flex justify-center">
-              <p>MC Care o fi</p>
+          <div className=" text-gray-300 ">
+            <div className=" text-3xl font-bold flex justify-center mb-10">
+              <p>MC Ștefan Costea</p>
             </div>
-            <p className=" text-justify mx-8 text-xl my-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p className=" text-justify mx-8 text-xs md:text-base">
+              În cadrul LSE, Ștefan Costea și-a descoperit pasiunea pentru
+              prezentarea de evenimente. Ce-l diferențiază cu adevărat pe Ștefan
+              este entuziasmul său contagios și abilitatea de a comunica cu
+              publicul.
+              <br />
+              <br /> El nu se limitează doar la a fi un prezentator obișnuit; el
+              este un adevărat povestitor care reușește să captiveze audiența la
+              fiecare cuvânt rostit. Îi place să spună că se "încarcă cu
+              energie" de la oamenii din public, iar această energie se simte în
+              fiecare eveniment pe care îl prezintă.
+              <br />
+              <br /> Pentru Ștefan Costea, organizarea și prezentarea de
+              evenimente nu sunt doar o responsabilitate, ci o adevărată
+              pasiune. El transformă fiecare eveniment într-o experiență
+              memorabilă pentru toți cei prezenți.
             </p>
           </div>
         </div>
