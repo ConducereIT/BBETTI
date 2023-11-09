@@ -2,8 +2,8 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Sponsor1 from "../../../assets/img/Sponsori/sponsori-site-bbetti-2.webp";
-import Sponsor2 from "../../../assets/img/Sponsori/sponsori-site-bbetti-01.webp";
-import Sponsor3 from "../../../assets/img/Sponsori/sponsori-site-bbetti--10.webp";
+import Sponsor3 from "../../../assets/img/Sponsori/sponsori-site-bbetti-01.webp";
+import Sponsor2 from "../../../assets/img/Sponsori/sponsori-site-bbetti--10.webp";
 import Sponsor4 from "../../../assets/img/Sponsori/sponsori-site-bbetti--12.webp";
 import Sponsor5 from "../../../assets/img/Sponsori/sponsori-site-bbetti--13.webp";
 import Sponsor6 from "../../../assets/img/Sponsori/sponsori-site-bbetti--14.webp";
@@ -23,7 +23,7 @@ export default function Sponsori() {
       {/* For Mobile Phone */}
       <div className="md:hidden flex justify-center ">
         <h1 className="uppercase mt-10 text-2xl md:text-3xl font-bold whitespace-nowrap p-4 mb-6 text-white">
-          Sponsori <span className=" text-color-accent">BBETTI</span>
+          Sponsori <span className=" text-color-accent"></span>
         </h1>
       </div>
       <div className="md:hidden">
@@ -97,7 +97,7 @@ export default function Sponsori() {
       <div className="hidden md:block ">
         <div className=" flex justify-center ">
           <h1 className="uppercase mt-10 text-2xl md:text-3xl font-bold whitespace-nowrap p-4 mb-6 text-white">
-            Ambasadori <span className=" text-color-accent">Lanparty</span>
+            Sponsori <span className=" text-color-accent"></span>
           </h1>
         </div>
         <Carousel
