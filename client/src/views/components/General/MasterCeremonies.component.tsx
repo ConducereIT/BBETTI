@@ -21,9 +21,9 @@ export default function MasterCeremonies() {
           </div>
           <div className=" text-gray-300 md:mt-16 ">
             <div className=" text-2xl font-bold flex justify-center mb-10">
-              <p>MC Andrei Răpciugă</p>
+              <p style={{fontSize: 30, wordSpacing:-1}}>MC Andrei Răpciugă</p>
             </div>
-            <p className=" text-justify mx-8 text-xs md:text-sm">
+            <p className=" text-justify mx-8 text-xs md:text-sm" style={{fontSize: 20, wordSpacing: -1}}>
             Andrei Răpciugă, cu un background solid ca alumn LSE,
             a descoperit o adevărată pasiune pentru prezentarea 
             de evenimente. Ce îl diferențiază este entuziasmul 
