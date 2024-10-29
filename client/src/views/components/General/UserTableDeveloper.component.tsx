@@ -8,7 +8,7 @@ const UserTableDeveloper = ( {data}:any ) => {
   const sortedGirls = girls.sort((a:any, b:any) => b.count - a.count);
   const sortedBoys = boys.sort((a:any, b:any) => b.count - a.count);
   return (
-    data.length!=0 ?(
+    data.length!==0 ?(
       <>
       <Header/>
         <div className="mt-32">

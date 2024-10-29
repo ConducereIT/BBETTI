@@ -14,26 +14,28 @@ export default function Locatie() {
       <div className="grid md:grid-cols-4 place-items-center md:mx-5">
         <div className="md:pl-4 md:col-span-1 flex justify-center"></div>
         <div className="md:pl-4 md:col-span-2">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.38213006325!2d26.056968675920366!3d44.44583500080703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff43e84924b7%3A0xd7d29c402c5b373f!2sONE%20Club!5e0!3m2!1sro!2sro!4v1698572663920!5m2!1sro!2sro"
-            width="300"
-            height="300"
-            loading="lazy"
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.4665099598756!2d26.044688976683762!3d44.44410450091935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201a1f9f4f4c7%3A0xaded206af60c5f2f!2sManara%20Blue!5e0!3m2!1sen!2sro!4v1730074377000!5m2!1sen!2sro"
+            width="300" 
+            height="300" 
+            loading="lazy" 
             className="rounded-lg block md:hidden"
+            title='telefon'
           ></iframe>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.38213006325!2d26.056968675920366!3d44.44583500080703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff43e84924b7%3A0xd7d29c402c5b373f!2sONE%20Club!5e0!3m2!1sro!2sro!4v1698572663920!5m2!1sro!2sro"
+         
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.4665099598756!2d26.044688976683762!3d44.44410450091935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201a1f9f4f4c7%3A0xaded206af60c5f2f!2sManara%20Blue!5e0!3m2!1sen!2sro!4v1730074377000!5m2!1sen!2sro"
             width="600"
             height="450"
             loading="lazy"
             className="rounded-lg hidden md:block"
-          ></iframe>
+            title='pc'
+           ></iframe>
+
         </div>
       </div>
       <div className="mt-10 md:mt-0 text-gray-300">
-        <p className="text-4xl font-bold mb-4 text-center mt-10">ONE Club</p>
+        <p className="text-4xl font-bold mb-4 text-center mt-10">Manara Blue</p>
         <p className="text-xl text-center ">
-          Șoseaua Orhideelor 1, București 060071
+         Splaiul Independenței 319, București 060032
         </p>
       </div>
     </>

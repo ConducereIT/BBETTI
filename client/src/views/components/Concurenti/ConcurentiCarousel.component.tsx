@@ -95,8 +95,8 @@ export default function ConcurentiCarousel() {
         throw new Error("Login first");
       }
 
-      if (userV.status == "ok") {
-        const email = window.localStorage.getItem("email" || " ");
+      if (userV.status === "ok") {
+        const email = window.localStorage.getItem("email");
 
         const voteStatus = await serverFunction.voteConcurenti(
           window.localStorage.getItem("email") || "",
@@ -105,7 +105,7 @@ export default function ConcurentiCarousel() {
           window.localStorage.getItem("token") || "",
         );
 
-        if (voteStatus.status != "ok") {
+        if (voteStatus.status !== "ok") {
           throw new Error(`${voteStatus.status}`);
         } else {
           navigate("/");

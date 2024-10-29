@@ -1,5 +1,5 @@
 import React from "react";
-import PozaDesk from "../../../assets/img/MC/MCDesk.webp";
+import PozaDesk from "../../../assets/img/MC/MCDesk.jpg";
 import PozaMobil from "../../../assets/img/MC/MCMobil.webp";
 
 export default function MasterCeremonies() {
@@ -21,24 +21,25 @@ export default function MasterCeremonies() {
           </div>
           <div className=" text-gray-300 md:mt-16 ">
             <div className=" text-2xl font-bold flex justify-center mb-10">
-              <p>MC Ștefan Costea</p>
+              <p>MC Andrei Răpciugă</p>
             </div>
             <p className=" text-justify mx-8 text-xs md:text-sm">
-              În cadrul LSE, Ștefan Costea și-a descoperit pasiunea pentru
-              prezentarea de evenimente. Ce-l diferențiază cu adevărat pe Ștefan
-              este entuziasmul său contagios și abilitatea de a comunica cu
-              publicul.
+            Andrei Răpciugă, cu un background solid ca alumn LSE,
+            a descoperit o adevărată pasiune pentru prezentarea 
+            de evenimente. Ce îl diferențiază este entuziasmul 
+            său contagios și abilitatea de a interacționa cu 
+            publicul.
               <br />
-              <br /> El nu se limitează doar la a fi un prezentator obișnuit; el
-              este un adevărat povestitor care reușește să captiveze audiența la
-              fiecare cuvânt rostit. Îi place să spună că se "încarcă cu
-              energie" de la oamenii din public, iar această energie se simte în
-              fiecare eveniment pe care îl prezintă.
+              <br /> Talentul său de povestitor îi permite să 
+              capteze atenția audienței cu fiecare cuvânt rostit. 
+              Andrei spune adesea că energia celor din sală îl 
+              inspiră și îl revitalizează, ceea ce creează o 
+              atmosferă vibrantă la fiecare eveniment pe care îl 
+              moderează.
               <br />
-              <br /> Pentru Ștefan Costea, organizarea și prezentarea de
-              evenimente nu sunt doar o responsabilitate, ci o adevărată
-              pasiune. El transformă fiecare eveniment într-o experiență
-              memorabilă pentru toți cei prezenți.
+              <br /> Pentru el, prezentarea de evenimente reprezintă o 
+              pasiune, transformând fiecare întâlnire într-o experiență de 
+              neuitat pentru toți participanții.
             </p>
           </div>
         </div>
