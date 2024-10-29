@@ -9,7 +9,7 @@ export const PreloaderProvider = ({ children }: any) => {
   useEffect(() => {
     const delay = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 500);
 
     return () => clearTimeout(delay);
   }, []);

@@ -95,7 +95,7 @@ export default function ConcurentiCarousel() {
         throw new Error("Login first");
       }
 
-      if (userV.status === "ok") {
+      if (userV.status == "ok") {
         const email = window.localStorage.getItem("email");
 
         const voteStatus = await serverFunction.voteConcurenti(
@@ -105,7 +105,7 @@ export default function ConcurentiCarousel() {
           window.localStorage.getItem("token") || "",
         );
 
-        if (voteStatus.status !== "ok") {
+        if (voteStatus.status != "ok") {
           throw new Error(`${voteStatus.status}`);
         } else {
           navigate("/");
@@ -166,7 +166,7 @@ export default function ConcurentiCarousel() {
                     />
                   </div>
 
-                  <button
+                  {/* <button
                     onClick={() => handleVote(concurent)}
                     className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
                     style={{ backgroundImage: `url(${BgButton})` }}
@@ -176,7 +176,12 @@ export default function ConcurentiCarousel() {
                     ) : (
                       <span>Ai votat!</span>
                     )}
-                  </button>
+                  </button> */
+
+                      <button className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
+                      style={{ backgroundImage: `url(${BgButton})`, cursor: 'default', fontWeight: "bold"}} >Voting Available Soon</button>
+                  }
+
                 </div>
               </SwiperSlide>
             ))}

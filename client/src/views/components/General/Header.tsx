@@ -19,12 +19,12 @@ export default function Header() {
       if (!token) return;
 
       const auth = await serverFunction.checkSession(token || "null");
-      if(auth.status === "ok") {
+      if(auth.status == "ok") {
         setIsAuth(true);
       }
 
       const admin = await serverFunction.isAdmin(token || "null");
-      if(admin.status === "ok") {
+      if(admin.status == "ok") {
         setIsAdmin(admin.admin);
       }
     };
