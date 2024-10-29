@@ -15,7 +15,7 @@ const UserTableAdmin = ({ data,adminType }:any) => {
               <th>Email</th>
               <th>Vote Fata</th>
               <th>Vote Baiat</th>
-              {adminType === "superadmin" ? (
+              {adminType == "superadmin" ? (
                 <>
                   <th>Vote Fata Name</th>
                   <th>Vote Baiat Name</th>

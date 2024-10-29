@@ -5,7 +5,7 @@ import "./App.css";
 
 // Views
 import Home from "./views/Home.view";
-import Concurenti from "./views/ Concurenti.view";
+import Concurenti from "./views/_Concurenti.view";
 import Sponsori from "./views/Sponsori.view";
 import Login from "./views/Login.view";
 import Register from "./views/Register.view";
@@ -24,7 +24,6 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import ResetPass from "./views/ResetPassword.view";
 import { PreloaderProvider } from "./views/components/General/PreloaderProvider.component";
 import Preloader from "./views/components/General/Preloader.component";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import bg_image from "../../../assets/img/Background/back-landing-page.webp";
+import bg_image from "../../../assets/img/Background/landing-page-bg.jpg";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
 import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";

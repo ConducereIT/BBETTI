@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
-import { ReactNebula } from "@flodlc/nebula";
 import Header from "./components/General/Header";
 import Carousel from "./components/General/Carousel.component";
 
