@@ -1,21 +1,21 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Sponsor1 from "../../../assets/img/Sponsori/sponsori-site-bbetti-2.webp";
-import Sponsor3 from "../../../assets/img/Sponsori/sponsori-site-bbetti-01.webp";
-import Sponsor2 from "../../../assets/img/Sponsori/sponsori-site-bbetti--10.webp";
-import Sponsor4 from "../../../assets/img/Sponsori/sponsori-site-bbetti--12.webp";
-import Sponsor5 from "../../../assets/img/Sponsori/sponsori-site-bbetti--13.webp";
-import Sponsor6 from "../../../assets/img/Sponsori/sponsori-site-bbetti--14.webp";
-import Sponsor7 from "../../../assets/img/Sponsori/sponsori-site-bbetti--15.webp";
-import Sponsor9 from "../../../assets/img/Sponsori/sponsori-site-bbetti--3.webp";
-import Sponsor10 from "../../../assets/img/Sponsori/sponsori-site-bbetti--4.webp";
-import Sponsor11 from "../../../assets/img/Sponsori/sponsori-site-bbetti--5.webp";
-import Sponsor12 from "../../../assets/img/Sponsori/sponsori-site-bbetti--6.webp";
-import Sponsor13 from "../../../assets/img/Sponsori/sponsori-site-bbetti--7.webp";
-import Sponsor8 from "../../../assets/img/Sponsori/sponsori-site-bbetti--8.webp";
-import Sponsor14 from "../../../assets/img/Sponsori/sponsori-site-bbetti--9.webp";
-import Sponsor15 from "../../../assets/img/Sponsori/sponsori-site-bbetti--2.webp";
+import Sponsor1 from "../../../assets/img/Sponsori/sponsor1.png";
+import Sponsor3 from "../../../assets/img/Sponsori/sponsor2.png";
+import Sponsor2 from "../../../assets/img/Sponsori/sponsor3.jpg";
+import Sponsor4 from "../../../assets/img/Sponsori/sponsor4.jpg";
+import Sponsor5 from "../../../assets/img/Sponsori/sponsor5.png";
+import Sponsor6 from "../../../assets/img/Sponsori/sponsor6.jpg";
+import Sponsor7 from "../../../assets/img/Sponsori/sponsor7.jpg";
+import Sponsor9 from "../../../assets/img/Sponsori/sponsor8.png";
+import Sponsor10 from "../../../assets/img/Sponsori/sponsor9.png";
+import Sponsor11 from "../../../assets/img/Sponsori/sponsor10.jpg";
+import Sponsor12 from "../../../assets/img/Sponsori/sponsor11.jpg";
+import Sponsor13 from "../../../assets/img/Sponsori/sponsor12.png";
+import Sponsor8 from "../../../assets/img/Sponsori/sponsor13.jpg";
+import Sponsor14 from "../../../assets/img/Sponsori/sponsor14.jpg";
+import Sponsor15 from "../../../assets/img/Sponsori/sponsor15.png";
 
 export default function Sponsori() {
   return (
