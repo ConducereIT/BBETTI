@@ -16,6 +16,11 @@ jobs:
       - name: install pg
         working-directory: ./server
         run: npm install pg
+      - name: Build frontend
+        working-directory: ./client
+        run: npm install && npm run build
+        env:
+          CI: false
       - name: Deploy backend
         working-directory: ./server
         run: genezio deploy
