@@ -23,8 +23,8 @@ export default function Singer() {
             <div className=" text-2xl mt-10 md:mt-0 md:text-3xl font-bold flex justify-center">
               <p>Gheboasa</p>
             </div>
-            <p className=" text-justify mx-8 text-xs md:text-sm my-10 " style={{fontSize:20
-              , wordSpacing:-1}}>
+            <div className="h-auto w-auto flex items-center justify-center">
+            <p className=" text-justify mx-8 text-xs md:text-sm my-10 ">
               Invitatul special din acest an, Gheboasă, va aduce un plus de entuziasm și originalitate la Balul Bobocilor. 
               Cu stilul său nonconformist și plin de energie, 
               prezența lui promite să transforme evenimentul într-o experiență memorabilă pentru toți participanții.
@@ -40,6 +40,7 @@ export default function Singer() {
               Deși abordările sale pot fi controversate prin limbajul explicit și subiectele directe, ele rezonează puternic cu tinerii din România, care apreciază 
               autenticitatea și mesajele lui nefiltrate.
             </p>
+            </div>
           </div>
         </div>
       </div>

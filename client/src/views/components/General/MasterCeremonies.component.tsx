@@ -19,11 +19,12 @@ export default function MasterCeremonies() {
               alt="MasterOfCeremonies"
             />
           </div>
-          <div className=" text-gray-300 md:mt-16 ">
-            <div className=" text-2xl font-bold flex justify-center mb-10">
-              <p style={{fontSize: 30, wordSpacing:-1}}>MC Andrei Răpciugă</p>
-            </div>
-            <p className=" text-justify mx-8 text-xs md:text-sm" style={{fontSize: 20, wordSpacing: -1}}>
+          <div className="text-gray-300 md:mt-16 ">
+            <div className="text-2xl font-bold flex justify-center mb-10">
+              <p>MC Andrei Răpciugă</p>
+            </div >
+            <div className="h-auto w-auto flex items-center justify-center">
+            <p className=" text-justify mx-8 text-xs md:text-sm">
             Andrei Răpciugă, cu un background solid ca alumn LSE,
             a descoperit o adevărată pasiune pentru prezentarea 
             de evenimente. Ce îl diferențiază este entuziasmul 
@@ -41,6 +42,7 @@ export default function MasterCeremonies() {
               pasiune, transformând fiecare întâlnire într-o experiență de 
               neuitat pentru toți participanții.
             </p>
+            </div>
           </div>
         </div>
       </div>
