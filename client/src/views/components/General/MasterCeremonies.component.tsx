@@ -1,6 +1,6 @@
 import React from "react";
 import PozaDesk from "../../../assets/img/MC/MCDesk.jpg";
-import PozaMobil from "../../../assets/img/MC/MCMobil.webp";
+import PozaMobil from "../../../assets/img/MC/MCDesk.jpg";
 
 export default function MasterCeremonies() {
   return (
