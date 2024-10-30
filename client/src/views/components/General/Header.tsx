@@ -19,12 +19,12 @@ export default function Header() {
       if (!token) return;
 
       const auth = await serverFunction.checkSession(token || "null");
-      if(auth.status == "ok") {
+      if (auth.status == "ok") {
         setIsAuth(true);
       }
 
       const admin = await serverFunction.isAdmin(token || "null");
-      if(admin.status == "ok") {
+      if (admin.status == "ok") {
         setIsAdmin(admin.admin);
       }
     };
@@ -59,7 +59,7 @@ export default function Header() {
             {" "}
             Concurenți
           </a>
-          {isAdmin==="admin" || isAdmin==="superadmin" ? ( <a
+          {/* {isAdmin==="admin" || isAdmin==="superadmin" ? ( <a
             href="/admin-console"
             className=" no-underline duration-300 hover:text-[#d9d9d9d9] px-5 py-2 ml-2 rounded-2xl shaodw-lg hover:shadow-2xl"
           >
@@ -91,8 +91,8 @@ export default function Header() {
             >
               {" "}
               Logout
-            </a>
-          )}
+            </a> }
+          )*/}
         </div>
         <div
           onClick={handleNav}
@@ -114,13 +114,17 @@ export default function Header() {
             <li className=" py-6 border-b">
               <a href="/concurenti">Concurenți</a>
             </li>
-            {isAdmin==="admin" || isAdmin==="superadmin" ? (    <li className=" py-6 border-b">
-              <a href="/admin-console">Admin</a>
-            </li>):null}
+            {/* {isAdmin === "admin" || isAdmin === "superadmin" ? (
+              <li className=" py-6 border-b">
+                <a href="/admin-console">Admin</a>
+              </li>
+            ) : null}
 
-            {isAdmin==="superadmin" ? (  <li className=" py-6 border-b">
+            {isAdmin === "superadmin" ? (
+              <li className=" py-6 border-b">
                 <a href="/super-admin-console">SuperAdmin</a>
-            </li>):null}
+              </li>
+            ) : null}
 
             {!window.localStorage.getItem("token") ? (
               <li className=" py-6 border-b">
@@ -131,8 +135,8 @@ export default function Header() {
                 <a href="/" onClick={handleLogOut}>
                   Deconectare
                 </a>
-              </li>
-            )}
+              </li> }
+            )*/}
           </ul>
         </div>
       </div>
