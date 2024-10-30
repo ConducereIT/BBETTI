@@ -21,6 +21,11 @@ jobs:
         run: npm install && npm run build
         env:
           CI: false
+      - name: Deploy frontend
+        working-directory: ./client
+        run: genezio deploy
+        env:
+          CI: false
       - name: Deploy backend
         working-directory: ./server
         run: genezio deploy
