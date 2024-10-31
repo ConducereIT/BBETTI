@@ -1,19 +1,27 @@
 name: Balul-Bobocilor
 region: eu-central-1
-language: ts
-cloudProvider: genezio
-sdk:
-  language: ts
-  path: ../client/src/sdk/
-scripts:
-  preFrontendDeploy: cd ../client && npm install && npm run build
+yamlVersion: 2
+backend:
+  path: ./server
+  language:
+    name: ts
+  scripts:
+    local: npm install
+    deploy: npm install
+  classes:
+    - path: emailAuthServicePostgresql.ts
+      type: jsonrpc
+    - path: mailer.ts
+      type: jsonrpc
 frontend:
-  path: ../client/build
+  path: ./client
+  sdk:
+    language: ts
+    path: src/sdk
   subdomain: indigo-bloody-parrotfish
-classes:
-  - path: emailAuthServicePostgresql.ts
-    type: jsonrpc
-    methods: []
-  - path: mailer.ts
-    type: jsonrpc
-    methods: []
+  publish: ./client/build
+  scripts:
+    local: npm install
+    deploy:
+      - npm install
+      - npm run build

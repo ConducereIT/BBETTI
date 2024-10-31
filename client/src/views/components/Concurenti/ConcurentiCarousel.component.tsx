@@ -13,10 +13,6 @@ import {
 } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-coverflow";
 import BgButton from "../../../assets/img/items/bara-vot.webp"
 
 import { Concurenti } from "../../../assets/config/Concurenti";
@@ -46,25 +42,19 @@ function shufflePairs(array:any) {
   return pairs.reduce((acc, pair) => acc.concat(pair), []);
 }
 
-
 export default function ConcurentiCarousel() {
   const navigate = useNavigate();
   const [concurentiOrder, setConcurentiOrder] = useState<Concurent[]>([]);
+  const [openDivs, setOpenDivs] = useState<boolean[]>(concurentiOrder.map(() => false));
+  const [user, setUser] = useState({ fata: true, baiat: true });
+  const [error, setError] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedConcurent, setSelectedConcurent] = useState<Concurent | null>(null);
 
   useEffect(() => {
     const shuffledConcurenti = shufflePairs(Concurenti);
     setConcurentiOrder(shuffledConcurenti);
   }, []);
-
-  const [openDivs, setOpenDivs] = useState<boolean[]>(concurentiOrder.map(() => false));
-
-  const [user, setUser] = useState({
-    fata: true,
-    baiat: true,
-  });
-
-  const [error, setError] = useState("");
-
 
   const vote = async () => {
     const email = localStorage.getItem("email");
@@ -74,7 +64,6 @@ export default function ConcurentiCarousel() {
     );
     setUser({ fata: ceva.statusF, baiat: ceva.statusB });
   };
-
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -95,9 +84,7 @@ export default function ConcurentiCarousel() {
         throw new Error("Login first");
       }
 
-      if (userV.status == "ok") {
-        const email = window.localStorage.getItem("email");
-
+      if (userV.status === "ok") {
         const voteStatus = await serverFunction.voteConcurenti(
           window.localStorage.getItem("email") || "",
           concurent.idConcurent,
@@ -105,7 +92,7 @@ export default function ConcurentiCarousel() {
           window.localStorage.getItem("token") || "",
         );
 
-        if (voteStatus.status != "ok") {
+        if (voteStatus.status !== "ok") {
           throw new Error(`${voteStatus.status}`);
         } else {
           navigate("/");
@@ -113,8 +100,27 @@ export default function ConcurentiCarousel() {
       }
     } catch (error) {
       setError(`${error}`);
+      alert(error);
     }
   };
+
+  const openModal = (concurent: Concurent) => {
+    setSelectedConcurent(concurent);
+    setIsModalOpen(true);
+  };
+
+  const confirmVote = () => {
+    if (selectedConcurent) {
+      handleVote(selectedConcurent);
+    }
+    closeModal();
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedConcurent(null);
+  };
+
   return (
     <>
       <div className="flex justify-center">
@@ -122,29 +128,15 @@ export default function ConcurentiCarousel() {
           <Swiper
             slidesPerView={1}
             centeredSlides={false}
-            keyboard={{
-              enabled: true,
-            }}
+            keyboard={{ enabled: true }}
             breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-              },
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                slidesPerGroup: 2,
-                spaceBetween: 20,
-              },
+              320: { slidesPerView: 1, spaceBetween: 10 },
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              768: { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 20 },
             }}
             scrollbar={false}
             navigation={true}
-            pagination={{
-              clickable: true,
-            }}
+            pagination={{ clickable: true }}
             modules={[EffectFlip, Keyboard, Navigation, Pagination]}
             className="mySwiper"
           >
@@ -166,28 +158,47 @@ export default function ConcurentiCarousel() {
                     />
                   </div>
 
-                  {/* <button
-                    onClick={() => handleVote(concurent)}
+                  <button
+                    onClick={() => openModal(concurent)}
                     className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
                     style={{ backgroundImage: `url(${BgButton})` }}
                   >
                     {(user.fata && concurent.sex === "F") || (user.baiat && concurent.sex === "M") ? (
-                      <span>Voteaza!</span>
+                      <span>Votează!</span>
                     ) : (
                       <span>Ai votat!</span>
                     )}
-                  </button> */
-
-                      <button className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
-                      style={{ backgroundImage: `url(${BgButton})`, cursor: 'default', fontWeight: "bold"}} >Voting Available Soon</button>
-                  }
-
+                  </button>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3 z-50">
+            <h2 className="text-lg font-semibold mb-4">Confirmare Vot</h2>
+            <p>Sigur dorești să votezi pentru {selectedConcurent?.name}?</p>
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={closeModal}
+                className="bg-gray-200 text-gray-700 px-4 py-2 rounded mr-2"
+              >
+                Anulează
+              </button>
+              <button
+                onClick={confirmVote}
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                Confirmă
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
     </>
   );
 }
