@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import BgButton from "../../../assets/img/items/bara-vot.webp"
 
 import { Concurenti } from "../../../assets/config/Concurenti";
-import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+import { UserServicePostgresql as serverFunction } from "@genezio-sdk/Balul-Bobocilor";
 
 interface Concurent {
   image: string;
