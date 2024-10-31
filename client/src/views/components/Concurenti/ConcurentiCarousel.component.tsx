@@ -182,17 +182,21 @@ export default function ConcurentiCarousel() {
                       <span>Ai votat!</span>
                     )}
                   </button> */
-
-                    <button
-                      className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
-                      style={{
-                        backgroundImage: `url(${BgButton})`,
-                        cursor: "default",
-                        fontWeight: "bold",
-                      }}
+                    <a
+                      href="https://forms.gle/7XEvPHUHTJ3Ny1WW7"
+                      className=" hover:cursor-pointer"
                     >
-                      Vote
-                    </button>
+                      <button
+                        className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full hover:cursor-pointer "
+                        style={{
+                          backgroundImage: `url(${BgButton})`,
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Vote
+                      </button>
+                    </a>
                   }
                 </div>
               </SwiperSlide>
