@@ -21,7 +21,10 @@ frontend:
   subdomain: indigo-bloody-parrotfish
   publish: ../client/build
   scripts:
-    local: npm install
+    local:
+      - npm install
+      - npm install @genezio-sdk/${{projectName}}@1.0.0-${{stage}}
     deploy:
       - npm install
+      - npm install @genezio-sdk/${{projectName}}@1.0.0-${{stage}}
       - npm run build
