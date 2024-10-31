@@ -2,7 +2,7 @@ name: Balul-Bobocilor
 region: eu-central-1
 yamlVersion: 2
 backend:
-  path: ./server
+  path: .
   language:
     name: ts
   scripts:
@@ -14,12 +14,12 @@ backend:
     - path: mailer.ts
       type: jsonrpc
 frontend:
-  path: ./client
+  path: ../client
   sdk:
     language: ts
     path: src/sdk
   subdomain: indigo-bloody-parrotfish
-  publish: ./client/build
+  publish: ../client/build
   scripts:
     local: npm install
     deploy:
