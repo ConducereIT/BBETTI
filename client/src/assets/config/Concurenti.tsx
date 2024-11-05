@@ -45,7 +45,7 @@ export const Concurenti = [
   {
     image: Milcu,
     idConcurent: "5",
-    name: "Giulia Gabriela Dobre Milcu",
+    name: "Giulia-Maria Dobre-Milcu",
     description: "Se consideră o fire ambițioasă, perfecționistă, organizată și realistă. Aceste calități au ajutat-o pe parcursul vieții să-și depășească așteptările și totodată să se adapteze la orice schimbare.",
     sex: "F",
   },
