@@ -8,12 +8,12 @@ import Sponsor4 from "../../../assets/img/Sponsori/sponsor4.jpg";
 import Sponsor5 from "../../../assets/img/Sponsori/sponsor5.png";
 import Sponsor6 from "../../../assets/img/Sponsori/sponsor6.jpg";
 import Sponsor7 from "../../../assets/img/Sponsori/sponsor7.jpg";
-import Sponsor9 from "../../../assets/img/Sponsori/sponsor8.png";
-import Sponsor10 from "../../../assets/img/Sponsori/sponsor9.png";
-import Sponsor11 from "../../../assets/img/Sponsori/sponsor10.jpg";
-import Sponsor12 from "../../../assets/img/Sponsori/sponsor11.jpg";
-import Sponsor13 from "../../../assets/img/Sponsori/sponsor12.png";
-import Sponsor8 from "../../../assets/img/Sponsori/sponsor13.jpg";
+import Sponsor9 from "../../../assets/img/Sponsori/sponsor8.jpeg";
+import Sponsor10 from "../../../assets/img/Sponsori/sponsor9.jpeg";
+import Sponsor11 from "../../../assets/img/Sponsori/sponsor10.jpeg";
+import Sponsor12 from "../../../assets/img/Sponsori/sponsor11.jpeg";
+import Sponsor13 from "../../../assets/img/Sponsori/sponsor12.jpeg";
+import Sponsor8 from "../../../assets/img/Sponsori/sponsor13.jpeg";
 import Sponsor14 from "../../../assets/img/Sponsori/sponsor14.jpg";
 import Sponsor15 from "../../../assets/img/Sponsori/sponsor15.png";
 
