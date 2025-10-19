@@ -1,42 +1,41 @@
 import { useRef, useEffect } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
-import Header from "./components/General/Header";
-import Elvis from "../assets/img/posters/elvis.webp";
-import Jackson from "../assets/img/posters/jackson.webp";
-import Abba from "../assets/img/posters/abba.webp";
-import Nirvana from "../assets/img/posters/nirvana1.webp";
-import Ray from "../assets/img/posters/ray.webp";
-import Sinatra from "../assets/img/posters/Sinatra.webp";
-import Travolta from "../assets/img/items/50s/travolta.webp";
-import Mercedes300 from "../assets/img/items/50s/mercedes_300sl.webp";
-import Beatles from "../assets/img/posters/beatles.webp";
-import Furtuna from "../assets/img/concurenti/portrait_teodor_furtuna.webp";
-import Dinut from "../assets/img/concurenti/portrait_cosmin_dinut.webp";
-import Beyonce from "../assets/img/posters/beyonce.webp";
-import Background from "../assets/img/Background/back-landing-page.webp";
-import Boy50s from "../assets/img/concurenti/50s-avram.webp";
-import Girl50s from "../assets/img/concurenti/50s-mocanca.webp";
-import Boy60s from "../assets/img/concurenti/60s - Belu.webp";
-import Girl60s from "../assets/img/concurenti/60s - Ungureanu.webp";
-import Boy70s from "../assets/img/concurenti/70s - Minculescu.webp";
-import Girl70s from "../assets/img/concurenti/70s - Georgescu.webp";
-import Boy80s from "../assets/img/concurenti/80s - Dragomir.webp";
-import Girl80s from "../assets/img/concurenti/80s - Băcanu.webp";
-import Girl90s from "../assets/img/concurenti/90s - Colcer.webp";
-import Boy90s from "../assets/img/concurenti/90s - Ilinca.webp";
-import Boy00s from "../assets/img/concurenti/00s - Badea.webp";
-import Girl00s from "../assets/img/concurenti/00s-Ambrozie.webp";
-import Right60s from "../assets/img/items/60s/60s-the-beatles.webp";
-import Left60s from "../assets/img/items/60s/60s_movie.webp";
-import Right70s from "../assets/img/items/70s/70s-right.webp";
-import Left70s from "../assets/img/items/70s/70s-left.webp";
-import Right80s from "../assets/img/items/80s/80s-right.webp";
-import Left80s from "../assets/img/items/80s/80s-left.webp";
-import Right90s from "../assets/img/items/90s/90s-right.webp";
-import Left90s from "../assets/img/items/90s/90s-left.webp";
-import Right00s from "../assets/img/items/00s/00s-right.webp";
-import Left00s from "../assets/img/items/00s/00s-left.webp";
 
+//media
+import Header from "./components/General/Header";
+import Afro from "../assets/img/posters/Afro.jpg";
+import America from "../assets/img/posters/America.jpg";
+import Arabic from "../assets/img/posters/Arabic.jpg";
+import Balkanic from "../assets/img/posters/Balkanic.jpg";
+import Bollywood from "../assets/img/posters/Bollywood.jpg";
+import Latino from "../assets/img/posters/Latino.jpg";
+import Background from "../assets/img/Background/landing-page-bg.jpg";
+import GirlAfro from "../assets/img/concurenti/Afro-Grosu.jpg";
+import BoyAfro from "../assets/img/concurenti/Afro-Nae.jpg";
+import GirlAmerica from "../assets/img/concurenti/America-Dascalescu.jpg";
+import BoyAmerica from "../assets/img/concurenti/America-Ignatovici.jpg";
+import GirlArabian from "../assets/img/concurenti/Arabian-Milcu.jpg";
+import BoyArabian from "../assets/img/concurenti/Arabian-Mamut.jpg";
+import GirlBalkanic from "../assets/img/concurenti/Balkanic-Mocanu.jpg";
+import BoyBalkanic from "../assets/img/concurenti/Balkanic-Nițescu.jpg"
+import GirlBw from "../assets/img/concurenti/Bollywood-Bodor.jpg"
+import BoyBw from "../assets/img/concurenti/Bollywoood-Lucaci.jpg"
+import GirlLatino from "../assets/img/concurenti/Latino-Filip.jpg"
+import BoyLatino from "../assets/img/concurenti/Latino-Tudoriu.jpg"
+import RightAfro from "../assets/img/items/afro/RightAfro.jpg";
+import LeftAfro from "../assets/img/items/afro/LeftAfro.jpg";
+import RightAmerica from "../assets/img/items/american/RightAmerica.jpg";
+import LeftAmerica from "../assets/img/items/american/LeftAmerica.jpg";
+import RightArabic from "../assets/img/items/arabian/RightArabia.jpg";
+import LeftArabic from "../assets/img/items/arabian/LeftArabia.jpg";
+import RightBalkanic from "../assets/img/items/balkanic/RightBalkanic.jpg";
+import LeftBalkanic from "../assets/img/items/balkanic/LeftBalkanic.jpg";
+import RightLatino from "../assets/img/items/latino/RightLatino.jpg";
+import LeftLatino from "../assets/img/items/latino/LeftLatino.webp";
+import RightBw from "../assets/img/items/bollywood/RightBw.webp";
+import LeftBw from "../assets/img/items/bollywood/LeftBw.jpg";
+
+//componente
 import "intersection-observer";
 import Singer from "./components/General/Singer.component";
 import Pachete from "./components/General/Pachete.component";
@@ -102,14 +101,15 @@ const Home = () => {
             </div>
           </ParallaxLayer>
           <ParallaxLayer
-            offset={1}
-            factor={0.4}
-            speed={0.5}
-            style={{
-              backgroundImage: `url(${Elvis})`,
-              backgroundSize: "cover",
-            }}
-          >
+          offset={1}
+          factor={0.4}
+          speed={0.5}
+          style={{
+          backgroundImage: `url(${Afro})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",  // This ensures the image focuses on the bottom-center
+          }}
+>
             <div className="w-full h-full bg-black/50"></div>
           </ParallaxLayer>
           <ParallaxLayer
@@ -120,26 +120,26 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
-                alt="fata 50s"
-                src={Girl50s}
+                alt="fata afro"
+                src={GirlAfro}
                 className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
-                alt="baiat 50s"
-                src={Boy50s}
+                alt="baiat afro"
+                src={BoyAfro}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="ray charles"
-                src={Ray}
+                alt="Left Afro"
+                src={LeftAfro}
                 className="transform -rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
               <img
-                alt="Sintra"
-                src={Sinatra}
+                alt="Right Afro"
+                src={RightAfro}
                 className=" rotate-6  md:w-[17%] w-[40%] scale-[85%]"
               />
             </div>
@@ -157,8 +157,9 @@ const Home = () => {
             factor={0.4}
             speed={0.5}
             style={{
-              backgroundImage: `url(${Beatles})`,
+              backgroundImage: `url(${America})`,
               backgroundSize: "cover",
+              backgroundPosition: "center 65%",
             }}
           >
             <div className="w-full h-full bg-black/50"></div>
@@ -171,26 +172,26 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
-                alt="fata 60s"
-                src={Girl60s}
+                alt="fata america"
+                src={GirlAmerica}
                 className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
-                alt="baiat 60s"
-                src={Boy60s}
+                alt="baiat america"
+                src={BoyAmerica}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
                 alt="ray charles"
-                src={Right60s}
+                src={LeftAmerica}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
               <img
                 alt="Sintra"
-                src={Left60s}
+                src={RightAmerica}
                 className="  md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
             </div>
@@ -207,8 +208,9 @@ const Home = () => {
             factor={0.4}
             speed={0.5}
             style={{
-              backgroundImage: `url(${Abba})`,
+              backgroundImage: `url(${Arabic})`,
               backgroundSize: "cover",
+              backgroundPosition: "center 60%",
             }}
           >
             <div className="w-full h-full bg-black/50"></div>
@@ -221,25 +223,25 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
-                alt="baiat 70s"
-                src={Boy70s}
+                alt="baiat arabia"
+                src={BoyArabian}
                 className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
               <img
-                alt="fata 70s"
-                src={Girl70s}
+                alt="fata arabia"
+                src={GirlArabian}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between mt-40 md:mt-20 ">
               <img
-                alt="ray charles"
-                src={Left70s}
+                alt="LeftArabian"
+                src={LeftArabic}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
               <img
-                alt="Sintra"
-                src={Right70s}
+                alt="RightArabian"
+                src={RightArabic}
                 className="  md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
             </div>
@@ -256,8 +258,9 @@ const Home = () => {
             factor={0.4}
             speed={0.5}
             style={{
-              backgroundImage: `url(${Jackson})`,
+              backgroundImage: `url(${Balkanic})`,
               backgroundSize: "cover",
+              backgroundPosition: "center 35%",
             }}
           >
             <div className="w-full h-full bg-black/50"></div>
@@ -270,25 +273,25 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between mt-40 md:mt-20">
               <img
-                alt="fata 80s"
-                src={Girl80s}
+                alt="fata balkanic"
+                src={GirlBalkanic}
                 className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
               <img
-                alt="baiat 80s"
-                src={Boy80s}
+                alt="baiat balkanic"
+                src={BoyBalkanic}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between  mt-40 md:mt-20 ">
               <img
-                alt="ray charles"
-                src={Left80s}
+                alt="Left Balkanic"
+                src={LeftBalkanic}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
               <img
-                alt="Sintra"
-                src={Right80s}
+                alt="Right Balkanic"
+                src={RightBalkanic}
                 className=" rotate-6  md:w-[17%] w-[40%] scale-[85%]"
               />
             </div>
@@ -305,7 +308,7 @@ const Home = () => {
             factor={0.4}
             speed={0.5}
             style={{
-              backgroundImage: `url(${Nirvana})`,
+              backgroundImage: `url(${Bollywood})`,
               backgroundSize: "cover",
             }}
           >
@@ -319,26 +322,26 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between mt-40 md:mt-20">
               <img
-                alt="fata 90s"
-                src={Girl90s}
+                alt="fata Bollywood"
+                src={GirlBw}
                 className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
-                alt="baiat 90s"
-                src={Boy90s}
+                alt="baiat Bollywood"
+                src={BoyBw}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between  mt-40 md:mt-20 ">
               <img
-                alt="ray charles"
-                src={Left90s}
+                alt="Left Bw"
+                src={LeftBw}
                 className="transform -rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
               <img
-                alt="Sintra"
-                src={Right90s}
+                alt="Right Bw"
+                src={RightBw}
                 className=" md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
             </div>
@@ -355,7 +358,7 @@ const Home = () => {
             factor={0.4}
             speed={0.5}
             style={{
-              backgroundImage: `url(${Beyonce})`,
+              backgroundImage: `url(${Latino})`,
               backgroundSize: "cover",
             }}
           >
@@ -369,26 +372,26 @@ const Home = () => {
           >
             <div className="hidden md:flex justify-between mt-40 md:mt-20">
               <img
-                alt="fata 00s"
-                src={Girl00s}
+                alt="fata latino"
+                src={GirlLatino}
                 className="transform md:w-[17%] w-[40%] rotate-6 scale-[85%]"
               />
 
               <img
-                alt="baiat 00s"
-                src={Boy00s}
+                alt="baiat latino"
+                src={BoyLatino}
                 className="transform md:w-[17%] w-[40%] -rotate-6 scale-[85%]"
               />
             </div>
             <div className="hidden md:flex justify-between m-4 mt-40 md:mt-20 ">
               <img
-                alt="ray charles"
-                src={Left00s}
+                alt="left latino"
+                src={LeftLatino}
                 className="transform -rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
               <img
-                alt="Sintra"
-                src={Right00s}
+                alt="right latino"
+                src={RightLatino}
                 className=" rotate-6 md:w-[17%] w-[40%] scale-[85%]"
               />
             </div>

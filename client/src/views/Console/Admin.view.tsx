@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserTableAdmin from "../components/General/UserTable.component";
-import { UserServicePostgresql } from "../../sdk/userServicePostgresql.sdk";
+import { UserServicePostgresql } from "@genezio-sdk/Balul-Bobocilor";
 
 const Admin = () => {
   const [jsonData, setJsonData] = useState([]);

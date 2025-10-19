@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-import { UserServicePostgresql as serverFunction } from "../../../sdk/userServicePostgresql.sdk";
+import { UserServicePostgresql as serverFunction } from "@genezio-sdk/Balul-Bobocilor";
 
 export default function Header() {
   const [nav, setNav] = useState(false);
