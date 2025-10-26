@@ -10,13 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '18'
       - uses: Genez-io/genezio-github-action@v3
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
-      - name: Downgrade Genezio CLI to 3.2.9
-        run: npm install -g genezio@3.2.9
+      - name: Install patched Genezio CLI
+        run: npm install -g genezio@3.2.11-beta
       - name: install pg
         working-directory: ./server
         run: npm install pg
