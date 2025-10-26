@@ -1,21 +1,21 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Sponsor1 from "../../../assets/img/Sponsori/sponsor1.png";
-import Sponsor3 from "../../../assets/img/Sponsori/sponsor2.png";
-import Sponsor2 from "../../../assets/img/Sponsori/sponsor3.jpg";
-import Sponsor4 from "../../../assets/img/Sponsori/sponsor4.jpg";
-import Sponsor5 from "../../../assets/img/Sponsori/sponsor5.png";
-import Sponsor6 from "../../../assets/img/Sponsori/sponsor6.jpg";
-import Sponsor7 from "../../../assets/img/Sponsori/sponsor7.jpg";
-import Sponsor9 from "../../../assets/img/Sponsori/sponsor8.jpeg";
-import Sponsor10 from "../../../assets/img/Sponsori/sponsor9.jpeg";
-import Sponsor11 from "../../../assets/img/Sponsori/sponsor10.jpeg";
-import Sponsor12 from "../../../assets/img/Sponsori/sponsor11.jpeg";
-import Sponsor13 from "../../../assets/img/Sponsori/sponsor12.jpeg";
-import Sponsor8 from "../../../assets/img/Sponsori/sponsor13.jpeg";
-import Sponsor14 from "../../../assets/img/Sponsori/sponsor14.jpg";
-import Sponsor15 from "../../../assets/img/Sponsori/sponsor15.png";
+import Sponsor1 from "../../../assets/img/Sponsori/2025/sponsor1.jpg";
+import Sponsor2 from "../../../assets/img/Sponsori/2025/sponsor2.jpg";
+import Sponsor3 from "../../../assets/img/Sponsori/2025/sponsor3.jpg";
+import Sponsor4 from "../../../assets/img/Sponsori/2025/sponsor4.jpg";
+import Sponsor5 from "../../../assets/img/Sponsori/2025/sponsor5.jpg";
+import Sponsor6 from "../../../assets/img/Sponsori/2025/sponsor6.png";
+import Sponsor7 from "../../../assets/img/Sponsori/2025/sponsor7.png";
+import Sponsor8 from "../../../assets/img/Sponsori/2025/sponsor8.png";
+import Sponsor9 from "../../../assets/img/Sponsori/2025/sponsor9.jpeg";
+import Sponsor10 from "../../../assets/img/Sponsori/2025/sponsor10.jpg";
+import Sponsor11 from "../../../assets/img/Sponsori/2025/sponsor11.jpg";
+import Sponsor12 from "../../../assets/img/Sponsori/2025/sponsor12.jpg";
+
+
+
 
 export default function Sponsori() {
   return (
@@ -80,17 +80,7 @@ export default function Sponsori() {
             </div>
           </div>
           {/* Slide 1 */}
-          <div className=" grid grid-cols-2 gap-4">
-            <div className="">
-              <img src={Sponsor13} alt="Sponsor13" />
-            </div>
-            <div className="">
-              <img src={Sponsor14} alt="Sponsor14" />
-            </div>
-            <div className="">
-              <img src={Sponsor15} alt="Sponsor15" />
-            </div>
-          </div>
+     
         </Carousel>
       </div>
       {/* For Desktop */}
@@ -156,17 +146,7 @@ export default function Sponsori() {
             </div>
           </div>
           {/* Slide 2 */}
-          <div className="flex gap-10 mt-5 justify-center items-center">
-            <div className="w-1/3">
-              <img src={Sponsor13} alt="Sponsor13" />
-            </div>
-            <div className="w-1/3">
-              <img src={Sponsor14} alt="Sponsor14" />
-            </div>
-            <div className="w-1/3">
-              <img src={Sponsor15} alt="Sponsor15" />
-            </div>
-          </div>
+         
         </Carousel>
       </div>
     </>
