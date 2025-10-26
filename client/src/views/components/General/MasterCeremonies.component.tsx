@@ -1,6 +1,6 @@
 import React from "react";
-import PozaDesk from "../../../assets/img/MC/MCDesk.jpg";
-import PozaMobil from "../../../assets/img/MC/MCDesk.jpg";
+import PozaDesk from "../../../assets/img/MC/MC2025.jpg";
+import PozaMobil from "../../../assets/img/MC/mobile.jpg";
 
 export default function MasterCeremonies() {
   return (
@@ -19,28 +19,22 @@ export default function MasterCeremonies() {
               alt="MasterOfCeremonies"
             />
           </div>
-          <div className="text-gray-300 md:mt-16 ">
+          <div className="text-gray-300 md:mt-16  ">
             <div className="text-2xl font-bold flex justify-center mb-10">
-              <p>MC Andrei Răpciugă</p>
+              <p>MC Leonardo Dumitrescu</p>
             </div >
             <div className="h-auto w-auto flex items-center justify-center">
-            <p className=" text-justify mx-8 text-xs md:text-sm">
-            Andrei Răpciugă, cu un background solid ca alumn LSE,
-            a descoperit o adevărată pasiune pentru prezentarea 
-            de evenimente. Ce îl diferențiază este entuziasmul 
-            său contagios și abilitatea de a interacționa cu 
-            publicul.
+            <p className=" text-justify mx-8 mb-20 text-xs md:text-sm">
+            Leonardo Dumitrescu, voluntar de încredere al Ligii Studenților Electroniști, 
+            și-a descoperit pasiunea pentru prezentarea de evenimente încă din primele proiecte studențești. 
+            Energia lui debordantă și abilitatea naturală de a interacționa cu publicul îl transformă într-un
+             MC care captează atenția din primul minut.
               <br />
-              <br /> Talentul său de povestitor îi permite să 
-              capteze atenția audienței cu fiecare cuvânt rostit. 
-              Andrei spune adesea că energia celor din sală îl 
-              inspiră și îl revitalizează, ceea ce creează o 
-              atmosferă vibrantă la fiecare eveniment pe care îl 
-              moderează.
+              <br /> Spontaneitatea, umorul și talentul său de povestitor creează o atmosferă vibrantă la fiecare eveniment
+               pe care îl moderează. Leonardo spune adesea că reacțiile publicului sunt sursa lui de motivație, inspirându-l 
+               să se reinventeze de fiecare dată.
               <br />
-              <br /> Pentru el, prezentarea de evenimente reprezintă o 
-              pasiune, transformând fiecare întâlnire într-o experiență de 
-              neuitat pentru toți participanții.
+              <br /> Pentru el, scena nu este doar un loc - este spațiul unde transformă simple momente în experiențe memorabile.
             </p>
             </div>
           </div>
