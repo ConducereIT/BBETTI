@@ -3,32 +3,27 @@ export default function Description() {
     <>
       <div className=" h-full w-auto flex items-center justify-center">
         <p className=" flex justify-center mt-0 md:mt-12  items-center text-gray-300 text-base mx-6 md:mx-0  md:text-2xl text-center">
-          Anul acesta, Beats Across Borders îți va aduce vibrațiile 
-          celor mai fascinante colțuri ale globului, totul într-o 
-          singură noapte explozivă. 
+          Balul Bobocilor marchează momentul în care noua generație de studenți ETTI pășește pentru prima dată în
+          lumina reflectoarelor. Este un eveniment simbolic, ce reunește studenți, cadre didactice și invitați, 
+          păstrând una dintre cele mai iubite tradiții ale facultății.
           <br />
           <br />
-          Bobocii noștri vor aduce pe scenă momente spectaculoase 
-          inspirate de cele mai emblematice culturi muzicale. 
-          Fie că vorbim de energia sălbatică a Afro Jungle, de 
-          ritmurile fierbinți din Latino America sau de 
-          strălucirea vibrantă a Bollywoodului indian, vei fi 
-          martor la o experiență care depășește toate granițele 
-          imaginației.
+          Tema de anul acesta, „Night of Fates”, vă invită într-un univers al supranaturalului,
+          unde magia și misterul se îmbină într-o atmosferă ireală. Decorul, luminile și momentele
+          artistice vor transforma seara într-o călătorie printr-un tărâm al destinelor interconectate.
           <br />
-          <br /> Cu fiecare dans, fiecare mișcare și fiecare notă,
-          scena se va transforma într-o hartă vie a diversității 
-          culturale, unde granițele nu există decât pentru a fi 
-          descompuse de puterea beat-ului.
+          <br /> Momentul central al serii este concursul Miss & Mister Boboc ETTI 2025, în cadrul căruia
+          perechile de boboci vor impresiona prin eleganță, carismă și momente artistice inspirate din tema balului.
+          Coregrafii captivante, scenete pline de imaginație și surprize pregătite cu pasiune vor cuceri publicul.
+
           <br />
-          <br /> Unul dintre artiștii preferați ai generației 
-          noastre, va urca pe scenă pentru a ne arăta ce înseamnă 
-          cu adevărat să faci un show care denotă spiritul 
-          exuberant al Balcanilor
+          <br /> Momentul central al serii este concursul Miss & Mister Boboc ETTI 2025,
+          în cadrul căruia perechile de boboci vor impresiona prin eleganță, carismă și
+          momente artistice inspirate din tema balului. Coregrafii captivante, scenete pline de imaginație
+          și surprize pregătite cu pasiune vor cuceri publicul.
+
           <br />
-          <br />Așadar, te invităm alături de noi pentru o noapte 
-          în care granițele dispar, iar Beats Across Borders 
-          devine ritmul care ne unește pe toți!
+          
         </p>
       </div>
     </>

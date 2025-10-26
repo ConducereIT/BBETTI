@@ -1,7 +1,7 @@
 import ConcurentiCarousel from "./components/Concurenti/ConcurentiCarousel.component";
 import Header from "./components/General/Header";
 import "../Concurenti.css";
-import Background from "../assets/img/Background/landing-page-bg-smoky.jpg";
+import Background from "../assets/img/Background/colajdark.jpg";
 export default function Concurenti() {
   return (
     <>
@@ -11,6 +11,7 @@ export default function Concurenti() {
         style={{ backgroundImage: `url(${Background})`}}
       >
       </div>
+       <div className="absolute inset-0 bg-black/50"></div> // Overlay with 50% opacity
       <div className="mt-10">
         <ConcurentiCarousel />
       </div>

@@ -1,9 +1,12 @@
 import * as nodemailer from "nodemailer";
 import * as dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config({ path: "./server/.env" });
+
+
 
 export class Send_mailer {
+  
   async send(_to: any, _subject: string, _text: string): Promise<boolean> {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
@@ -25,6 +28,7 @@ export class Send_mailer {
       const info = await transporter.sendMail(mailOptions);
       return true;
     } catch (error) {
+     
       console.error(error);
       return false;
     }

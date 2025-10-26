@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PreloaderContext } from "./PreloaderProvider.component";
-import LogoWhite from "../../../assets/img/Background/landing-page-bg.jpg";
+import LogoWhite from "../../../assets/img/Background/colaj.jpg";
 
 const Preloader = () => {
   const { isLoading }: any = useContext(PreloaderContext);
