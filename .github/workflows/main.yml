@@ -10,9 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - uses: Genez-io/genezio-github-action@v2
+      - uses: Genez-io/genezio-github-action@latest
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
       - name: install pg
