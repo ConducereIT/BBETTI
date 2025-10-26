@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - uses: Genez-io/genezio-github-action@v2
+      - uses: Genez-io/genezio-github-action@v2.0.15
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
       - name: install pg
