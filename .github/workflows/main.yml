@@ -10,20 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-      - name: Install Genezio CLI (stable)
-        run: npm install -g genezio@3.1.1
-      - uses: Genez-io/genezio-github-action@v3
+      - uses: Genez-io/genezio-github-action@v2
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
       - name: install pg
         working-directory: ./server
-        run: |
-          npm ci
-          npm install @genezio/types pg
+        run: npm install pg
       - name: Deploy backend
         working-directory: ./server
-        run: genezio deploy --logLevel debug
+        run: genezio deploy
         env:
           CI: false
