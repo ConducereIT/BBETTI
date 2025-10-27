@@ -14,7 +14,7 @@ jobs:
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
       - name: Install patched Genezio CLI
-        run: npm install -g genezio@3.2.11
+        run: npm install -g genezio@3.2.10
       - name: install pg
         working-directory: ./server
         run: npm install pg
