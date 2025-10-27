@@ -15,8 +15,6 @@ jobs:
       - uses: Genez-io/genezio-github-action@v3
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
-      - name: Install patched Genezio CLI
-        run: npm install -g genezio@3.2.10
       - name: install pg
         working-directory: ./server
         run: |
