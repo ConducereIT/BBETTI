@@ -20,6 +20,6 @@ jobs:
         run: npm install pg
       - name: Deploy backend
         working-directory: ./server
-        run: genezio deploy
+        run: genezio deploy --verbose
         env:
           CI: false
