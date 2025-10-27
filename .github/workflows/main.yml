@@ -1,4 +1,5 @@
 name: genezio workflow
+
 on:
   push:
     branches:
@@ -7,17 +8,31 @@ on:
 jobs:
   deploy-backend:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
+      # ✅ Use Node 18 (compatible with Genezio)
       - uses: actions/setup-node@v4
-      - uses: Genez-io/genezio-github-action@v2
         with:
-          token: ${{ secrets.GENEZIO_TOKEN }}
-      - name: install pg
+          node-version: '18'
+
+      # ✅ Install Genezio manually (stable version)
+      - name: Install Genezio CLI
+        run: npm install -g genezio@2.1.8
+
+      - name: Check Genezio version
+        run: genezio --version
+
+      # ✅ Install backend dependencies
+      - name: Install pg
         working-directory: ./server
         run: npm install pg
+
+      # ✅ Deploy using your token from GitHub Secrets
       - name: Deploy backend
         working-directory: ./server
         run: genezio deploy
         env:
+          GENEZIO_TOKEN: ${{ secrets.GENEZIO_TOKEN }}
           CI: false
