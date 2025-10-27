@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
+      - name: Install Genezio CLI (stable)
+        run: npm install -g genezio@3.2.9
       - uses: Genez-io/genezio-github-action@v3
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
