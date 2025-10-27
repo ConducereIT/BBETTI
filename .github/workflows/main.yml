@@ -18,7 +18,8 @@ jobs:
         run: npm install pg
       - name: Deploy backend
         working-directory: ./server
-        run: genezio deploy
+        run: genezio deploy --logLevel debug
         env:
 
           CI: false
+
