@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
       - uses: Genez-io/genezio-github-action@v3
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
@@ -17,7 +19,9 @@ jobs:
         run: npm install -g genezio@3.2.10
       - name: install pg
         working-directory: ./server
-        run: npm install pg
+        run: |
+          npm ci
+          npm install @genezio/types pg
       - name: Deploy backend
         working-directory: ./server
         run: genezio deploy --logLevel debug
