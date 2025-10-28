@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v3
       - uses: Genez-io/genezio-github-action@v3
         with:
           token: ${{ secrets.GENEZIO_TOKEN }}
@@ -22,4 +22,5 @@ jobs:
         env:
 
           CI: false
+
 
