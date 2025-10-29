@@ -1,6 +1,5 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { POSTGRESQL_DB_URI } from "../helper";
-import * as pg from "pg";
 
 export const sequelize = new Sequelize(POSTGRESQL_DB_URI, {
   dialect: "postgres",
@@ -14,6 +13,7 @@ export const sequelize = new Sequelize(POSTGRESQL_DB_URI, {
       rejectUnauthorized: false,
     },
   },
+  dialectModule: require("pg"),
 });
 
 export class TabelaVoturi extends Model {
