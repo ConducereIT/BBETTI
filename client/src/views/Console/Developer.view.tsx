@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserTableDeveloper from "../components/General/UserTableDeveloper.component";
-import { UserServicePostgresql } from "@genezio-sdk/Balul-Bobocilor";
+import { UserServicePostgresql } from "@genezio-sdk/bbetti";
 
 const Developer = () => {
   const [jsonData, setJsonData] = useState([]);
@@ -10,7 +10,7 @@ const Developer = () => {
         window.location.replace("/");
       }
       const jsonData = await UserServicePostgresql.getConcurenti(
-        window.localStorage.getItem("token")!,
+        window.localStorage.getItem("token")!
       );
       if (jsonData.status !== "ok") {
         window.location.replace("/");

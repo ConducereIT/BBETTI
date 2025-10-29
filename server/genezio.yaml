@@ -1,4 +1,4 @@
-name: Balul-Bobocilor
+name: bbetti
 region: eu-central-1
 yamlVersion: 2
 backend:
@@ -18,7 +18,6 @@ frontend:
   sdk:
     language: ts
     path: src/sdk
-  subdomain: indigo-bloody-parrotfish
   publish: ../client/build
   scripts:
     local:

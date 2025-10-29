@@ -13,10 +13,10 @@ import {
 } from "swiper/modules";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BgButton from "../../../assets/img/items/bara-vot.webp"
+import BgButton from "../../../assets/img/items/bara-vot.webp";
 
 import { Concurenti } from "../../../assets/config/Concurenti";
-import { UserServicePostgresql as serverFunction } from "@genezio-sdk/Balul-Bobocilor";
+import { UserServicePostgresql as serverFunction } from "@genezio-sdk/bbetti";
 
 interface Concurent {
   image: string;
@@ -26,7 +26,7 @@ interface Concurent {
   sex: string;
 }
 
-function shufflePairs(array:any) {
+function shufflePairs(array: any) {
   let pairs = [];
 
   for (let i = 0; i < array.length; i += 2) {
@@ -45,11 +45,15 @@ function shufflePairs(array:any) {
 export default function ConcurentiCarousel() {
   const navigate = useNavigate();
   const [concurentiOrder, setConcurentiOrder] = useState<Concurent[]>([]);
-  const [openDivs, setOpenDivs] = useState<boolean[]>(concurentiOrder.map(() => false));
+  const [openDivs, setOpenDivs] = useState<boolean[]>(
+    concurentiOrder.map(() => false)
+  );
   const [user, setUser] = useState({ fata: true, baiat: true });
   const [error, setError] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedConcurent, setSelectedConcurent] = useState<Concurent | null>(null);
+  const [selectedConcurent, setSelectedConcurent] = useState<Concurent | null>(
+    null
+  );
 
   useEffect(() => {
     const shuffledConcurenti = shufflePairs(Concurenti);
@@ -60,7 +64,7 @@ export default function ConcurentiCarousel() {
     const email = localStorage.getItem("email");
     const ceva = await serverFunction.canVote(
       window.localStorage.getItem("email") || "",
-      window.localStorage.getItem("token") || "",
+      window.localStorage.getItem("token") || ""
     );
     setUser({ fata: ceva.statusF, baiat: ceva.statusB });
   };
@@ -77,7 +81,7 @@ export default function ConcurentiCarousel() {
         throw new Error("Login first");
       }
       const userV = await serverFunction.checkSession(
-        window.localStorage.getItem("token") || "",
+        window.localStorage.getItem("token") || ""
       );
 
       if (!userV) {
@@ -89,7 +93,7 @@ export default function ConcurentiCarousel() {
           window.localStorage.getItem("email") || "",
           concurent.idConcurent,
           concurent.sex,
-          window.localStorage.getItem("token") || "",
+          window.localStorage.getItem("token") || ""
         );
 
         if (voteStatus.status !== "ok") {
@@ -141,13 +145,18 @@ export default function ConcurentiCarousel() {
             className="mySwiper"
           >
             {concurentiOrder.map((concurent: Concurent, index: number) => (
-              <SwiperSlide key={index} className="flex justify-center items-center">
+              <SwiperSlide
+                key={index}
+                className="flex justify-center items-center"
+              >
                 <div className="mt-20 md:m-20">
                   <div
                     className="bg-cover duration-300 rounded-lg text-center scale-125"
                     style={{ backgroundImage: `url(${BgButton})` }}
                   >
-                    <h1 className="text-base scale-75 md:text-xl xl:text-xl">{concurent.name}</h1>
+                    <h1 className="text-base scale-75 md:text-xl xl:text-xl">
+                      {concurent.name}
+                    </h1>
                   </div>
 
                   <div className="my-4">
@@ -163,7 +172,8 @@ export default function ConcurentiCarousel() {
                     className="w-full bg-cover duration-300 rounded-lg py-2 text-xl md:mt-10 h-full "
                     style={{ backgroundImage: `url(${BgButton})` }}
                   >
-                    {(user.fata && concurent.sex === "F") || (user.baiat && concurent.sex === "M") ? (
+                    {(user.fata && concurent.sex === "F") ||
+                    (user.baiat && concurent.sex === "M") ? (
                       <span>Votează!</span>
                     ) : (
                       <span>Ai votat!</span>
@@ -198,7 +208,6 @@ export default function ConcurentiCarousel() {
           </div>
         </div>
       )}
-
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserTableAdmin from "../components/General/UserTable.component";
-import { UserServicePostgresql } from "@genezio-sdk/Balul-Bobocilor";
+import { UserServicePostgresql } from "@genezio-sdk/bbetti";
 
 const Admin = () => {
   const [jsonData, setJsonData] = useState([]);
@@ -12,14 +12,14 @@ const Admin = () => {
         window.location.replace("/");
       }
       const jsonData = await UserServicePostgresql.getUsers(
-        window.localStorage.getItem("token")!,
+        window.localStorage.getItem("token")!
       );
       if (jsonData.status !== "ok") {
         window.location.replace("/");
       }
 
       const adminType = await UserServicePostgresql.isAdmin(
-        window.localStorage.getItem("token")!,
+        window.localStorage.getItem("token")!
       );
 
       if (adminType.status !== "ok") {
@@ -33,7 +33,6 @@ const Admin = () => {
 
     getUsersDB();
   }, []);
-
 
   return (
     <>

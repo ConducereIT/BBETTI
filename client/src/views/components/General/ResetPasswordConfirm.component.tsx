@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import bg_image from "../../../assets/img/Background/colaj.jpg";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
-import { UserServicePostgresql as serverFunction } from "@genezio-sdk/Balul-Bobocilor";
+import { UserServicePostgresql as serverFunction } from "@genezio-sdk/bbetti";
 import BgButton from "../../../assets/img/items/bara-vot.webp";
 
 export default function ResetPasswordConfirmComp() {
@@ -59,7 +59,9 @@ export default function ResetPasswordConfirmComp() {
               style={{ backgroundImage: `url(${BgButton})` }}
               onClick={handleSummit}
             >
-              <h1 className="text-base text-white scale-75 md:text-base xl:text-xl">Confirm</h1>
+              <h1 className="text-base text-white scale-75 md:text-base xl:text-xl">
+                Confirm
+              </h1>
             </div>
           </form>
         </div>

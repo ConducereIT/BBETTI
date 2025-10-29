@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import bg_image from "../../../assets/img/Background/colaj.jpg";
 import { AiOutlineMail, AiFillLock } from "react-icons/ai";
 
-import { UserServicePostgresql as serverFunction } from "@genezio-sdk/Balul-Bobocilor";
+import { UserServicePostgresql as serverFunction } from "@genezio-sdk/bbetti";
 import BgButton from "../../../assets/img/items/bara-vot.webp";
 
 export default function LoginComp() {
@@ -45,9 +45,10 @@ export default function LoginComp() {
         style={{ backgroundImage: `url(${bg_image})` }}
       >
         <div>
-
           <form className="bg-black/90 p-6 px-4 md:p-10 md:px-24">
-            <h1 className="text-white text-center mb-10">{error ? error : ""}</h1>
+            <h1 className="text-white text-center mb-10">
+              {error ? error : ""}
+            </h1>
             <label className="mb-4">
               <div className="my-5 md:my-5 flex">
                 <AiOutlineMail color="white" className="text-3xl md:text-4xl" />
@@ -75,20 +76,33 @@ export default function LoginComp() {
               </div>
             </label>
             <div className="flex items-center justify-between mb-6 mt-10">
-              <a href="/register" className="text-white text-sm" style = {{cursor: 'pointer'}}>
+              <a
+                href="/register"
+                className="text-white text-sm"
+                style={{ cursor: "pointer" }}
+              >
                 Register
               </a>
-              <div onClick={handleForgot} className="text-white text-sm" style = {{cursor: 'pointer'}}>
+              <div
+                onClick={handleForgot}
+                className="text-white text-sm"
+                style={{ cursor: "pointer" }}
+              >
                 Forgot Password?
               </div>
             </div>
-              <div
-                className="bg-cover duration-300 rounded-lg text-center scale-125 mt-9"
-                style={{ backgroundImage: `url(${BgButton})` }}
-                onClick={handleSummit}
+            <div
+              className="bg-cover duration-300 rounded-lg text-center scale-125 mt-9"
+              style={{ backgroundImage: `url(${BgButton})` }}
+              onClick={handleSummit}
+            >
+              <h1
+                className="text-base text-white scale-75 md:text-base xl:text-xl"
+                style={{ cursor: "pointer" }}
               >
-                <h1 className="text-base text-white scale-75 md:text-base xl:text-xl" style = {{cursor: 'pointer'}}>Login</h1>
-              </div>
+                Login
+              </h1>
+            </div>
           </form>
         </div>
       </div>
