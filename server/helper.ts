@@ -11,7 +11,7 @@ export type AuthResponse = {
 
 export async function validatePassword(
   saltedPassword: string,
-  password: string,
+  password: string
 ): Promise<boolean> {
   return new Promise((resolve) => {
     bcrypt.compare(password, saltedPassword, async function (err, res) {
@@ -35,9 +35,17 @@ export async function hashPassword(password: string): Promise<string> {
         throw err;
       }
 
+      if (!salt) {
+        throw new Error("Failed to generate salt");
+      }
+
       bcrypt.hash(password, salt, async function (err, hash) {
         if (err) {
           throw err;
+        }
+
+        if (!hash) {
+          throw new Error("Failed to hash password");
         }
 
         resolve(hash);
