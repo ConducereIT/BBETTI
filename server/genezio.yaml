@@ -19,6 +19,7 @@ frontend:
     language: ts
     path: src/sdk
   publish: ../client/build
+  subdomain: white-charming-albatross
   scripts:
     local:
       - npm install
