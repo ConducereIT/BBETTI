@@ -11,9 +11,9 @@ export const sequelize = new Sequelize(POSTGRESQL_DB_URI, {
   dialectOptions: {
     ssl: {
       require: true,
+      rejectUnauthorized: false,
     },
   },
-  dialectModule: pg.Client,
 });
 
 export class TabelaVoturi extends Model {
