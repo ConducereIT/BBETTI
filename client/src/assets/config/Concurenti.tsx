@@ -1,16 +1,16 @@
 
-import DobreBogdan from '../img/concurenti/Concurenti2025/Dobre_Bogdan.jpg';
-import PredaMariaBianca from '../img/concurenti/Concurenti2025/Preda_Maria_Bianca.jpg';
-import CretuSebastianAndrei from '../img/concurenti/Concurenti2025/Cretu_Sebastian_Andrei.jpg';
-import PopescuAndreiCristian from '../img/concurenti/Concurenti2025/Popescu_Andrei-Cristian.jpg';
-import IonilaRalucaMaria from '../img/concurenti/Concurenti2025/IRalucaMaria.jpg';
-import RonitaTeodor from '../img/concurenti/Concurenti2025/Ronita_Teodor.jpg';
-import CMariaFrancesca from '../img/concurenti/Concurenti2025/ConstatinescuMariaFrancesca.jpg';
-import DragneMarius from '../img/concurenti/Concurenti2025/DragneMarius.jpg';
-import BuseCristinaIasmina from '../img/concurenti/Concurenti2025/BuseCristinaIasmina.jpg';
-import IonMatei from '../img/concurenti/Concurenti2025/IonMatei.jpg';
-import TStefaniaAndreea from '../img/concurenti/Concurenti2025/TStefaniaAndreea.jpg';
-import transparent from '../img/concurenti/Concurenti2025/transparent.png';
+import DobreBogdan from '../img/concurenti/Concurenti2025/Dobre_Bogdan.webp';
+import PredaMariaBianca from '../img/concurenti/Concurenti2025/Preda_Maria_Bianca.webp';
+import CretuSebastianAndrei from '../img/concurenti/Concurenti2025/Cretu_Sebastian_Andrei.webp';
+import PopescuAndreiCristian from '../img/concurenti/Concurenti2025/Popescu_Andrei-Cristian.webp';
+import IonilaRalucaMaria from '../img/concurenti/Concurenti2025/IRalucaMaria.webp';
+import RonitaTeodor from '../img/concurenti/Concurenti2025/Ronita_Teodor.webp';
+import CMariaFrancesca from '../img/concurenti/Concurenti2025/ConstatinescuMariaFrancesca.webp';
+import DragneMarius from '../img/concurenti/Concurenti2025/DragneMarius.webp';
+import BuseCristinaIasmina from '../img/concurenti/Concurenti2025/BuseCristinaIasmina.webp';
+import IonMatei from '../img/concurenti/Concurenti2025/IonMatei.webp';
+import TStefaniaAndreea from '../img/concurenti/Concurenti2025/TStefaniaAndreea.webp';
+import transparent from '../img/concurenti/Concurenti2025/transparent.webp';
 
 
 export const Concurenti = [
