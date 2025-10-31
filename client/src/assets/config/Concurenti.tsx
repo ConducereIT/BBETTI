@@ -2,7 +2,7 @@
 import DobreBogdan from '../img/concurenti/Concurenti2025/Dobre_Bogdan.webp';
 import PredaMariaBianca from '../img/concurenti/Concurenti2025/Preda_Maria_Bianca.webp';
 import CretuSebastianAndrei from '../img/concurenti/Concurenti2025/Cretu_Sebastian_Andrei.webp';
-import PopescuAndreiCristian from '../img/concurenti/Concurenti2025/Popescu_Andrei-Cristian.webp';
+
 import IonilaRalucaMaria from '../img/concurenti/Concurenti2025/IRalucaMaria.webp';
 import RonitaTeodor from '../img/concurenti/Concurenti2025/Ronita_Teodor.webp';
 import CMariaFrancesca from '../img/concurenti/Concurenti2025/ConstatinescuMariaFrancesca.webp';
@@ -11,6 +11,7 @@ import BuseCristinaIasmina from '../img/concurenti/Concurenti2025/BuseCristinaIa
 import IonMatei from '../img/concurenti/Concurenti2025/IonMatei.webp';
 import TStefaniaAndreea from '../img/concurenti/Concurenti2025/TStefaniaAndreea.webp';
 import transparent from '../img/concurenti/Concurenti2025/transparent.webp';
+import andrei from '../img/concurenti/Concurenti2025/1000117197.webp';
 
 
 export const Concurenti = [
@@ -43,9 +44,9 @@ export const Concurenti = [
     sex: "F",
   },
   {
-    image: PopescuAndreiCristian,
+    image: andrei,
     idConcurent: "5",
-    name: "Popescu Adrian-Cristian",
+    name: "Adrian-Cristian Popescu",
     description: "need description",
     sex: "M",
   },
