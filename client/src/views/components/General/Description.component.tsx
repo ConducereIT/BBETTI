@@ -17,11 +17,8 @@ export default function Description() {
           Coregrafii captivante, scenete pline de imaginație și surprize pregătite cu pasiune vor cuceri publicul.
 
           <br />
-          <br /> Momentul central al serii este concursul Miss & Mister Boboc ETTI 2025,
-          în cadrul căruia perechile de boboci vor impresiona prin eleganță, carismă și
-          momente artistice inspirate din tema balului. Coregrafii captivante, scenete pline de imaginație
-          și surprize pregătite cu pasiune vor cuceri publicul.
-
+          <br /> 
+          Este o noapte în care emoțiile se intensifică, iar fiecare pas făcut pe scenă devine parte din începutul unei povești.
           <br />
           
         </p>
