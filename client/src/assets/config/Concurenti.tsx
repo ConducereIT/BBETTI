@@ -46,7 +46,7 @@ export const Concurenti = [
   {
     image: andrei,
     idConcurent: "5",
-    name: "Andrei-Cristian Popescu",
+    name: " Popescu Andrei-Cristian",
     description: "need description",
     sex: "M",
   },
